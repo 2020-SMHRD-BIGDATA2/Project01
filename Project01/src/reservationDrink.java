@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class reservation_drink {
+public class reservationDrink {
 
 	private JFrame frame;
 	private JTextField txt_id;
@@ -28,7 +28,7 @@ public class reservation_drink {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					reservation_drink window = new reservation_drink();
+					reservationDrink window = new reservationDrink();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class reservation_drink {
 	/**
 	 * Create the application.
 	 */
-	public reservation_drink() {
+	public reservationDrink() {
 		initialize();
 	}
 
