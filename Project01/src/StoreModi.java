@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
 public class StoreModi {
 
@@ -54,13 +55,15 @@ public class StoreModi {
 		panel.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(116, 27, 116, 21);
+		textField.setText("\uC8FC\uB9C9\uC774\uB984");
+		textField.setBounds(116, 11, 116, 21);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setText("\uC8FC\uB9C9\uC704\uCE58");
 		textField_1.setColumns(10);
-		textField_1.setBounds(116, 60, 116, 21);
+		textField_1.setBounds(116, 44, 116, 21);
 		panel.add(textField_1);
 		
 		textField_2 = new JTextField();
@@ -92,6 +95,18 @@ public class StoreModi {
 		textField_7.setColumns(10);
 		textField_7.setBounds(244, 137, 116, 21);
 		panel.add(textField_7);
+		
+		JComboBox cmb_ = new JComboBox();
+		cmb_.setBounds(116, 75, 116, 21);
+		panel.add(cmb_);
+		
+		JComboBox cmb_Open = new JComboBox();
+		cmb_Open.setBounds(116, 106, 116, 21);
+		panel.add(cmb_Open);
+		
+		JComboBox cmb_Close = new JComboBox();
+		cmb_Close.setBounds(244, 106, 116, 21);
+		panel.add(cmb_Close);
 	}
 
 }
