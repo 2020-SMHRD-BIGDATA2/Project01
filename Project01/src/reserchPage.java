@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
+import javax.swing.JTabbedPane;
 
 public class reserchPage {
 
@@ -52,32 +53,26 @@ public class reserchPage {
 		txt_serch = new JTextField();
 		txt_serch.setText("\uAC80\uC0C9\uD560 \uB300\uD559\uC744 \uC785\uB825\uD558\uC138\uC694...");
 		txt_serch.setColumns(10);
-		txt_serch.setBounds(12, 10, 200, 40);
+		txt_serch.setBounds(12, 11, 200, 40);
 		panel.add(txt_serch);
 		
-		JButton btn_post = new JButton("\uCD95\uC81C\uD3EC\uC2A4\uD130");
-		btn_post.setBounds(22, 60, 150, 40);
-		panel.add(btn_post);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(12, 61, 833, 527);
+		panel.add(tabbedPane);
 		
-		JButton btn_schedule = new JButton("\uCD95\uC81C\uC77C\uC815");
-		btn_schedule.setBounds(184, 60, 150, 40);
-		panel.add(btn_schedule);
+		JTabbedPane tab_post = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("\uCD95\uC81C\uD3EC\uC2A4\uD130", null, tab_post, null);
 		
-		JButton btn_lineup = new JButton("\uB77C\uC778\uC5C5");
-		btn_lineup.setBounds(346, 60, 150, 40);
-		panel.add(btn_lineup);
+		JTabbedPane tab_schedule = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("\uCD95\uC81C\uC77C\uC815", null, tab_schedule, null);
 		
-		JButton btn_list = new JButton("\uC8FC\uB9C9\uB9AC\uC2A4\uD2B8");
-		btn_list.setBounds(508, 60, 150, 40);
-		panel.add(btn_list);
+		JTabbedPane tab_lineup = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("\uB77C\uC778\uC5C5", null, tab_lineup, null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(302, 143, 270, 400);
-		panel.add(panel_1);
+		JTabbedPane tab_list = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("\uC8FC\uB9C9\uB9AC\uC2A4\uD2B8", null, tab_list, null);
 		
-		JButton btn_taxiboard = new JButton("\uD0DD\uC2DC\uAC8C\uC2DC\uD310");
-		btn_taxiboard.setBounds(669, 60, 150, 40);
-		panel.add(btn_taxiboard);
+		JTabbedPane tab_taxiBoard = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addTab("\uD0DD\uC2DC\uAC8C\uC2DC\uD310", null, tab_taxiBoard, null);
 	}
-
 }
