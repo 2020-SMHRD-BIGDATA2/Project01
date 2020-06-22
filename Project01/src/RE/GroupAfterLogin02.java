@@ -1,17 +1,24 @@
+package RE;
+
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class GroupAfterLogin {
+public class GroupAfterLogin02 {
+
 
 	private JFrame frame;
 	private JTextField txt_Search;
-	
-
+	JRadioButton rd_Celeb;
+	JRadioButton rd_Uni;
 	/**
 	 * Launch the application.
 	 */
@@ -19,7 +26,7 @@ public class GroupAfterLogin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GroupAfterLogin window = new GroupAfterLogin();
+					GroupAfterLogin02 window = new GroupAfterLogin02();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +38,7 @@ public class GroupAfterLogin {
 	/**
 	 * Create the application.
 	 */
-	public GroupAfterLogin() {
+	public GroupAfterLogin02() {
 		initialize();
 	}
 
@@ -50,20 +57,36 @@ public class GroupAfterLogin {
 		panel.setLayout(null);
 		
 		JButton btn_Enroll = new JButton("\uC8FC\uB9C9\uB4F1\uB85D");
+		btn_Enroll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupStoreEnroll02.main(null);	
+			}
+		});
 		btn_Enroll.setBounds(40, 37, 97, 23);
 		panel.add(btn_Enroll);
 		
 		JButton btn_Modi = new JButton("\uC8FC\uB9C9\uC218\uC815");
+		btn_Modi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupStoreModi03.main(null);
+			}
+		});
 		btn_Modi.setBounds(149, 37, 97, 23);
 		panel.add(btn_Modi);
 		
-		JRadioButton rd_Uni = new JRadioButton("Uni");
+		rd_Uni = new JRadioButton("Uni");
 		rd_Uni.setBounds(91, 87, 89, 23);
 		panel.add(rd_Uni);
 		
-		JRadioButton rd_Celeb = new JRadioButton("Celeb");
+		rd_Celeb = new JRadioButton("Celeb");
 		rd_Celeb.setBounds(197, 87, 121, 23);
 		panel.add(rd_Celeb);
+		
+		ButtonGroup group = new ButtonGroup();
+		group.add(rd_Uni);
+		group.add(rd_Celeb);
 		
 		txt_Search = new JTextField();
 		txt_Search.setText("Search");
@@ -76,6 +99,13 @@ public class GroupAfterLogin {
 		panel.add(btn_Search);
 		
 		JButton btn_Del = new JButton("\uC815\uBCF4 \uC0AD\uC81C");
+		btn_Del.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn_Del.isSelected()) {
+					JOptionPane.showMessageDialog(null, btn_Del.getText(), "»Æ¿Œ", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		btn_Del.setBounds(258, 37, 97, 23);
 		panel.add(btn_Del);
 	}
