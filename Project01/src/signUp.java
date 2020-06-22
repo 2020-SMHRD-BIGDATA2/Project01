@@ -8,6 +8,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class signUp {
 
@@ -124,5 +126,15 @@ public class signUp {
 		lblIdNo.setFont(new Font("굴림", Font.PLAIN, 17));
 		lblIdNo.setBounds(204, 355, 121, 41);
 		panel.add(lblIdNo);
+		
+		JButton btn_home = new JButton("\uD648\uC73C\uB85C");
+		btn_home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {//홈으로 돌아가기
+				frame.dispose();
+				MainBeforelogin.main(null);
+			}
+		});
+		btn_home.setBounds(337, 472, 200, 41);
+		panel.add(btn_home);
 	}
 }
