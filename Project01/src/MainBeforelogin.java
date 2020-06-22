@@ -9,7 +9,7 @@ import javax.swing.JList;
 public class MainBeforelogin {
 
 	private JFrame frame;
-	private JTextField textField;
+	private JTextField txt_serch;
 	private JTextField textField_1;
 	private JTextField textField_2;
 
@@ -50,19 +50,19 @@ public class MainBeforelogin {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton = new JButton("\uB85C\uADF8\uC778");
-		btnNewButton.setBounds(624, 10, 200, 40);
-		panel.add(btnNewButton);
+		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		btn_login.setBounds(624, 10, 200, 40);
+		panel.add(btn_login);
 		
-		JButton btnNewButton_1 = new JButton("\uD68C\uC6D0\uAC00\uC785");
-		btnNewButton_1.setBounds(624, 60, 200, 40);
-		panel.add(btnNewButton_1);
+		JButton btn_signup = new JButton("\uD68C\uC6D0\uAC00\uC785");
+		btn_signup.setBounds(624, 60, 200, 40);
+		panel.add(btn_signup);
 		
-		textField = new JTextField();
-		textField.setText("\uAC80\uC0C9\uD560 \uB300\uD559\uC744 \uC785\uB825\uD558\uC138\uC694...");
-		textField.setBounds(624, 170, 200, 40);
-		panel.add(textField);
-		textField.setColumns(10);
+		txt_serch = new JTextField();
+		txt_serch.setText("\uAC80\uC0C9\uD560 \uB300\uD559\uC744 \uC785\uB825\uD558\uC138\uC694...");
+		txt_serch.setBounds(624, 170, 200, 40);
+		panel.add(txt_serch);
+		txt_serch.setColumns(10);
 		
 		JList list = new JList();
 		list.setBounds(624, 220, 200, 368);

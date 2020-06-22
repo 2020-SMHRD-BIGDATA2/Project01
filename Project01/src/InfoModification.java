@@ -9,14 +9,15 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.SystemColor;
+import javax.swing.JPasswordField;
 
 public class InfoModification {
 
 	private JFrame frame;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField txt_name;
+	private JTextField txt_phone;
+	private JTextField txt_idNo;
+	private JPasswordField txt_pw;
 
 	/**
 	 * Launch the application.
@@ -79,46 +80,45 @@ public class InfoModification {
 		lblName.setBounds(251, 275, 84, 41);
 		panel.add(lblName);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(341, 275, 200, 40);
-		panel.add(textField_2);
+		txt_name = new JTextField();
+		txt_name.setColumns(10);
+		txt_name.setBounds(341, 277, 200, 40);
+		panel.add(txt_name);
 		
-		JLabel lblId_3 = new JLabel("\uD578\uB4DC\uD3F0\uBC88\uD638");
-		lblId_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblId_3.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lblId_3.setBounds(233, 326, 102, 41);
-		panel.add(lblId_3);
+		JLabel lblPhone = new JLabel("\uD578\uB4DC\uD3F0\uBC88\uD638");
+		lblPhone.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPhone.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		lblPhone.setBounds(233, 326, 102, 41);
+		panel.add(lblPhone);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(341, 326, 200, 40);
-		panel.add(textField_3);
+		txt_phone = new JTextField();
+		txt_phone.setColumns(10);
+		txt_phone.setBounds(341, 326, 200, 40);
+		panel.add(txt_phone);
 		
-		JLabel lblId_3_1 = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
-		lblId_3_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblId_3_1.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lblId_3_1.setBounds(201, 377, 134, 41);
-		panel.add(lblId_3_1);
+		JLabel lblIdNo = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
+		lblIdNo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdNo.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		lblIdNo.setBounds(201, 377, 134, 41);
+		panel.add(lblIdNo);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(341, 376, 200, 40);
-		panel.add(textField_4);
+		txt_idNo = new JTextField();
+		txt_idNo.setColumns(10);
+		txt_idNo.setBounds(341, 376, 200, 40);
+		panel.add(txt_idNo);
 		
-		JButton btnNewButton_1 = new JButton("\uC218\uC815 \uC644\uB8CC");
-		btnNewButton_1.setBounds(341, 442, 200, 41);
-		panel.add(btnNewButton_1);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(341, 225, 200, 40);
-		panel.add(textField_5);
+		JButton btn_complete = new JButton("\uC218\uC815\uC644\uB8CC");
+		btn_complete.setBounds(341, 442, 200, 41);
+		panel.add(btn_complete);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID \uD45C\uC2DC");
 		lblNewLabel_1.setBackground(Color.WHITE);
 		lblNewLabel_1.setBounds(341, 175, 200, 41);
 		panel.add(lblNewLabel_1);
+		
+		txt_pw = new JPasswordField();
+		txt_pw.setBounds(341, 225, 200, 41);
+		panel.add(txt_pw);
 	}
 
 }

@@ -12,16 +12,17 @@ import javax.swing.JPasswordField;
 public class signUp {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JPasswordField passwordField;
+	private JTextField txt_id;
+	private JTextField txt_name;
+	private JTextField txt_phone;
+	private JTextField txt_idNo;
+	private JPasswordField txt_pw;
 	private JLabel lblId;
 	private JLabel lblPw;
-	private JLabel lblPw_1;
-	private JLabel lblPw_2;
-	private JLabel lblPw_3;
+	private JLabel lblName;
+	private JLabel lblPhone;
+	private JLabel lblIdNo;
+	private JButton btn_complete;
 
 	/**
 	 * Launch the application.
@@ -66,33 +67,33 @@ public class signUp {
 		lblNewLabel.setBounds(337, 90, 200, 41);
 		panel.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(337, 205, 200, 40);
-		panel.add(textField);
-		textField.setColumns(10);
+		txt_id = new JTextField();
+		txt_id.setBounds(337, 154, 200, 40);
+		panel.add(txt_id);
+		txt_id.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(337, 254, 200, 40);
-		panel.add(textField_2);
+		txt_name = new JTextField();
+		txt_name.setColumns(10);
+		txt_name.setBounds(337, 254, 200, 40);
+		panel.add(txt_name);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(337, 305, 200, 40);
-		panel.add(textField_3);
+		txt_phone = new JTextField();
+		txt_phone.setColumns(10);
+		txt_phone.setBounds(337, 305, 200, 40);
+		panel.add(txt_phone);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(337, 355, 200, 40);
-		panel.add(textField_4);
+		txt_idNo = new JTextField();
+		txt_idNo.setColumns(10);
+		txt_idNo.setBounds(337, 355, 200, 40);
+		panel.add(txt_idNo);
 		
-		JButton btnNewButton_1 = new JButton("\uAC00\uC785 \uC644\uB8CC");
-		btnNewButton_1.setBounds(337, 421, 200, 41);
-		panel.add(btnNewButton_1);
+		btn_complete = new JButton("\uAC00\uC785\uC644\uB8CC");
+		btn_complete.setBounds(337, 421, 200, 41);
+		panel.add(btn_complete);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(337, 152, 200, 42);
-		panel.add(passwordField);
+		txt_pw = new JPasswordField();
+		txt_pw.setBounds(337, 204, 200, 42);
+		panel.add(txt_pw);
 		
 		lblId = new JLabel("\uC544\uC774\uB514");
 		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -106,22 +107,22 @@ public class signUp {
 		lblPw.setBounds(241, 205, 84, 41);
 		panel.add(lblPw);
 		
-		lblPw_1 = new JLabel("\uC774\uB984");
-		lblPw_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPw_1.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lblPw_1.setBounds(241, 254, 84, 41);
-		panel.add(lblPw_1);
+		lblName = new JLabel("\uC774\uB984");
+		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblName.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		lblName.setBounds(241, 254, 84, 41);
+		panel.add(lblName);
 		
-		lblPw_2 = new JLabel("\uD578\uB4DC\uD3F0\uBC88\uD638");
-		lblPw_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPw_2.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lblPw_2.setBounds(241, 305, 84, 41);
-		panel.add(lblPw_2);
+		lblPhone = new JLabel("\uD578\uB4DC\uD3F0\uBC88\uD638");
+		lblPhone.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPhone.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		lblPhone.setBounds(241, 305, 84, 41);
+		panel.add(lblPhone);
 		
-		lblPw_3 = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
-		lblPw_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPw_3.setFont(new Font("±¼¸²", Font.PLAIN, 17));
-		lblPw_3.setBounds(204, 355, 121, 41);
-		panel.add(lblPw_3);
+		lblIdNo = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
+		lblIdNo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdNo.setFont(new Font("±¼¸²", Font.PLAIN, 17));
+		lblIdNo.setBounds(204, 355, 121, 41);
+		panel.add(lblIdNo);
 	}
 }
