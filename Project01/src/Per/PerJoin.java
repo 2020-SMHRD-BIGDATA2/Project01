@@ -35,6 +35,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 	private JButton btn_Cancel;
 	private JButton btn_Complete;
 	private DAO_PerMember daopm = new DAO_PerMember();
+	private JCheckBox ck_unique;
 
 	/**
 	 * Launch the application.
@@ -146,35 +147,41 @@ public class PerJoin { // 개인화면 회원가입 화면
 		btn_Complete = new JButton("\uC644\uB8CC");
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
 				String name = txt_name.getText();
 				String phone = txt_phone.getText();
 				String SecurityNum = txt_snum.getText();
 				System.out.println(id + pw + name + phone + SecurityNum);
-				int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
-				if (cnt > 0) {
-					frame.dispose();
-					PerLogin02.main(null);
+				if (ck_unique.isSelected()) {
+					int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
+					if (cnt > 0) {
+						frame.dispose();
+						PerLogin02.main(null);
+
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "아이디 중복확인을 해주세요");
 				}
 			}
 		});
 		btn_Complete.setBounds(348, 430, 70, 41);
 		panel.add(btn_Complete);
 
-		JCheckBox ck_uniche = new JCheckBox("New check box");
+		ck_unique = new JCheckBox("\uC544\uC774\uB514 \uC911\uBCF5\uD655\uC778");
 		// action listener....check박스에....달아놓다니....이건...배신이에요...
 		// 왜죠,,선생님,,,
-		ck_uniche.addActionListener(new ActionListener() {
+		ck_unique.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (ck_uniche.isSelected()) {
+				if (ck_unique.isSelected()) {
 					// 내 DB연결해서 일치하는 정보 있는지 확인하기 위한 dao 객체 생성
 					boolean isCheck = daopm.idCheck(txt_id.getText()); // 개인
 					boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
 					if (isCheck || isCheck2) {
 						JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
-						ck_uniche.setSelected(false);
+						ck_unique.setSelected(false);
 					} else {
 						JOptionPane.showMessageDialog(null, "사용 가능한 아이디 입니다.");
 					}
@@ -183,7 +190,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 		});
 
-		ck_uniche.setBounds(577, 162, 115, 23);
-		panel.add(ck_uniche);
+		ck_unique.setBounds(577, 162, 115, 23);
+		panel.add(ck_unique);
 	}
 }

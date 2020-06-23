@@ -132,6 +132,8 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 
 		return isCheck;
@@ -140,7 +142,8 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 	public boolean idCheck2(String id) { // 관리자아이디 중복확인 메소드
 		boolean isCheck = false;
 		getConnection();
-		String sql = "select * from managerMember where PER_ID = ? ";
+		String sql = "select * from managermember where mgr_ID = ? ";
+//		String sql = "select * from managermember where mgr_ID = '"+id+"' ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -151,6 +154,8 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 
 		return isCheck;
