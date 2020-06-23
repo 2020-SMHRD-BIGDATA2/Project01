@@ -18,6 +18,7 @@ public class GroupJoin {
 	private JPasswordField txt_emailID;
 	private JTextField txt_Uni;
 	private JTextField txt_Major;
+	private JButton btn_Cancel;
 
 	/**
 	 * Launch the application.
@@ -62,15 +63,15 @@ public class GroupJoin {
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 		
-		JButton btn_Join = new JButton("Join");
-		btn_Join.addActionListener(new ActionListener() {
+		JButton btn_Complete = new JButton("\uC644\uB8CC");
+		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				GroupLogin01.main(null);
 			}
 		});
-		btn_Join.setBounds(119, 208, 97, 23);
-		panel.add(btn_Join);
+		btn_Complete.setBounds(119, 208, 97, 23);
+		panel.add(btn_Complete);
 		
 		txt_pw1 = new JPasswordField();
 		txt_pw1.setBounds(146, 73, 116, 21);
@@ -90,6 +91,16 @@ public class GroupJoin {
 		txt_Major.setBounds(146, 177, 116, 21);
 		panel.add(txt_Major);
 		txt_Major.setColumns(10);
+		
+		btn_Cancel = new JButton("\uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupLogin01.main(null);
+			}
+		});
+		btn_Cancel.setBounds(220, 208, 97, 23);
+		panel.add(btn_Cancel);
 	}
 
 }

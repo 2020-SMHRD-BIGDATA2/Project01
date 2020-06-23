@@ -6,6 +6,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GroupStoreModi03 {
 
@@ -18,6 +21,8 @@ public class GroupStoreModi03 {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JButton btn_Complete;
+	private JButton btn_Cancel;
 
 	/**
 	 * Launch the application.
@@ -109,6 +114,26 @@ public class GroupStoreModi03 {
 		JComboBox cmb_Close = new JComboBox();
 		cmb_Close.setBounds(244, 106, 116, 21);
 		panel.add(cmb_Close);
+		
+		btn_Complete = new JButton("\uD655\uC778");
+		btn_Complete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupAfterLogin02.main(null);
+			}
+		});
+		btn_Complete.setBounds(80, 208, 97, 23);
+		panel.add(btn_Complete);
+		
+		btn_Cancel = new JButton("\uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupAfterLogin02.main(null);
+			}
+		});
+		btn_Cancel.setBounds(189, 208, 97, 23);
+		panel.add(btn_Cancel);
 	}
 
 }

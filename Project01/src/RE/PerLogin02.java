@@ -67,7 +67,7 @@ public class PerLogin02 {
 //					if(txt_id.equals(obj) && txt_pw.equals(obj)) {
 //					
 				frame.dispose();
-				PerSearch03.main(null);
+				PerAfterLogin.main(null);
 //					}
 //				}
 			}

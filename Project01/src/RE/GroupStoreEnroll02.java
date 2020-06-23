@@ -19,7 +19,8 @@ public class GroupStoreEnroll02 {
 	private JTextField txt_Menu2;
 	private JTextField txt_Price2;
 	private JTextField txt_Menu3;
-	private JButton btnNewButton;
+	private JButton btn_Complete;
+	private JButton btn_Cancel;
 
 	/**
 	 * Launch the application.
@@ -118,14 +119,24 @@ public class GroupStoreEnroll02 {
 		cmb_Seats.setBounds(79, 72, 116, 21);
 		panel.add(cmb_Seats);
 		
-		btnNewButton = new JButton("\uC644\uB8CC");
-		btnNewButton.addActionListener(new ActionListener() {
+		btn_Complete = new JButton("\uC644\uB8CC");
+		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				GroupAfterLogin02.main(null);
 			}
 		});
-		btnNewButton.setBounds(239, 40, 97, 23);
-		panel.add(btnNewButton);
+		btn_Complete.setBounds(239, 40, 97, 23);
+		panel.add(btn_Complete);
+		
+		btn_Cancel = new JButton("\uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupAfterLogin02.main(null);
+			}
+		});
+		btn_Cancel.setBounds(239, 70, 97, 23);
+		panel.add(btn_Cancel);
 	}
 }

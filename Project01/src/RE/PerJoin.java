@@ -26,7 +26,8 @@ public class PerJoin {
 	private JLabel lblName;
 	private JLabel lblPhone;
 	private JLabel lblIdNo;
-	private JButton btn_complete;
+	private JButton btn_Cancel;
+	private JButton btn_Complete;
 
 	/**
 	 * Launch the application.
@@ -91,15 +92,15 @@ public class PerJoin {
 		txt_idNo.setBounds(337, 355, 200, 40);
 		panel.add(txt_idNo);
 		
-		btn_complete = new JButton("\uAC00\uC785\uC644\uB8CC");
-		btn_complete.addActionListener(new ActionListener() {
+		btn_Cancel = new JButton("\uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				PerLogin02.main(null);
 			}
 		});
-		btn_complete.setBounds(337, 421, 200, 41);
-		panel.add(btn_complete);
+		btn_Cancel.setBounds(449, 430, 84, 41);
+		panel.add(btn_Cancel);
 		
 		txt_pw = new JPasswordField();
 		txt_pw.setBounds(337, 204, 200, 42);
@@ -134,6 +135,16 @@ public class PerJoin {
 		lblIdNo.setFont(new Font("±¼¸²", Font.PLAIN, 17));
 		lblIdNo.setBounds(204, 355, 121, 41);
 		panel.add(lblIdNo);
+		
+		btn_Complete = new JButton("\uC644\uB8CC");
+		btn_Complete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				PerLogin02.main(null);
+			}
+		});
+		btn_Complete.setBounds(348, 430, 70, 41);
+		panel.add(btn_Complete);
 	}
 
 }

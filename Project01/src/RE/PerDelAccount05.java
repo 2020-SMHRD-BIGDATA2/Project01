@@ -3,6 +3,7 @@ package RE;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -14,6 +15,7 @@ public class PerDelAccount05 {
 	private JFrame frame;
 	private JPasswordField txt_pw1;
 	private JPasswordField txt_pw2;
+	private JButton btn_Cancel;
 
 	/**
 	 * Launch the application.
@@ -60,17 +62,30 @@ public class PerDelAccount05 {
 		txt_pw2.setBounds(114, 116, 173, 21);
 		panel.add(txt_pw2);
 		
-		JButton btn_Del = new JButton("\uD0C8\uD1F4\uD558\uAE30");
+		JButton btn_Del = new JButton("\uD0C8\uD1F4");
 		btn_Del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(txt_pw1.equals(txt_pw2)) {
-					//계정삭제
-				}
-				
+//				if(txt_pw1.equals(txt_pw2)) {
+//					계정삭제
+				JOptionPane.showMessageDialog(null, "정말 탈퇴하시겠습니까","확인", JOptionPane.INFORMATION_MESSAGE);
+				frame.dispose();
+				Main01.main(null);
+//				}
+//				
 			}
 		});
-		btn_Del.setBounds(114, 169, 175, 23);
+		btn_Del.setBounds(114, 169, 73, 23);
 		panel.add(btn_Del);
+		
+		btn_Cancel = new JButton("\uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				PerAfterLogin.main(null);
+			}
+		});
+		btn_Cancel.setBounds(214, 169, 73, 23);
+		panel.add(btn_Cancel);
 	}
 
 }
