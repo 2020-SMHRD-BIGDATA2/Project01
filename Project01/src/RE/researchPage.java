@@ -140,28 +140,29 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 		panel_7.setBounds(33, 58, 764, 364);
 		panel_6.add(panel_7);
 		
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
-		lblNewLabel.addMouseListener(new MouseAdapter() {
+		JLabel lbl_delete = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
+		lbl_delete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
+				frame.dispose();
 				PerDelAccount05.main(null);
 				
 			}
 		});
-		lblNewLabel.setBounds(788, 10, 57, 15);
-		panel.add(lblNewLabel);
+		lbl_delete.setBounds(788, 10, 57, 15);
+		panel.add(lbl_delete);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frame.dispose();
+				
 				Main01.main(null);
 			}
 		});
-		lblNewLabel_1.setBounds(715, 10, 57, 15);
-		panel.add(lblNewLabel_1);
+		lbl_logout.setBounds(715, 10, 57, 15);
+		panel.add(lbl_logout);
 	}
 }

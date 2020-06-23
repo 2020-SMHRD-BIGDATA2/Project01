@@ -11,6 +11,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 
@@ -97,8 +100,7 @@ public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 		JButton btn_Search = new JButton("Search");
 		btn_Search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				researchPage.main(null);	
+			
 				
 			}
 		});
@@ -108,14 +110,44 @@ public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 		JButton btn_Del = new JButton("\uC815\uBCF4 \uC0AD\uC81C");
 		btn_Del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (btn_Del.isSelected()) {
-					JOptionPane.showMessageDialog(null, btn_Del.getText(), "확인", JOptionPane.INFORMATION_MESSAGE);
-					
+				
+//				if (btn_Del.isSelected()) {
+//					JOptionPane.showMessageDialog(null, btn_Del.getText(), "확인", JOptionPane.INFORMATION_MESSAGE);
+//					
+					int n = JOptionPane.showConfirmDialog(null, "정보를 삭제하시겠습니까", "확인", JOptionPane.YES_NO_OPTION,
+							JOptionPane.INFORMATION_MESSAGE);
+
+					if (n== JOptionPane.YES_OPTION) {
+						JOptionPane.showMessageDialog(null, "정보삭제가 완료되었습니다.");
+						frame.dispose();
+						GroupAfterLogin02.main(null);
+						
+					} else {
+						
+//						System.exit(0);
+						
+
+//					}
+//					
+					}
 				}
-			}
+			
 		});
 		btn_Del.setBounds(258, 37, 97, 23);
 		panel.add(btn_Del);
+		
+		JLabel lblNewLabel = new JLabel("\uD648\uC73C\uB85C");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frame.dispose();
+				Main01.main(null);
+				
+			}
+		});
+		lblNewLabel.setBounds(353, 226, 57, 15);
+		panel.add(lblNewLabel);
 	}
 
 }

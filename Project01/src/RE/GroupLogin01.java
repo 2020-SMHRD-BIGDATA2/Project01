@@ -78,7 +78,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				ChoiceLogin.main(null);
+				Main01.main(null);
 				
 			}
 		});

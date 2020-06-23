@@ -46,36 +46,48 @@ public class PerBookStore { // 주막예약화면
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 410, 241);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		cmb_Tables = new JComboBox();
 		cmb_Tables.setBounds(113, 71, 183, 21);
 		panel.add(cmb_Tables);
-		
+
 		JComboBox cmb_Enter = new JComboBox();
 		cmb_Enter.setBounds(113, 121, 183, 21);
 		panel.add(cmb_Enter);
-		
-		JButton btn_Book = new JButton("\uC608\uC57D \uC644\uB8CC");
+
+		JButton btn_Book = new JButton("\uC608\uC57D\uC644\uB8CC");
 		btn_Book.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "예약이완료되었습니다.");
+				
 				frame.dispose();
 				PerAfterLogin.main(null);
 			}
 		});
 		btn_Book.setBounds(103, 187, 94, 21);
 		panel.add(btn_Book);
-		
-		JButton btn_Cancel = new JButton("\uC608\uC57D \uCDE8\uC18C");
+
+		JButton btn_Cancel = new JButton("\uCDE8\uC18C");
 		btn_Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "예약정보가 저장되지 않았습니다\n정말 취소하겠습니까","확인", JOptionPane.INFORMATION_MESSAGE);
-				frame.dispose();
-				PerAfterLogin.main(null);
+
+				int n = JOptionPane.showConfirmDialog(null, "예약정보가 저장되지 않았습니다\n정말 취소하겠습니까", "확인",
+						JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+				if (n == JOptionPane.YES_OPTION) {
+					JOptionPane.showMessageDialog(null, "취소가 완료되었습니다.");
+					frame.dispose();
+					PerAfterLogin.main(null);
+
+				} else {
+				}
+
 			}
 		});
 		btn_Cancel.setBounds(220, 187, 94, 21);

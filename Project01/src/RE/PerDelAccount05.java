@@ -67,11 +67,23 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 			public void actionPerformed(ActionEvent e) {
 //				if(txt_pw1.equals(txt_pw2)) {
 //					°èÁ¤»èÁ¦
-				JOptionPane.showMessageDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.INFORMATION_MESSAGE);
-				frame.dispose();
-				Main01.main(null);
+				int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
+						JOptionPane.INFORMATION_MESSAGE);
+
+				if (n== JOptionPane.YES_OPTION) {
+					JOptionPane.showMessageDialog(null, "Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+					frame.dispose();
+					Main01.main(null);
+					
+				} else {
+					frame.dispose();
+					researchPage.main(null);
+//					System.exit(0);
+					
+
 //				}
 //				
+				}
 			}
 		});
 		btn_Del.setBounds(114, 169, 73, 23);
@@ -80,7 +92,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		btn_Cancel = new JButton("\uCDE8\uC18C");
 		btn_Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				frame.dispose();
 				researchPage.main(null);
 			}

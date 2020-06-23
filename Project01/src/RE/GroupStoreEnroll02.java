@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -122,6 +123,9 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		btn_Complete = new JButton("\uC644\uB8CC");
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "주막이 등록되었습니다.");
+				
 				frame.dispose();
 				GroupAfterLogin02.main(null);
 			}
@@ -132,8 +136,20 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		btn_Cancel = new JButton("\uCDE8\uC18C");
 		btn_Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				GroupAfterLogin02.main(null);
+				
+				
+				int n = JOptionPane.showConfirmDialog(null, "등록을 취소하시겠습니까", "확인", JOptionPane.YES_NO_OPTION,
+						JOptionPane.INFORMATION_MESSAGE);
+
+				if (n== JOptionPane.YES_OPTION) {
+					JOptionPane.showMessageDialog(null, "취소되었습니다.");
+					frame.dispose();
+					GroupAfterLogin02.main(null);
+					
+				}
+				
+				
+				
 			}
 		});
 		btn_Cancel.setBounds(239, 70, 97, 23);

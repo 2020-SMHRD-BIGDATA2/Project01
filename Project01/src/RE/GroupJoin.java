@@ -3,6 +3,7 @@ package RE;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -66,6 +67,9 @@ public class GroupJoin { // 관리자 회원가입 화면
 		JButton btn_Complete = new JButton("\uC644\uB8CC");
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다..");
+				
 				frame.dispose();
 				GroupLogin01.main(null);
 			}

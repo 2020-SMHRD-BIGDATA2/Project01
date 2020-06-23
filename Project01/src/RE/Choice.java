@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
+public class Choice { // 회원가입 시 개인,기업 선택 창
 
 	private JFrame frame;
 
@@ -19,7 +19,7 @@ public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ChoiceJoin window = new ChoiceJoin();
+					Choice window = new Choice();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +31,7 @@ public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 	/**
 	 * Create the application.
 	 */
-	public ChoiceJoin() {
+	public Choice() {
 		initialize();
 	}
 
@@ -49,8 +49,8 @@ public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		JButton btn_Per = new JButton("\uAC1C\uC778");
-		btn_Per.addActionListener(new ActionListener() {
+		JButton btn_PerJoin = new JButton("\uAC1C\uC778\uD68C\uC6D0\uAC00\uC785");
+		btn_PerJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) { // 개인 회원가입으로 이동
 
 				frame.dispose();
@@ -58,11 +58,11 @@ public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 
 			}
 		});
-		btn_Per.setBounds(0, 0, 204, 241);
-		panel.add(btn_Per);
+		btn_PerJoin.setBounds(0, 0, 204, 119);
+		panel.add(btn_PerJoin);
 
-		JButton btn_Group = new JButton("\uAE30\uC5C5");
-		btn_Group.addActionListener(new ActionListener() {
+		JButton btn_GroupJoin = new JButton("\uAE30\uC5C5\uD68C\uC6D0\uAC00\uC785");
+		btn_GroupJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { // 기업 회원가입으로 이동
 				
 				frame.dispose();
@@ -70,8 +70,30 @@ public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 				
 			}
 		});
-		btn_Group.setBounds(206, 0, 204, 241);
-		panel.add(btn_Group);
+		btn_GroupJoin.setBounds(206, 0, 204, 119);
+		panel.add(btn_GroupJoin);
+		
+		JButton btn_PerLogin = new JButton("\uAC1C\uC778\uB85C\uADF8\uC778");
+		btn_PerLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				PerLogin02.main(null);
+				
+			}
+		});
+		btn_PerLogin.setBounds(0, 122, 204, 119);
+		panel.add(btn_PerLogin);
+		
+		JButton btn_GroupLogin = new JButton("\uAE30\uC5C5\uB85C\uADF8\uC778");
+		btn_GroupLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				GroupLogin01.main(null);
+				
+			}
+		});
+		btn_GroupLogin.setBounds(206, 122, 204, 119);
+		panel.add(btn_GroupLogin);
 
 		JButton button = new JButton("New button");
 		button.setBounds(169, 0, -155, 251);

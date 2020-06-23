@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -77,6 +78,8 @@ public class PerJoin { // 개인화면 회원가입 화면
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 		
+		
+		
 		txt_name = new JTextField();
 		txt_name.setColumns(10);
 		txt_name.setBounds(337, 254, 200, 40);
@@ -96,7 +99,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 		btn_Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				PerLogin02.main(null);
+				Main01.main(null);
 			}
 		});
 		btn_Cancel.setBounds(449, 430, 84, 41);
@@ -139,6 +142,10 @@ public class PerJoin { // 개인화면 회원가입 화면
 		btn_Complete = new JButton("\uC644\uB8CC");
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다..");
+
+				
 				frame.dispose();
 				PerLogin02.main(null);
 			}
