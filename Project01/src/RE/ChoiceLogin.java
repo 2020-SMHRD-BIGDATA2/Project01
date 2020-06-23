@@ -10,12 +10,12 @@ import javax.swing.JPanel;
 
 
 
-public class ChoiceLogin {
+public class ChoiceLogin { // 로그인 시 개인,기업 선택 창
 
 	private JFrame frame;
 
 	/**
-	 * 수정
+	 * 
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {

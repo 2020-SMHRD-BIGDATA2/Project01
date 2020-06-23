@@ -10,7 +10,7 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GroupJoin {
+public class GroupJoin { // 관리자 회원가입 화면
 
 	private JFrame frame;
 	private JTextField txt_id;

@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerLogin02 {
+public class PerLogin02 { // 개인회원 로그인 화면
 
 	private JFrame frame;
 	private JTextField txt_id;

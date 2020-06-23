@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GroupStoreEnroll02 {
+public class GroupStoreEnroll02 { // 주막 등록 화면
 	private JFrame frame;
 	private JTextField txt_name;
 	private JTextField txt_location;

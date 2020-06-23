@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GroupAfterLogin02 {
+public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 
 
 	private JFrame frame;

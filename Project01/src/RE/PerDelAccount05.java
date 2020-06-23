@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerDelAccount05 {
+public class PerDelAccount05 { // È¸¿ø Å»Åð
 
 	private JFrame frame;
 	private JPasswordField txt_pw1;

@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ChoiceJoin {
+public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 
 	private JFrame frame;
 
