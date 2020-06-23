@@ -1,4 +1,4 @@
-package RE;
+package Group;
 
 import java.awt.EventQueue;
 
@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import RE.Main01;
+
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;

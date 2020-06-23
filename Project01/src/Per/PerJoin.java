@@ -1,4 +1,4 @@
-package RE;
+package Per;
 
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -11,6 +11,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import RE.Main01;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
