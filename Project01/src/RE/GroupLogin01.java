@@ -63,15 +63,25 @@ public class GroupLogin01 {
 		txt_pw.setBounds(129, 109, 116, 21);
 		panel.add(txt_pw);
 		
-		JButton btn_login = new JButton("login");
+		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				GroupAfterLogin02.main(null);
 			}
 		});
 		btn_login.setBounds(79, 169, 116, 23);
 		panel.add(btn_login);
 		
-		JButton btn_join = new JButton("join");
+		JButton btn_join = new JButton("\uCDE8\uC18C");
+		btn_join.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				ChoiceLogin.main(null);
+				
+			}
+		});
 		btn_join.setBounds(210, 169, 116, 23);
 		panel.add(btn_join);
 	}

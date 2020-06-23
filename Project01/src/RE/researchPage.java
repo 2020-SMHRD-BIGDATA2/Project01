@@ -11,6 +11,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
+import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class researchPage {
 
@@ -21,7 +24,6 @@ public class researchPage {
 	private JTabbedPane tabbedPane;
 	private JPanel panel_2;
 	private JPanel panel_3;
-	private JPanel panel_4;
 	private JPanel panel_5;
 	private JPanel panel_6;
 	private JButton btn_Enroll;
@@ -90,23 +92,29 @@ public class researchPage {
 		panel_1.add(tabbedPane);
 		
 		panel_2 = new JPanel();
-		tabbedPane.addTab("축제 포스터", null, panel_2, null);
+		tabbedPane.addTab("\uCD95\uC81C\uD3EC\uC2A4\uD130", null, panel_2, null);
 		panel_2.setLayout(null);
 		
 		panel_3 = new JPanel();
 		tabbedPane.addTab("축제일정", null, panel_3, null);
 		panel_3.setLayout(null);
 		
-		panel_4 = new JPanel();
-		tabbedPane.addTab("라인업", null, panel_4, null);
-		panel_4.setLayout(null);
-		
 		panel_5 = new JPanel();
 		tabbedPane.addTab("주막리스트", null, panel_5, null);
 		panel_5.setLayout(null);
 		
+		JButton btn_reserve = new JButton("\uC8FC\uB9C9\uC608\uC57D");
+		btn_reserve.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				PerBookStore.main(null);
+			}
+		});
+		btn_reserve.setBounds(719, 10, 97, 23);
+		panel_5.add(btn_reserve);
+		
 		panel_6 = new JPanel();
-		tabbedPane.addTab("택시카풀", null, panel_6, null);
+		tabbedPane.addTab("\uAC8C\uC2DC\uD310", null, panel_6, null);
 		panel_6.setLayout(null);
 		
 		btn_Enroll = new JButton("\uAC8C\uC2DC\uAE00 \uB4F1\uB85D");
@@ -131,5 +139,29 @@ public class researchPage {
 		panel_7 = new JPanel();
 		panel_7.setBounds(33, 58, 764, 364);
 		panel_6.add(panel_7);
+		
+		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				PerDelAccount05.main(null);
+				
+			}
+		});
+		lblNewLabel.setBounds(788, 10, 57, 15);
+		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lblNewLabel_1.setBounds(715, 10, 57, 15);
+		panel.add(lblNewLabel_1);
 	}
 }

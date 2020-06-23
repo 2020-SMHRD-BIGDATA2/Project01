@@ -95,6 +95,13 @@ public class GroupAfterLogin02 {
 		txt_Search.setColumns(10);
 		
 		JButton btn_Search = new JButton("Search");
+		btn_Search.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				researchPage.main(null);	
+				
+			}
+		});
 		btn_Search.setBounds(133, 174, 97, 23);
 		panel.add(btn_Search);
 		
@@ -103,6 +110,7 @@ public class GroupAfterLogin02 {
 			public void actionPerformed(ActionEvent e) {
 				if (btn_Del.isSelected()) {
 					JOptionPane.showMessageDialog(null, btn_Del.getText(), "»Æ¿Œ", JOptionPane.INFORMATION_MESSAGE);
+					
 				}
 			}
 		});
