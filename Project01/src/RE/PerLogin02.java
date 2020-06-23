@@ -1,16 +1,22 @@
 package RE;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PerLogin02 { // 개인회원 로그인 화면
 
@@ -46,24 +52,38 @@ public class PerLogin02 { // 개인회원 로그인 화면
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 596, 629);
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 10, 556, 570);
+		panel.setBounds(12, 10, 759, 541);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		txt_id = new JTextField();
-		txt_id.setText("\uC544\uC774\uB514");
-		txt_id.setBounds(135, 55, 116, 21);
+		txt_id.setHorizontalAlignment(SwingConstants.LEFT);
+		txt_id.setBounds(177, 165, 418, 56);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 
-		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
-		btn_login.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		txt_pw = new JPasswordField();
+		txt_pw.setToolTipText("pw");
+		txt_pw.setHorizontalAlignment(SwingConstants.LEFT);
+		txt_pw.setBounds(178, 237, 417, 56);
+		panel.add(txt_pw);
+
+		String path = "C:\\Users\\SMHRD\\git\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\src\\image\\PerLogin.png";
+		Image image = new ImageIcon(path).getImage();
+
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(0, 0, 759, 541);
+		panel.add(lbl_image);
+
+		JLabel lblLogin = new JLabel("");
+		lblLogin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 
 				// 아이디와 비밀번호 입력된 값 가져오기
 				String id = txt_id.getText();
@@ -78,7 +98,8 @@ public class PerLogin02 { // 개인회원 로그인 화면
 				PMVO vo = dao.login(id, pw);
 
 				if (vo != null) {
-					JOptionPane.showMessageDialog(null, "로그인 성공!! " + vo.getPER_NAME()+"님 환영합니다!", "정보", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "로그인 성공!! " + vo.getPER_NAME() + "님 환영합니다!", "정보",
+							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
 					researchPage researchPage = new researchPage();
 					researchPage.setPMVO(vo);
@@ -87,28 +108,25 @@ public class PerLogin02 { // 개인회원 로그인 화면
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해주세요", "경고", JOptionPane.WARNING_MESSAGE);
 				}
 
-				//frame.dispose();
-				//researchPage.main(null);
+				// frame.dispose();
+				// researchPage.main(null);
+
 			}
 		});
-		btn_login.setBounds(96, 172, 97, 23);
-		panel.add(btn_login);
+		lblLogin.setBounds(176, 314, 418, 32);
+		panel.add(lblLogin);
 
-		JButton btn_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
-		btn_join.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lbl_join = new JLabel("");
+		lbl_join.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
 				PerJoin.main(null);
+
 			}
 		});
-		btn_join.setBounds(222, 172, 97, 23);
-		panel.add(btn_join);
-
-		txt_pw = new JPasswordField();
-		txt_pw.setToolTipText("pw");
-		txt_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_pw.setBounds(135, 104, 116, 21);
-		panel.add(txt_pw);
+		lbl_join.setBounds(466, 372, 110, 32);
+		panel.add(lbl_join);
 
 	}
 }
