@@ -6,11 +6,13 @@ import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.JRadioButton;
 
 public class Main01 { // 김축제 메인 화면(시작화면)
 
@@ -20,6 +22,8 @@ public class Main01 { // 김축제 메인 화면(시작화면)
 	private JTextField textField_2;
 	private JButton btn_Search;
 	private FontMake fm = new FontMake();
+	private JRadioButton rd_Per;
+	private JRadioButton rd_Group;
 
 	/**
 	 * Launch the application.
@@ -65,8 +69,14 @@ public class Main01 { // 김축제 메인 화면(시작화면)
 		btn_login.setFont(new Font("G마켓 산스 Bold", Font.PLAIN, 17));
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				Choice.main(null);
+
+				if (rd_Per.isSelected()) {
+					frame.dispose();
+					PerLogin02.main(null);
+				} else {
+					frame.dispose();
+					GroupLogin01.main(null);
+				}
 			}
 		});
 		btn_login.setBounds(624, 10, 200, 40);
@@ -75,8 +85,13 @@ public class Main01 { // 김축제 메인 화면(시작화면)
 		JButton btn_signup = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		btn_signup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				Choice.main(null);
+				if (rd_Per.isSelected()) {
+					frame.dispose();
+					PerJoin.main(null);
+				} else {
+					frame.dispose();
+					GroupJoin.main(null);
+				}
 			}
 		});
 		btn_signup.setBounds(624, 60, 200, 40);
@@ -107,6 +122,19 @@ public class Main01 { // 김축제 메인 화면(시작화면)
 		btn_Search = new JButton("\uAC80\uC0C9");
 		btn_Search.setBounds(773, 170, 51, 40);
 		panel.add(btn_Search);
-	}
 
+		rd_Per = new JRadioButton("\uAC1C\uC778");
+		rd_Per.setBounds(637, 119, 74, 23);
+		rd_Per.setSelected(true);
+		panel.add(rd_Per);
+
+		JRadioButton rd_Group = new JRadioButton("\uAE30\uC5C5");
+		rd_Group.setBounds(729, 119, 79, 23);
+		panel.add(rd_Group);
+
+		// 라디오 버튼 둘중 하나만 선택 할 수 있도록 버튼을 그룹화
+		ButtonGroup group = new ButtonGroup();
+		group.add(rd_Per);
+		group.add(rd_Group);
+	}
 }

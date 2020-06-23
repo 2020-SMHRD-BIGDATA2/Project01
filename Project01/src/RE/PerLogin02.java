@@ -70,7 +70,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 //					if(txt_id.equals(obj) && txt_pw.equals(obj)) {
 //					
 				frame.dispose();
-				researchPage.main(null);
+				PerResearchPage.main(null);
 //					}
 //				}
 			}

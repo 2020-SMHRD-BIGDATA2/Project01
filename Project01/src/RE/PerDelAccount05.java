@@ -77,7 +77,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 					
 				} else {
 					frame.dispose();
-					researchPage.main(null);
+					PerResearchPage.main(null);
 //					System.exit(0);
 					
 
@@ -94,7 +94,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 			public void actionPerformed(ActionEvent e) {
 
 				frame.dispose();
-				researchPage.main(null);
+				PerResearchPage.main(null);
 			}
 		});
 		btn_Cancel.setBounds(214, 169, 73, 23);

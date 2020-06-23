@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
+public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
 
 
 	private JFrame frame;
@@ -38,7 +38,7 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					researchPage window = new researchPage();
+					PerResearchPage window = new PerResearchPage();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +50,7 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 	/**
 	 * Create the application.
 	 */
-	public researchPage() {
+	public PerResearchPage() {
 		initialize();
 	}
 
