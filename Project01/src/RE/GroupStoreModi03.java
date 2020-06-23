@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GroupStoreModi03 {
+public class GroupStoreModi03 { // 주막 등록한 것 수정하는 화면
 
 	private JFrame frame;
 	private JTextField textField;

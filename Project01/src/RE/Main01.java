@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Main01 {
+public class Main01 { // 김축제 메인 화면(시작화면)
 
 	private JFrame frame;
 	private JTextField txt_serch;

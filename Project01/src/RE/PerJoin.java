@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerJoin {
+public class PerJoin { // 개인화면 회원가입 화면
 
 	private JFrame frame;
 	private JTextField txt_id;

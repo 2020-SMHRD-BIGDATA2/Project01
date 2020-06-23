@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerSearch03 {
+public class PerSearch03 { // 로그인 시 검색 화면 
 
 	private JFrame frame;
 	private JTextField txt_Search;

@@ -1,9 +1,12 @@
 package RE;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -11,7 +14,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerLogin02 {
+public class PerLogin02 { // 개인회원 로그인 화면
 
 	private JFrame frame;
 	private JTextField txt_id;
@@ -45,21 +48,21 @@ public class PerLogin02 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 596, 629);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 10, 410, 241);
+		panel.setBounds(12, 10, 556, 570);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		txt_id = new JTextField();
 		txt_id.setText("\uC544\uC774\uB514");
 		txt_id.setBounds(135, 55, 116, 21);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
-		
+
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,14 +70,14 @@ public class PerLogin02 {
 //					if(txt_id.equals(obj) && txt_pw.equals(obj)) {
 //					
 				frame.dispose();
-				PerAfterLogin.main(null);
+				researchPage.main(null);
 //					}
 //				}
 			}
 		});
 		btn_login.setBounds(96, 172, 97, 23);
 		panel.add(btn_login);
-		
+
 		JButton btn_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -84,11 +87,12 @@ public class PerLogin02 {
 		});
 		btn_join.setBounds(222, 172, 97, 23);
 		panel.add(btn_join);
-		
+
 		txt_pw = new JPasswordField();
 		txt_pw.setToolTipText("pw");
 		txt_pw.setHorizontalAlignment(SwingConstants.LEFT);
 		txt_pw.setBounds(135, 104, 116, 21);
 		panel.add(txt_pw);
+
 	}
 }

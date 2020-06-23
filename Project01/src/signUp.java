@@ -58,7 +58,7 @@ public class signUp {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
+		JPanel panel = new	 JPanel();
 		panel.setBounds(12, 10, 857, 598);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
