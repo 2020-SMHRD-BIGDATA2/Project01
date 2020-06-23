@@ -15,6 +15,7 @@ public class ChoiceLogin {
 	private JFrame frame;
 
 	/**
+	 * ¼öÁ¤
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
