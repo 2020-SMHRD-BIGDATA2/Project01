@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
 public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
 
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txt_Search;
 	private JPanel panel_1;
 	private JTabbedPane tabbedPane;
@@ -30,26 +30,14 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 	private JTextField txt_SearchCarpool;
 	private JButton btn_SearchCarpool;
 	private JPanel panel_7;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					researchPage window = new researchPage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	private PMVO vo;
+	private JLabel loginInfo;
+	
+	public void setPMVO(PMVO vo) {
+		this.vo = vo;
+		loginInfo.setText(vo.getPER_NAME()+"님 환영합니다!");
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public researchPage() {
 		initialize();
 	}
@@ -163,5 +151,9 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 		});
 		lblNewLabel_1.setBounds(715, 10, 57, 15);
 		panel.add(lblNewLabel_1);
+		
+		loginInfo = new JLabel("New label");
+		loginInfo.setBounds(522, 10, 142, 40);
+		panel.add(loginInfo);
 	}
 }
