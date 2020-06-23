@@ -73,7 +73,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		txt_pw.setBounds(178, 237, 417, 56);
 		panel.add(txt_pw);
 
-		String path = "C:\\Users\\SMHRD\\git\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\src\\image\\PerLogin.png";
+		String path = "C:\\Users\\SMHRD\\git\\Project01\\Project01\\src\\image\\PerLogin.png";
 		Image image = new ImageIcon(path).getImage();
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
