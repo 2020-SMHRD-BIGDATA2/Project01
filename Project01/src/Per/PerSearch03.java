@@ -1,16 +1,26 @@
+package Per;
+
 import java.awt.EventQueue;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class PerSearch {
+public class PerSearch03 { // 로그인 시 검색 화면 
 
 	private JFrame frame;
 	private JTextField txt_Search;
+	JRadioButton rd_Uni;
+	JRadioButton rd_Celeb;
+	
+
 
 	/**
 	 * Launch the application.
@@ -19,7 +29,7 @@ public class PerSearch {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PerSearch window = new PerSearch();
+					PerSearch03 window = new PerSearch03();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +41,7 @@ public class PerSearch {
 	/**
 	 * Create the application.
 	 */
-	public PerSearch() {
+	public PerSearch03() {
 		initialize();
 	}
 
@@ -60,21 +70,38 @@ public class PerSearch {
 		btn_search.setBounds(147, 181, 97, 23);
 		panel.add(btn_search);
 		
-		JRadioButton rd_Uni = new JRadioButton("Uni");
+		rd_Uni = new JRadioButton("Uni");
 		rd_Uni.setBounds(123, 66, 61, 23);
 		panel.add(rd_Uni);
 		
-		JRadioButton rd_Celeb = new JRadioButton("Celeb");
+		rd_Celeb = new JRadioButton("Celeb");
 		rd_Celeb.setBounds(194, 66, 121, 23);
 		panel.add(rd_Celeb);
 		
+		ButtonGroup group = new ButtonGroup();
+		group.add(rd_Uni);
+		group.add(rd_Celeb);
+		
 		JButton btn_Booking = new JButton("\uC8FC\uB9C9 \uC608\uC57D");
+		btn_Booking.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				PerBookStore.main(null);
+			}
+		});
 		btn_Booking.setBounds(73, 26, 97, 23);
 		panel.add(btn_Booking);
 		
 		JButton btn_Cancel = new JButton("\uC608\uC57D \uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn_Cancel.isSelected()) {
+					JOptionPane.showMessageDialog(null, btn_Cancel.getText(), "SEX", JOptionPane.INFORMATION_MESSAGE);
+				}
+			
+			}
+		});
 		btn_Cancel.setBounds(218, 26, 97, 23);
 		panel.add(btn_Cancel);
 	}
-
 }

@@ -1,12 +1,19 @@
+package Group;
+
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JPasswordField;
-import javax.swing.JButton;
+import javax.swing.JTextField;
 
-public class GroupLogin {
+import RE.Main01;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class GroupLogin01 { // 관리자 로그인 화면
 
 	private JFrame frame;
 	private JTextField txt_id;
@@ -19,7 +26,7 @@ public class GroupLogin {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GroupLogin window = new GroupLogin();
+					GroupLogin01 window = new GroupLogin01();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,7 +38,7 @@ public class GroupLogin {
 	/**
 	 * Create the application.
 	 */
-	public GroupLogin() {
+	public GroupLogin01() {
 		initialize();
 	}
 
@@ -59,11 +66,25 @@ public class GroupLogin {
 		txt_pw.setBounds(129, 109, 116, 21);
 		panel.add(txt_pw);
 		
-		JButton btn_login = new JButton("login");
+		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		btn_login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				GroupAfterLogin02.main(null);
+			}
+		});
 		btn_login.setBounds(79, 169, 116, 23);
 		panel.add(btn_login);
 		
-		JButton btn_join = new JButton("join");
+		JButton btn_join = new JButton("\uCDE8\uC18C");
+		btn_join.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				Main01.main(null);
+				
+			}
+		});
 		btn_join.setBounds(210, 169, 116, 23);
 		panel.add(btn_join);
 	}

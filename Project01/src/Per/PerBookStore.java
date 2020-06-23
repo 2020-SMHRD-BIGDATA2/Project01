@@ -1,21 +1,19 @@
-package RE;
+package Per;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
+import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerDelAccount05 {
+public class PerBookStore { // 주막예약화면
 
 	private JFrame frame;
-	private JPasswordField txt_pw1;
-	private JPasswordField txt_pw2;
-	private JButton btn_Cancel;
+	private JComboBox cmb_Tables;
 
 	/**
 	 * Launch the application.
@@ -24,7 +22,7 @@ public class PerDelAccount05 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PerDelAccount05 window = new PerDelAccount05();
+					PerBookStore window = new PerBookStore();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +34,7 @@ public class PerDelAccount05 {
 	/**
 	 * Create the application.
 	 */
-	public PerDelAccount05() {
+	public PerBookStore() {
 		initialize();
 	}
 
@@ -48,43 +46,51 @@ public class PerDelAccount05 {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 410, 241);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		txt_pw1 = new JPasswordField();
-		txt_pw1.setBounds(114, 67, 173, 21);
-		panel.add(txt_pw1);
-		
-		txt_pw2 = new JPasswordField();
-		txt_pw2.setBounds(114, 116, 173, 21);
-		panel.add(txt_pw2);
-		
-		JButton btn_Del = new JButton("\uD0C8\uD1F4");
-		btn_Del.addActionListener(new ActionListener() {
+
+		cmb_Tables = new JComboBox();
+		cmb_Tables.setBounds(113, 71, 183, 21);
+		panel.add(cmb_Tables);
+
+		JComboBox cmb_Enter = new JComboBox();
+		cmb_Enter.setBounds(113, 121, 183, 21);
+		panel.add(cmb_Enter);
+
+		JButton btn_Book = new JButton("\uC608\uC57D\uC644\uB8CC");
+		btn_Book.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				if(txt_pw1.equals(txt_pw2)) {
-//					계정삭제
-				JOptionPane.showMessageDialog(null, "정말 탈퇴하시겠습니까","확인", JOptionPane.INFORMATION_MESSAGE);
-				frame.dispose();
-				Main01.main(null);
-//				}
-//				
-			}
-		});
-		btn_Del.setBounds(114, 169, 73, 23);
-		panel.add(btn_Del);
-		
-		btn_Cancel = new JButton("\uCDE8\uC18C");
-		btn_Cancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "예약이완료되었습니다.");
+				
 				frame.dispose();
 				PerAfterLogin.main(null);
 			}
 		});
-		btn_Cancel.setBounds(214, 169, 73, 23);
+		btn_Book.setBounds(103, 187, 94, 21);
+		panel.add(btn_Book);
+
+		JButton btn_Cancel = new JButton("\uCDE8\uC18C");
+		btn_Cancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				int n = JOptionPane.showConfirmDialog(null, "예약정보가 저장되지 않았습니다\n정말 취소하겠습니까", "확인",
+						JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+				if (n == JOptionPane.YES_OPTION) {
+					JOptionPane.showMessageDialog(null, "취소가 완료되었습니다.");
+					frame.dispose();
+					PerAfterLogin.main(null);
+
+				} else {
+				}
+
+			}
+		});
+		btn_Cancel.setBounds(220, 187, 94, 21);
 		panel.add(btn_Cancel);
 	}
 

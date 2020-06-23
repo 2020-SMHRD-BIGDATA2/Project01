@@ -1,4 +1,4 @@
-package RE;
+package Per;
 
 import java.awt.EventQueue;
 
@@ -7,8 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Per.PerBookStore;
-import Per.PerDelAccount05;
+import RE.Main01;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,10 +18,10 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
+public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
 
 
-	public JFrame frame;
+	private JFrame frame;
 	private JTextField txt_Search;
 	private JPanel panel_1;
 	private JTabbedPane tabbedPane;
@@ -34,15 +33,27 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 	private JTextField txt_SearchCarpool;
 	private JButton btn_SearchCarpool;
 	private JPanel panel_7;
-	private PMVO vo;
-	private JLabel loginInfo;
-	
-	public void setPMVO(PMVO vo) {
-		this.vo = vo;
-		loginInfo.setText(vo.getPER_NAME()+"님 환영합니다!");
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PerResearchPage window = new PerResearchPage();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
-	public researchPage() {
+	/**
+	 * Create the application.
+	 */
+	public PerResearchPage() {
 		initialize();
 	}
 
@@ -132,32 +143,29 @@ public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막
 		panel_7.setBounds(33, 58, 764, 364);
 		panel_6.add(panel_7);
 		
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
-		lblNewLabel.addMouseListener(new MouseAdapter() {
+		JLabel lbl_delete = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
+		lbl_delete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
+				frame.dispose();
 				PerDelAccount05.main(null);
 				
 			}
 		});
-		lblNewLabel.setBounds(788, 10, 57, 15);
-		panel.add(lblNewLabel);
+		lbl_delete.setBounds(788, 10, 57, 15);
+		panel.add(lbl_delete);
 		
-		JLabel lblNewLabel_1 = new JLabel("\uB85C\uADF8\uC544\uC6C3");
-		lblNewLabel_1.addMouseListener(new MouseAdapter() {
+		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				frame.dispose();
+				
 				Main01.main(null);
 			}
 		});
-		lblNewLabel_1.setBounds(715, 10, 57, 15);
-		panel.add(lblNewLabel_1);
-		
-		loginInfo = new JLabel("New label");
-		loginInfo.setBounds(522, 10, 142, 40);
-		panel.add(loginInfo);
+		lbl_logout.setBounds(715, 10, 57, 15);
+		panel.add(lbl_logout);
 	}
 }
