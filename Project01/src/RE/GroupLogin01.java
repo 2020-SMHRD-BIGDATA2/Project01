@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class GroupLogin01 {
+public class GroupLogin01 { // 관리자 로그인 화면
 
 	private JFrame frame;
 	private JTextField txt_id;

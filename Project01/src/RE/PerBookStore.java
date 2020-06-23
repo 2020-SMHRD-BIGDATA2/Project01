@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerBookStore {
+public class PerBookStore { // 주막예약화면
 
 	private JFrame frame;
 	private JComboBox cmb_Tables;

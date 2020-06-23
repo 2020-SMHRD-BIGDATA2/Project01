@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 
-public class ChoiceJoin {
+public class ChoiceJoin { // 회원가입 시 개인,기업 선택 창
 
 	private JFrame frame;
 

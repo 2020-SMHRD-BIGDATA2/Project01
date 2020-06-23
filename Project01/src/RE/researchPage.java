@@ -12,7 +12,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 
-public class researchPage {
+public class researchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
 
 
 	private JFrame frame;
