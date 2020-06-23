@@ -1,20 +1,26 @@
-package RE;
+package Group;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+import RE.Main01;
+
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PerDelAccount05 { // 회원 탈퇴
+public class GroupJoin { // 관리자 회원가입 화면
 
 	private JFrame frame;
+	private JTextField txt_id;
 	private JPasswordField txt_pw1;
-	private JPasswordField txt_pw2;
+	private JTextField txt_Uni;
+	private JTextField txt_Major;
 	private JButton btn_Cancel;
 
 	/**
@@ -24,7 +30,7 @@ public class PerDelAccount05 { // 회원 탈퇴
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PerDelAccount05 window = new PerDelAccount05();
+					GroupJoin window = new GroupJoin();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +42,7 @@ public class PerDelAccount05 { // 회원 탈퇴
 	/**
 	 * Create the application.
 	 */
-	public PerDelAccount05() {
+	public GroupJoin() {
 		initialize();
 	}
 
@@ -54,50 +60,47 @@ public class PerDelAccount05 { // 회원 탈퇴
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		txt_pw1 = new JPasswordField();
-		txt_pw1.setBounds(114, 67, 173, 21);
-		panel.add(txt_pw1);
+		txt_id = new JTextField();
+		txt_id.setText("\uC544\uC774\uB514");
+		txt_id.setBounds(146, 35, 116, 21);
+		panel.add(txt_id);
+		txt_id.setColumns(10);
 
-		txt_pw2 = new JPasswordField();
-		txt_pw2.setBounds(114, 116, 173, 21);
-		panel.add(txt_pw2);
-
-		JButton btn_Del = new JButton("\uD0C8\uD1F4");
-		btn_Del.addActionListener(new ActionListener() {
+		JButton btn_Complete = new JButton("\uC644\uB8CC");
+		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				if(txt_pw1.equals(txt_pw2)) {
-//					계정삭제
-				int n = JOptionPane.showConfirmDialog(null, "정말 탈퇴하시겠습니까", "확인", JOptionPane.YES_NO_OPTION,
-						JOptionPane.INFORMATION_MESSAGE);
-
-				if (n== JOptionPane.YES_OPTION) {
-					JOptionPane.showMessageDialog(null, "탈퇴가 완료되었습니다.");
-					frame.dispose();
-					Main01.main(null);
-					
-				} else {
-					frame.dispose();
-					PerResearchPage.main(null);
-//					System.exit(0);
-					
-
-//				}
-//				
-				}
+				
+				JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다..");
+				
+				frame.dispose();
+				GroupLogin01.main(null);
 			}
 		});
-		btn_Del.setBounds(114, 169, 73, 23);
-		panel.add(btn_Del);
+		btn_Complete.setBounds(119, 208, 97, 23);
+		panel.add(btn_Complete);
+
+		txt_pw1 = new JPasswordField();
+		txt_pw1.setBounds(146, 73, 116, 21);
+		panel.add(txt_pw1);
+
+		txt_Uni = new JTextField();
+		txt_Uni.setBounds(146, 137, 116, 21);
+		panel.add(txt_Uni);
+		txt_Uni.setColumns(10);
+
+		txt_Major = new JTextField();
+		txt_Major.setBounds(146, 177, 116, 21);
+		panel.add(txt_Major);
+		txt_Major.setColumns(10);
 
 		btn_Cancel = new JButton("\uCDE8\uC18C");
 		btn_Cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				frame.dispose();
-				PerResearchPage.main(null);
+				Main01.main(null);
 			}
 		});
-		btn_Cancel.setBounds(214, 169, 73, 23);
+		btn_Cancel.setBounds(220, 208, 97, 23);
 		panel.add(btn_Cancel);
 	}
 

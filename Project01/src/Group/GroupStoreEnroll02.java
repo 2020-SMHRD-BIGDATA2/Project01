@@ -1,4 +1,4 @@
-package RE;
+package Group;
 
 import java.awt.EventQueue;
 
