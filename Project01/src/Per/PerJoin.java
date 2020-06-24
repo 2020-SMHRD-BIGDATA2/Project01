@@ -70,12 +70,6 @@ public class PerJoin { // 개인화면 회원가입 화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.addMouseListener(new MouseAdapter() {
-		});
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
-
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
@@ -113,8 +107,6 @@ public class PerJoin { // 개인화면 회원가입 화면
 		ck_unique = new JCheckBox("");
 //=======
 
-
-
 		ck_unique = new JCheckBox("\uC544\uC774\uB514 \uC911\uBCF5\uD655\uC778");
 //>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 		// action listener....check박스에....달아놓다니....이건...배신이에요...
@@ -122,13 +114,12 @@ public class PerJoin { // 개인화면 회원가입 화면
 		ck_unique.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-		
 				// 아이디중복확인
 				if (ck_unique.isSelected()) {
 					// 내 DB연결해서 일치하는 정보 있는지 확인하기 위한 dao 객체 생성
 					boolean isCheck = daopm.idCheck(txt_id.getText()); // 개인
 //					boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
-					if (isCheck ) {
+					if (isCheck) {
 						JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
 						ck_unique.setSelected(false);
 					} else {
@@ -136,10 +127,6 @@ public class PerJoin { // 개인화면 회원가입 화면
 					}
 				}
 
-			
-			
-				
-				
 			}
 
 		});
@@ -152,15 +139,14 @@ public class PerJoin { // 개인화면 회원가입 화면
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
 				String name = txt_name.getText();
 				String phone = txt_phone.getText();
 				String SecurityNum = txt_snum.getText();
-				
+
 				System.out.println(id + pw + name + phone + SecurityNum);
-				
+
 				if (ck_unique.isSelected()) {
 					int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
 					System.out.println(cnt);
@@ -170,12 +156,10 @@ public class PerJoin { // 개인화면 회원가입 화면
 						PerLogin02.main(null);
 
 					}
-				}else {
+				} else {
 					JOptionPane.showMessageDialog(null, "아이디 중복확인을 해주세요");
 				}
-			
-				
-				
+
 			}
 		});
 		lblComplete.setBounds(209, 553, 185, 34);
@@ -192,5 +176,11 @@ public class PerJoin { // 개인화면 회원가입 화면
 		});
 		lblCancel.setBounds(411, 552, 185, 34);
 		panel.add(lblCancel);
+
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.addMouseListener(new MouseAdapter() {
+		});
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
 	}
 }

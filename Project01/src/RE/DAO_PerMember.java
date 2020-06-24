@@ -225,4 +225,12 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		}
 		return isCheck;
 	}
+
+
+
+
+	public PMVO cancelBooking() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	}
