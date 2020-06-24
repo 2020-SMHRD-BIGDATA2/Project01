@@ -17,12 +17,11 @@ public class DAO_Store extends DBmethod {
 		int cnt = 0;
 		try {
 			getConnection();
-			int n = 0;
-			String sql = "insert into booking values('" + n + "','" + n + "','" + "n" + "','" + "n" + "','"+n+"','"+n+"','"+"n"+"') "; // 예약한																									// 일치할때
+			String n = "a";
+			String sql = "insert into booking values('" + n + "','" + n + "','" + n+ "','"+n+"','"+n+"','"+n+"') "; // 예약한																									// 일치할때
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			n++;
-
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
