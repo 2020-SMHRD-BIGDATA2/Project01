@@ -1,5 +1,12 @@
 select * from tab
 
 select * from managermember
-
+delete MANAGERMEMBER 
+insert into managermember values ('a','a',1,1)
 commit
+select * from university
+select * from major
+insert into major values(1,'a')
+insert into major values(2,'b')
+insert into university values(1,'a','a')
+insert into university values(2,'b','b')

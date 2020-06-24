@@ -4,11 +4,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import RE.DAO_Manager;
+import RE.DAO_PerMember;
+import RE.MMVO;
 import RE.Main01;
+import RE.PMVO;
+import RE.researchPage;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,7 +24,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 	private JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField txt_pw;
-
+	private DAO_Manager daomgr;
 	/**
 	 * Launch the application.
 	 */
@@ -69,9 +75,27 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				daomgr = new DAO_Manager();
+
+				// 로그인 성공여부 판별
+				// 로그인 실패시에는 null
+				// 로그인 성공시에는 객체를 가져온다
+				//MMVO vo = daomgr.login(id, pw);
 				
-				frame.dispose();
-				GroupAfterLogin02.main(null);
+
+				if (daomgr != null) {
+					JOptionPane.showMessageDialog(null, "로그인 성공!! " + daomgr.getPER_major() + "님 환영합니다!", "정보",
+							JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose();
+					researchPage researchPage = new researchPage();
+					//GroupAfterLogin01.setPMVO(vo);
+					//researchPage.frame.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해주세요", "경고", JOptionPane.WARNING_MESSAGE);
+				}
+
 			}
 		});
 		btn_login.setBounds(79, 169, 116, 23);

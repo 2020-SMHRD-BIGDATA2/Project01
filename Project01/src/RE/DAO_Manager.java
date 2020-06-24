@@ -55,17 +55,18 @@ public class DAO_Manager extends DBmethod {
 		return isCheck;
 	}
 
-	public int insert(String id, String pw, String uni, String major) {
+	public int insert(String id, String pw,  String major,String uni) {
 		int cnt = 0;
 		try {
+			System.out.println("??????????????????????");
 			getConnection();
-			String sql = "insert into managermember values '"+id+"' '"+pw+"' '"+uni+"' '"+major+"' ";
+			System.out.println("insert연결성공");
+		//	String sql = "insert into managermember values ('"+id+"','"+pw+"','"+uni+"','"+major+"')";
+
+			String sql = "insert into managermember values ('a','a',10,20)";
 			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, id);// 입력한 id
-//			psmt.setString(2, pw);// 입력한 pw
-//			psmt.setString(3, uni);// 입력한 학교
-//			psmt.setString(4, major);// 입력한학과
 			cnt = psmt.executeUpdate();
+			System.out.println("cnt = "+cnt);
 			if (cnt > 0) {
 				System.out.println(cnt);
 			}
