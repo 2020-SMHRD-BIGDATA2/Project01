@@ -25,7 +25,7 @@ import java.net.URL;
 
 public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txt_Search;
 	JRadioButton rd_Uni;
 	JRadioButton rd_Celeb;
