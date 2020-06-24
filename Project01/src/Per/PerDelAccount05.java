@@ -71,6 +71,28 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
+		JLabel lbl_txt_id = new JLabel("\uC544\uC774\uB514\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694");
+		lbl_txt_id.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lbl_txt_id.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				lbl_txt_id.setVisible(false);
+			}
+		});
+		lbl_txt_id.setBounds(194, 259, 405, 51);
+		panel.add(lbl_txt_id);
+		
+		JLabel lbl_txt_pw = new JLabel("\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694");
+		lbl_txt_pw.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_pw.setVisible(false);
+			}
+		});
+		lbl_txt_pw.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		lbl_txt_pw.setBounds(194, 352, 405, 51);
+		panel.add(lbl_txt_pw);
+		
 		txt_pw = new JPasswordField();
 		txt_pw.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		txt_pw.setBounds(191, 352, 417, 53);
@@ -161,5 +183,9 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		});
 		lbl_return.setBounds(659, 552, 57, 44);
 		panel.add(lbl_return);
+		
+		
+		
+		
 	}
 }
