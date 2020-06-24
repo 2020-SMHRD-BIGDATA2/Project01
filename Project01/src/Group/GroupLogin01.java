@@ -22,18 +22,21 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.event.AncestorListener;
 
+import Per.PerJoin;
 import Per.PerResearchPage;
 
 import javax.swing.event.AncestorEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GroupLogin01 { // 관리자 로그인 화면
 
 	public JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField passwordField;
-	private DAO_Manager daomgr;
-	public MMVO vo;
-
+	static MMVO vo;
+	JLabel lbl_image;
+	private JLabel lbl_join;
 	/**
 	 * Launch the application.
 	 */
@@ -73,10 +76,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
-		// panel.add(lbl_image);
+		
 
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 666);
@@ -97,7 +97,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		passwordField.setBorder(null);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(181, 376, 413, 36);
+		lblNewLabel.setBounds(194, 376, 400, 52);
 		panel.add(lblNewLabel);
 
 		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
@@ -105,7 +105,9 @@ public class GroupLogin01 { // 관리자 로그인 화면
 			public void actionPerformed(ActionEvent e) {
 				String id = txt_id.getText();
 				String pw = passwordField.getText();
-				daomgr = new DAO_Manager();
+				
+	
+				DAO_Manager daomgr = new DAO_Manager();
 				vo = daomgr.login(id, pw);
 
 				if (vo != null) {
@@ -144,6 +146,22 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		});
 		btn_login.setBounds(333, 376, 116, 23);
 		panel.add(btn_login);
+		
+		lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				GroupJoin.main(null);
 
+			}
+		});
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
+		
+		lbl_join = new JLabel("\uD68C\uC6D0\uAC00\uC785");
+		lbl_join.setBounds(463, 438, 132, 42);
+		panel.add(lbl_join);
+		// panel.add(lbl_image);
 	}
 }
