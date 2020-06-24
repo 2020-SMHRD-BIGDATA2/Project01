@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import RE.DAO_PerMember;
 import RE.DBmethod;
 import RE.PMVO;
-import RE.researchPage;
+
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -109,15 +109,20 @@ public class PerLogin02 { // 개인회원 로그인 화면
 					JOptionPane.showMessageDialog(null, "로그인 성공!! " + vo.getPER_NAME() + "님 환영합니다!", "정보",
 							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
-					researchPage researchPage = new researchPage();
+					PerResearchPage researchPage = new PerResearchPage();
 					researchPage.setPMVO(vo);
 					researchPage.frame.setVisible(true);
+					//PerResearchPage.main(null);
+//					researchPage.setPMVO(vo);
+//					researchPage.frame.setVisible(true);
+					
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해주세요", "경고", JOptionPane.WARNING_MESSAGE);
 				}
 
-				// frame.dispose();
-				// researchPage.main(null);
+//				 frame.dispose();
+//				 perresearchPage.main(null);
 
 			}
 		});

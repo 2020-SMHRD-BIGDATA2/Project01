@@ -95,6 +95,8 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 				String pw = txt_pw.getText();
 
 				int cnt = daopm.del(id, pw);
+				
+				
 				if (cnt > 0) {
 					int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
@@ -106,7 +108,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 						
 					} else {
 						frame.dispose();
-						PerResearchPage.main(null);
+						//PerResearchPage.main(null);
 						System.exit(0);
 				
 					}
@@ -124,7 +126,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 			public void mouseClicked(MouseEvent arg0) {
 
 				frame.dispose();
-				PerResearchPage.main(null);
+				//PerResearchPage.main(null);
 
 			}
 		});

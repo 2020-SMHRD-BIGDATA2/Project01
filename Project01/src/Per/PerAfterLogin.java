@@ -96,7 +96,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 			public void mouseClicked(MouseEvent arg0) {
 
 				frame.dispose();
-				PerResearchPage.main(null);
+//				PerResearchPage.main(null);
 			}
 		});
 		lblHome.setBounds(619, 499, 68, 75);

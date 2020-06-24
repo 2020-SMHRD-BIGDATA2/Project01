@@ -14,8 +14,6 @@ import RE.DAO_PerMember;
 import RE.MMVO;
 import RE.Main01;
 import RE.PMVO;
-import RE.researchPage;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -86,10 +84,10 @@ public class GroupLogin01 { // 관리자 로그인 화면
 				
 
 				if (daomgr != null) {
-					JOptionPane.showMessageDialog(null, "로그인 성공!! " + daomgr.getPER_major() + "님 환영합니다!", "정보",
-							JOptionPane.INFORMATION_MESSAGE);
+//					JOptionPane.showMessageDialog(null, "로그인 성공!! " + daomgr.getPER_major() + "님 환영합니다!", "정보",
+//							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
-					researchPage researchPage = new researchPage();
+
 					//GroupAfterLogin01.setPMVO(vo);
 					//researchPage.frame.setVisible(true);
 				} else {

@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import RE.DAO_PerMember;
 import RE.Main01;
+import RE.PMVO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,7 +24,7 @@ import javax.swing.JScrollPane;
 public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, 주막리스트, 택시풀)
 
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txt_Search;
 	private JPanel panel_1;
 	private JTabbedPane tabbedPane;
@@ -33,26 +35,14 @@ public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, �
 	private JTextField txt_SearchCarpool;
 	private JButton btn_SearchCarpool;
 	private JPanel panel_7;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PerResearchPage window = new PerResearchPage();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	private PMVO vo;
+	private JLabel lbl_info;
+	
+	public void setPMVO(PMVO vo) {
+		this.vo = vo;
+		lbl_info.setText(vo.getPER_NAME()+"님 환영합니다.");
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public PerResearchPage() {
 		initialize();
 	}
@@ -170,5 +160,15 @@ public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, �
 		});
 		lbl_logout.setBounds(715, 10, 57, 15);
 		panel.add(lbl_logout);
+		
+		lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4.");
+		
+		DAO_PerMember daopm = new DAO_PerMember();
+		
+//		PMVO pmvo = new PMVO();
+		
+//		lbl_info.setText(daopm.login(id, pw).ge+"환영합니다");
+		lbl_info.setBounds(580, 10, 123, 15);
+		panel.add(lbl_info);
 	}
 }

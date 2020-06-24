@@ -6,15 +6,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > update > insert
-	@Override
-	public void getConnection() {
-		super.getConnection();
-	}
 
-	@Override
-	public void close() {
-		super.close();
-	}
 
 	public int del(String id, String pw) { // 계정 삭제
 
@@ -27,7 +19,9 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 			boolean pwCheck2 = pwCheck2(id); // 단체
 			
 			if (isCheck && pwCheck) {
-				String sql = "delete from personalmember where per_id = '"+id+"' and per_pw = '"+pw+"' ";
+				System.out.println("개인회원 일치성공");
+				System.out.println("꾸꺠럘"+id);
+				String sql = "delete from personalmember where per_id = '"+id+"'";
 				psmt = conn.prepareStatement(sql);
 				int cnt = psmt.executeUpdate();
 
@@ -37,17 +31,17 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 				}
 			
 			} 
-			if (isCheck2 && pwCheck2) {
-		
-				String sql = "delete from managermember where per_id = '"+id+"' and per_pw = '"+pw+"' ";
-				psmt = conn.prepareStatement(sql);
-				int cnt = psmt.executeUpdate();
-
-				if (cnt > 0) {
-					System.out.println(cnt);
-					return cnt;
-				}
-			}
+//			if (isCheck2 && pwCheck2) {
+//				System.out.println("관리자회원 일치성공");
+//				String sql = "delete from managermember where mgr_id = '"+id+"' ";
+//				psmt = conn.prepareStatement(sql);
+//				int cnt = psmt.executeUpdate();
+//
+//				if (cnt > 0) {
+//					System.out.println(cnt);
+//					return cnt;
+//				}
+//			}
 			else {
 				JOptionPane.showMessageDialog(null, "일치하는 정보가 존재하지 않습니다.");
 			}
@@ -155,6 +149,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 //			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
+			System.out.println("per_id");
 				isCheck = true;
 			}
 		} catch (SQLException e) {
@@ -176,6 +171,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 //			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
+				System.out.println("per_pw");
 				isCheck = true;
 			}
 		} catch (SQLException e) {
@@ -196,6 +192,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 //			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
+				System.out.println("mgr_id");
 				isCheck = true;
 			}
 		} catch (SQLException e) {
@@ -212,12 +209,13 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		boolean isCheck = false;
 		getConnection();
 //		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
-		String sql = "select * from managermember where per_pw = '"+pw+"' ";
+		String sql = "select * from managermember where mgr_pw = '"+pw+"' ";
 		try {
 			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
+				System.out.println("mgr_pw");
 				isCheck = true;
 			}
 		} catch (SQLException e) {
@@ -227,23 +225,4 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		}
 		return isCheck;
 	}
-
-	public boolean del(String pw) {
-		boolean isCheck = false;
-		getConnection();
-		String sql = "select * from managerMember where PER_PW = ? ";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, pw);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				isCheck = true;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return isCheck;
 	}
-}
