@@ -28,10 +28,10 @@ public class DBmethod { //커넥션 getConnection() & 클로즈close()
 			System.out.println("연결성공");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("연결실패");
+			System.out.println("classnotFound연결실패");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("DB연결실패");
+			System.out.println("SQLE연결실패");
 		}
 	}
 
