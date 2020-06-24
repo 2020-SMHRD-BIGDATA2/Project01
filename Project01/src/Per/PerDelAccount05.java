@@ -21,6 +21,7 @@ import java.awt.event.MouseListener;
 import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.Font;
 
 public class PerDelAccount05 { // È¸¿ø Å»Åð
 
@@ -61,7 +62,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		URL url = this.getClass().getResource("../image/PerDelete.png");
+		URL url = this.getClass().getResource("../image/PerDelAccount05.png");
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
@@ -71,13 +72,21 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		panel.setLayout(null);
 
 		txt_pw = new JPasswordField();
-		txt_pw.setBounds(191, 312, 417, 56);
+		txt_pw.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		txt_pw.setBounds(191, 352, 417, 53);
 		panel.add(txt_pw);
-
+		txt_pw.setBorder(null);
+		txt_pw.setOpaque(false);
+		
+		
 		txt_id = new JTextField();
-		txt_id.setBounds(191, 239, 416, 56);
+		txt_id.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		txt_id.setBounds(192, 256, 416, 54);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
+		
+		txt_id.setBorder(null);
+		txt_id.setOpaque(false);
 
 		JLabel lbl_Del = new JLabel("");
 		lbl_Del.addMouseListener(new MouseAdapter() {
@@ -130,5 +139,27 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.setBounds(12, 10, 760, 666);
 		panel.add(lbl_image);
+		
+		JLabel lbl_home = new JLabel("");
+		lbl_home.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_home.setBounds(72, 531, 65, 65);
+		panel.add(lbl_home);
+		
+		JLabel lbl_return = new JLabel("");
+		lbl_return.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_return.setBounds(659, 552, 57, 44);
+		panel.add(lbl_return);
 	}
 }

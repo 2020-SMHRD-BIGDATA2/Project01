@@ -2,6 +2,7 @@ package RE;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAO_Manager extends DBmethod {
 
@@ -106,4 +107,5 @@ public class DAO_Manager extends DBmethod {
 
 		return vo;
 	}
+
 }

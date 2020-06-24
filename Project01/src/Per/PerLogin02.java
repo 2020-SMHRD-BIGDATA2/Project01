@@ -17,12 +17,14 @@ import javax.swing.SwingConstants;
 
 import RE.DAO_PerMember;
 import RE.DBmethod;
+import RE.Main01;
 import RE.PMVO;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
+import java.awt.Font;
 
 public class PerLogin02 { // 개인회원 로그인 화면
 
@@ -63,7 +65,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		URL url = this.getClass().getResource("../image/PerLogin.png");
+		URL url = this.getClass().getResource("../image/PerLogin02.png");
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
@@ -71,19 +73,48 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		panel.setBounds(12, 10, 760, 668);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		JLabel lbl_txt_id = new JLabel("\uC544\uC774\uB514\uB97C \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_id.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_id.setVisible(false);
+			}
+		});
+		lbl_txt_id.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_id.setBounds(192, 239, 413, 54);
+		panel.add(lbl_txt_id);
+		
+		JLabel lbl_txt_pw = new JLabel("\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_pw.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_pw.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_pw.setVisible(false);
+			}
+		});
+		lbl_txt_pw.setBounds(192, 316, 403, 48);
+		panel.add(lbl_txt_pw);
+		
 
 		txt_id = new JTextField();
 		txt_id.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_id.setBounds(185, 230, 418, 56);
+		txt_id.setBounds(190, 239, 413, 56);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
+		txt_id.setBorder(null);
+		txt_id.setOpaque(false);
 
 		txt_pw = new JPasswordField();
 		txt_pw.setToolTipText("pw");
 		txt_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_pw.setBounds(185, 301, 417, 56);
+		txt_pw.setBounds(191, 308, 417, 56);
 		panel.add(txt_pw);
-
+		txt_pw.setBorder(null);
+		txt_pw.setOpaque(false);
+		
+		
+		
 		JLabel lblLogin = new JLabel("");
 		lblLogin.addMouseListener(new MouseAdapter() {
 			@Override
@@ -121,7 +152,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 			}
 		});
-		lblLogin.setBounds(184, 374, 418, 40);
+		lblLogin.setBounds(185, 385, 418, 40);
 		panel.add(lblLogin);
 
 		JLabel lbl_join = new JLabel("");
@@ -133,12 +164,36 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 			}
 		});
-		lbl_join.setBounds(476, 435, 110, 32);
+		lbl_join.setBounds(483, 442, 110, 32);
 		panel.add(lbl_join);
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.setBounds(12, 10, 760, 666);
 		panel.add(lbl_image);
+		
+		JLabel lbl_home = new JLabel("");
+		lbl_home.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_home.setBounds(72, 543, 57, 54);
+		panel.add(lbl_home);
+		
+		JLabel lbl_return = new JLabel("");
+		lbl_return.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_return.setBounds(659, 543, 57, 54);
+		panel.add(lbl_return);
+		
+
 
 	}
 }

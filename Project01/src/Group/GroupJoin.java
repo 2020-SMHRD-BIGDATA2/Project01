@@ -96,7 +96,7 @@ public class GroupJoin { // 관리자 회원가입 화면
 
       txt_id = new JTextField();
       txt_id.setFont(new Font("굴림", Font.PLAIN, 20));
-      txt_id.setBounds(151, 165, 462, 55);
+      txt_id.setBounds(356, 108, 462, 55);
       panel.add(txt_id);
       txt_id.setColumns(10);
       txt_id.setBorder(null);
