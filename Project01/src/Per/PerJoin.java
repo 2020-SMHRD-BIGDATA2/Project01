@@ -107,7 +107,70 @@ public class PerJoin { // 개인화면 회원가입 화면
 		txt_pw.setBounds(207, 220, 417, 56);
 		panel.add(txt_pw);
 
+<<<<<<< HEAD
 		ck_unique = new JCheckBox("");
+=======
+		lblId = new JLabel("\uC544\uC774\uB514");
+		lblId.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblId.setFont(new Font("굴림", Font.PLAIN, 17));
+		lblId.setBounds(241, 152, 84, 41);
+		panel.add(lblId);
+
+		lblPw = new JLabel("\uD328\uC2A4\uC6CC\uB4DC");
+		lblPw.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPw.setFont(new Font("굴림", Font.PLAIN, 17));
+		lblPw.setBounds(241, 205, 84, 41);
+		panel.add(lblPw);
+
+		lblName = new JLabel("\uC774\uB984");
+		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblName.setFont(new Font("굴림", Font.PLAIN, 17));
+		lblName.setBounds(241, 254, 84, 41);
+		panel.add(lblName);
+
+		lblPhone = new JLabel("\uD578\uB4DC\uD3F0\uBC88\uD638");
+		lblPhone.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPhone.setFont(new Font("굴림", Font.PLAIN, 17));
+		lblPhone.setBounds(241, 305, 84, 41);
+		panel.add(lblPhone);
+
+		lblIdNo = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
+		lblIdNo.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblIdNo.setFont(new Font("굴림", Font.PLAIN, 17));
+		lblIdNo.setBounds(204, 355, 121, 41);
+		panel.add(lblIdNo);
+
+		btn_Complete = new JButton("\uC644\uB8CC");
+		btn_Complete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				String name = txt_name.getText();
+				String phone = txt_phone.getText();
+				String SecurityNum = txt_snum.getText();
+				
+				System.out.println(id + pw + name + phone + SecurityNum);
+				
+				if (ck_unique.isSelected()) {
+					int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
+					System.out.println(cnt);
+					if (cnt > 0) {
+						System.out.println("a");
+						frame.dispose();
+						PerLogin02.main(null);
+
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "아이디 중복확인을 해주세요");
+				}
+			}
+		});
+		btn_Complete.setBounds(348, 430, 70, 41);
+		panel.add(btn_Complete);
+
+		ck_unique = new JCheckBox("\uC544\uC774\uB514 \uC911\uBCF5\uD655\uC778");
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 		// action listener....check박스에....달아놓다니....이건...배신이에요...
 		// 왜죠,,선생님,,,
 		ck_unique.addActionListener(new ActionListener() {

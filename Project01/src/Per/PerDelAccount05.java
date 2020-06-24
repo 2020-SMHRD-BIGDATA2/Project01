@@ -33,6 +33,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					PerDelAccount05 window = new PerDelAccount05();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
