@@ -1,27 +1,34 @@
 package Group;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import RE.Main01;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GroupJoin { // 관리자 회원가입 화면
 
 	private JFrame frame;
 	private JTextField txt_id;
-	private JPasswordField txt_pw1;
 	private JTextField txt_Uni;
 	private JTextField txt_Major;
-	private JButton btn_Cancel;
+	private JLabel lbl_Join;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -51,57 +58,66 @@ public class GroupJoin { // 관리자 회원가입 화면
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 800,729);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		/*
+		 * 이미지경로
+		 */
 
+		URL url = this.getClass().getResource("../image/GroupJoin.png");
+		String path = url.getPath();
+		Image image = new ImageIcon(path).getImage();
+
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(12, 10, 760, 666);
+		frame.getContentPane().add(lbl_image);
+		// panel.add(lbl_image);
+
+		/*
+		 * */
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 10, 410, 241);
+		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-
+		
 		txt_id = new JTextField();
-		txt_id.setText("\uC544\uC774\uB514");
-		txt_id.setBounds(146, 35, 116, 21);
+		txt_id.setFont(new Font("굴림", Font.PLAIN, 20));
+		txt_id.setBounds(151, 165, 462, 55);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
-
-		JButton btn_Complete = new JButton("\uC644\uB8CC");
-		btn_Complete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다..");
-				
-				frame.dispose();
-				GroupLogin01.main(null);
-			}
-		});
-		btn_Complete.setBounds(119, 208, 97, 23);
-		panel.add(btn_Complete);
-
-		txt_pw1 = new JPasswordField();
-		txt_pw1.setBounds(146, 73, 116, 21);
-		panel.add(txt_pw1);
-
+		txt_id.setBorder(null);
+		
 		txt_Uni = new JTextField();
-		txt_Uni.setBounds(146, 137, 116, 21);
-		panel.add(txt_Uni);
+		txt_Uni.setFont(new Font("굴림", Font.PLAIN, 20));
 		txt_Uni.setColumns(10);
-
+		txt_Uni.setBounds(151, 329, 462, 55);
+		panel.add(txt_Uni);
+		txt_Uni.setBorder(null);
+		
 		txt_Major = new JTextField();
-		txt_Major.setBounds(146, 177, 116, 21);
-		panel.add(txt_Major);
+		txt_Major.setFont(new Font("굴림", Font.PLAIN, 20));
 		txt_Major.setColumns(10);
-
-		btn_Cancel = new JButton("\uCDE8\uC18C");
-		btn_Cancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		txt_Major.setBounds(151, 413, 462, 55);
+		panel.add(txt_Major);
+		txt_Major.setBorder(null);
+		
+		lbl_Join = new JLabel("");
+		lbl_Join.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				frame.dispose();
-				Main01.main(null);
+				//어디로 가야하오
 			}
 		});
-		btn_Cancel.setBounds(220, 208, 97, 23);
-		panel.add(btn_Cancel);
+		lbl_Join.setBounds(151, 516, 462, 42);
+		panel.add(lbl_Join);
+		
+		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("굴림", Font.PLAIN, 20));
+		passwordField.setBounds(151, 249, 462, 55);
+		panel.add(passwordField);
+		passwordField.setBorder(null);
 	}
 
 }
