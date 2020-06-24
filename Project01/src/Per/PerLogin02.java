@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 import RE.DAO_PerMember;
 import RE.DBmethod;
 import RE.PMVO;
-import RE.researchPage;
+
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -30,7 +30,6 @@ public class PerLogin02 { // 개인회원 로그인 화면
 	private JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField txt_pw;
-	
 
 	/**
 	 * Launch the application.
@@ -79,14 +78,14 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 		txt_id = new JTextField();
 		txt_id.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_id.setBounds(178, 232, 418, 56);
+		txt_id.setBounds(185, 230, 418, 56);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 
 		txt_pw = new JPasswordField();
 		txt_pw.setToolTipText("pw");
 		txt_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_pw.setBounds(178, 303, 417, 56);
+		txt_pw.setBounds(185, 301, 417, 56);
 		panel.add(txt_pw);
 
 		JLabel lblLogin = new JLabel("");
@@ -110,19 +109,24 @@ public class PerLogin02 { // 개인회원 로그인 화면
 					JOptionPane.showMessageDialog(null, "로그인 성공!! " + vo.getPER_NAME() + "님 환영합니다!", "정보",
 							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
-					researchPage researchPage = new researchPage();
+					PerResearchPage researchPage = new PerResearchPage();
 					researchPage.setPMVO(vo);
 					researchPage.frame.setVisible(true);
+					//PerResearchPage.main(null);
+//					researchPage.setPMVO(vo);
+//					researchPage.frame.setVisible(true);
+					
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해주세요", "경고", JOptionPane.WARNING_MESSAGE);
 				}
 
-				// frame.dispose();
-				// researchPage.main(null);
+//				 frame.dispose();
+//				 perresearchPage.main(null);
 
 			}
 		});
-		lblLogin.setBounds(177, 376, 418, 40);
+		lblLogin.setBounds(184, 374, 418, 40);
 		panel.add(lblLogin);
 
 		JLabel lbl_join = new JLabel("");
@@ -134,7 +138,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 			}
 		});
-		lbl_join.setBounds(469, 437, 110, 32);
+		lbl_join.setBounds(476, 435, 110, 32);
 		panel.add(lbl_join);
 
 	}

@@ -6,13 +6,20 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+<<<<<<< HEAD
 import javax.swing.JLabel;
+=======
+import javax.swing.JOptionPane;
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import RE.DAO_Manager;
+import RE.DAO_PerMember;
+import RE.MMVO;
 import RE.Main01;
-
+import RE.PMVO;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.awt.event.ActionEvent;
@@ -22,8 +29,13 @@ public class GroupLogin01 { // 관리자 로그인 화면
 
 	private JFrame frame;
 	private JTextField txt_id;
+<<<<<<< HEAD
 	private JPasswordField passwordField;
 
+=======
+	private JPasswordField txt_pw;
+	private DAO_Manager daomgr;
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 	/**
 	 * Launch the application.
 	 */
@@ -87,9 +99,40 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		lblNewLabel.setBounds(181, 376, 413, 36);
 		panel.add(lblNewLabel);
 		
+<<<<<<< HEAD
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(470, 440, 105, 25);
 		panel.add(lblNewLabel_1);
+=======
+		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		btn_login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				daomgr = new DAO_Manager();
+
+				// 로그인 성공여부 판별
+				// 로그인 실패시에는 null
+				// 로그인 성공시에는 객체를 가져온다
+				//MMVO vo = daomgr.login(id, pw);
+				
+
+				if (daomgr != null) {
+//					JOptionPane.showMessageDialog(null, "로그인 성공!! " + daomgr.getPER_major() + "님 환영합니다!", "정보",
+//							JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose();
+
+					//GroupAfterLogin01.setPMVO(vo);
+					//researchPage.frame.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해주세요", "경고", JOptionPane.WARNING_MESSAGE);
+				}
+
+			}
+		});
+		btn_login.setBounds(79, 169, 116, 23);
+		panel.add(btn_login);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("굴림", Font.PLAIN, 20));

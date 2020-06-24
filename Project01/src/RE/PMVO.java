@@ -15,6 +15,10 @@ public class PMVO {
 		PER_SECURITYNUM = pER_SECURITYNUM;
 	}
 	
+	public PMVO(String pER_ID) {
+		PER_ID = pER_ID;
+	}
+
 	public String getPER_ID() {
 		return PER_ID;
 	}
