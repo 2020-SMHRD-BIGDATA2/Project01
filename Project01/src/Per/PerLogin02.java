@@ -30,7 +30,6 @@ public class PerLogin02 { // 개인회원 로그인 화면
 	private JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField txt_pw;
-	
 
 	/**
 	 * Launch the application.
@@ -79,14 +78,14 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 		txt_id = new JTextField();
 		txt_id.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_id.setBounds(178, 232, 418, 56);
+		txt_id.setBounds(185, 230, 418, 56);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 
 		txt_pw = new JPasswordField();
 		txt_pw.setToolTipText("pw");
 		txt_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_pw.setBounds(178, 303, 417, 56);
+		txt_pw.setBounds(185, 301, 417, 56);
 		panel.add(txt_pw);
 
 		JLabel lblLogin = new JLabel("");
@@ -122,7 +121,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 			}
 		});
-		lblLogin.setBounds(177, 376, 418, 40);
+		lblLogin.setBounds(184, 374, 418, 40);
 		panel.add(lblLogin);
 
 		JLabel lbl_join = new JLabel("");
@@ -134,7 +133,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 
 			}
 		});
-		lbl_join.setBounds(469, 437, 110, 32);
+		lbl_join.setBounds(476, 435, 110, 32);
 		panel.add(lbl_join);
 
 	}
