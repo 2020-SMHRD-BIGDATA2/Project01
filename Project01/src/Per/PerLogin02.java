@@ -67,10 +67,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
-
+	
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 668);
 		frame.getContentPane().add(panel);
@@ -140,6 +137,10 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		});
 		lbl_join.setBounds(476, 435, 110, 32);
 		panel.add(lbl_join);
+
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
 
 	}
 }
