@@ -37,6 +37,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 	static MMVO vo;
 	JLabel lbl_image;
 	private JLabel lbl_join;
+
 	/**
 	 * Launch the application.
 	 */
@@ -76,8 +77,6 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		
-
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
@@ -105,8 +104,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 			public void actionPerformed(ActionEvent e) {
 				String id = txt_id.getText();
 				String pw = passwordField.getText();
-				
-	
+
 				DAO_Manager daomgr = new DAO_Manager();
 				vo = daomgr.login(id, pw);
 
@@ -146,7 +144,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		});
 		btn_login.setBounds(333, 376, 116, 23);
 		panel.add(btn_login);
-		
+
 		lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.addMouseListener(new MouseAdapter() {
 			@Override
@@ -158,7 +156,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		});
 		lbl_image.setBounds(12, 10, 760, 666);
 		panel.add(lbl_image);
-		
+
 		lbl_join = new JLabel("\uD68C\uC6D0\uAC00\uC785");
 		lbl_join.setBounds(463, 438, 132, 42);
 		panel.add(lbl_join);
