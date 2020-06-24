@@ -24,6 +24,7 @@ import Per.PerLogin02;
 import javax.swing.JRadioButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
 public class Main01 { // 김축제 메인 화면(시작화면)
 
@@ -65,7 +66,12 @@ public class Main01 { // 김축제 메인 화면(시작화면)
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		String path = "C:\\Users\\SMHRD\\git\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\src\\image\\Main.png";
+//		String path = "C:\\Users\\SMHRD\\git\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\src\\image\\Main.png";
+//		Image image = new ImageIcon(path).getImage();
+		
+		
+		URL url = this.getClass().getResource("../image/Main.png");
+		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
