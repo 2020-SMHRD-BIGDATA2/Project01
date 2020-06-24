@@ -17,6 +17,7 @@ import java.awt.CardLayout;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JScrollPane;
 
 public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, ÁÖ¸·¸®½ºÆ®, ÅÃ½ÃÇ®)
 
@@ -25,7 +26,6 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 	private JTextField txt_Search;
 	private JPanel panel_1;
 	private JTabbedPane tabbedPane;
-	private JPanel panel_2;
 	private JPanel panel_3;
 	private JPanel panel_5;
 	private JPanel panel_6;
@@ -94,27 +94,27 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		tabbedPane.setBounds(0, 0, 833, 461);
 		panel_1.add(tabbedPane);
 		
-		panel_2 = new JPanel();
-		tabbedPane.addTab("\uCD95\uC81C\uD3EC\uC2A4\uD130", null, panel_2, null);
-		panel_2.setLayout(null);
-		
 		panel_3 = new JPanel();
-		tabbedPane.addTab("ÃàÁ¦ÀÏÁ¤", null, panel_3, null);
+		tabbedPane.addTab("\uCD95\uC81C\uC815\uBCF4", null, panel_3, null);
 		panel_3.setLayout(null);
 		
 		panel_5 = new JPanel();
 		tabbedPane.addTab("ÁÖ¸·¸®½ºÆ®", null, panel_5, null);
-		panel_5.setLayout(null);
 		
 		JButton btn_reserve = new JButton("\uC8FC\uB9C9\uC608\uC57D");
+		btn_reserve.setBounds(719, 10, 97, 23);
 		btn_reserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				PerBookStore.main(null);
 			}
 		});
-		btn_reserve.setBounds(719, 10, 97, 23);
+		panel_5.setLayout(null);
 		panel_5.add(btn_reserve);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(814, 42, -807, 380);
+		panel_5.add(scrollPane_1);
 		
 		panel_6 = new JPanel();
 		tabbedPane.addTab("\uAC8C\uC2DC\uD310", null, panel_6, null);
@@ -142,6 +142,9 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		panel_7 = new JPanel();
 		panel_7.setBounds(33, 58, 764, 364);
 		panel_6.add(panel_7);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_7.add(scrollPane);
 		
 		JLabel lbl_delete = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
 		lbl_delete.addMouseListener(new MouseAdapter() {

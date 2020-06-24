@@ -111,6 +111,8 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		return cnt;
 	}
 
+//<<<<<<< HEAD
+//=======
 	public PMVO login(String id, String pw) {
 		PMVO vo = null;
 
@@ -141,6 +143,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		return vo;
 	}
 
+//>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 	public boolean idCheck(String id) { // 개인아이디 중복확인 메소드
 		boolean isCheck = false;
 		System.out.println(id);

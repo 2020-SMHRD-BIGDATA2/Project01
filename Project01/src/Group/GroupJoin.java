@@ -7,22 +7,27 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Per.PerLogin02;
+import RE.DAO_Manager;
+import RE.DAO_PerMember;
 import RE.Main01;
 
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
 
 public class GroupJoin { // 관리자 회원가입 화면
 
 	private JFrame frame;
 	private JTextField txt_id;
-	private JPasswordField txt_pw1;
+	private JPasswordField txt_pw;
 	private JTextField txt_Uni;
 	private JTextField txt_Major;
 	private JButton btn_Cancel;
-
+	private DAO_Manager daomgr = new DAO_Manager();
+	private JCheckBox ck_unique;
 	/**
 	 * Launch the application.
 	 */
@@ -69,27 +74,36 @@ public class GroupJoin { // 관리자 회원가입 화면
 		JButton btn_Complete = new JButton("\uC644\uB8CC");
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				JOptionPane.showMessageDialog(null, "회원가입을 축하드립니다..");
-				
-				frame.dispose();
-				GroupLogin01.main(null);
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				String uni = txt_Uni.getText();
+				String major = txt_Major.getText();
+			//	System.out.println(id + pw + uni+ major);
+				if (ck_unique.isSelected()) {
+					int cnt = daomgr.insert(id, pw,uni,major);
+					if (cnt > 0) {
+						frame.dispose();
+						PerLogin02.main(null);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "아이디 중복확인을 해주세요");
+				}
 			}
 		});
 		btn_Complete.setBounds(119, 208, 97, 23);
 		panel.add(btn_Complete);
 
-		txt_pw1 = new JPasswordField();
-		txt_pw1.setBounds(146, 73, 116, 21);
-		panel.add(txt_pw1);
+		txt_pw = new JPasswordField();
+		txt_pw.setBounds(146, 73, 116, 21);
+		panel.add(txt_pw);
 
 		txt_Uni = new JTextField();
-		txt_Uni.setBounds(146, 137, 116, 21);
+		txt_Uni.setBounds(146, 119, 116, 21);
 		panel.add(txt_Uni);
 		txt_Uni.setColumns(10);
 
 		txt_Major = new JTextField();
-		txt_Major.setBounds(146, 177, 116, 21);
+		txt_Major.setBounds(146, 162, 116, 21);
 		panel.add(txt_Major);
 		txt_Major.setColumns(10);
 
@@ -102,6 +116,25 @@ public class GroupJoin { // 관리자 회원가입 화면
 		});
 		btn_Cancel.setBounds(220, 208, 97, 23);
 		panel.add(btn_Cancel);
+		
+		ck_unique = new JCheckBox("\uC911\uBCF5\uCCB4\uD06C");
+		ck_unique.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (ck_unique.isSelected()) {
+					// 내 DB연결해서 일치하는 정보 있는지 확인하기 위한 dao 객체 생성
+					boolean isCheck = daomgr.idCheck(txt_id.getText()); // 개인
+					boolean isCheck2 = daomgr.idCheck2(txt_id.getText()); // 단체
+					if (isCheck || isCheck2) {
+						JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
+						ck_unique.setSelected(false);
+					} else {
+						JOptionPane.showMessageDialog(null, "사용 가능한 아이디 입니다.");
+					}
+				}
+				
+			}
+		});
+		ck_unique.setBounds(273, 34, 115, 23);
+		panel.add(ck_unique);
 	}
-
 }
