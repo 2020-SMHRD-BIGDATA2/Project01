@@ -153,7 +153,9 @@ public class PerJoin { // 개인화면 회원가입 화면
 				String name = txt_name.getText();
 				String phone = txt_phone.getText();
 				String SecurityNum = txt_snum.getText();
+				
 				System.out.println(id + pw + name + phone + SecurityNum);
+				
 				if (ck_unique.isSelected()) {
 					int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
 					System.out.println(cnt);
