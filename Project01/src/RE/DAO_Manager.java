@@ -78,4 +78,32 @@ public class DAO_Manager extends DBmethod {
 		}
 		return cnt;
 	}
+	
+	public MMVO login(String id, String pw) {
+		MMVO vo = null;
+		getConnection();
+
+		try {
+//			String sql = "Select * from PERSONALMEMBER where PER_ID = ? AND PER_PW = ?";
+			String sql = "select * from managermember where mgr_ID = '" + id + "' AND mgr_pw = '" + pw + "' ";
+			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, id);
+//			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				// 로그인 성공 시 들어옴
+				String mgr_ID = rs.getString(1);
+				String mgr_PW = rs.getString(2);
+				String uni_name = rs.getString(3);
+				String major_name = rs.getString(4);
+				
+				vo = new MMVO(mgr_ID, mgr_PW, uni_name, major_name);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return vo;
+	}
 }

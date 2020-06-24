@@ -127,7 +127,7 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 				JOptionPane.showMessageDialog(null, "주막이 등록되었습니다.");
 				
 				frame.dispose();
-				GroupAfterLogin02.main(null);
+				GroupAfterLogin02 ga = new GroupAfterLogin02(); //main이 없으니까 생성자로 불러오는 것
 			}
 		});
 		btn_Complete.setBounds(239, 40, 97, 23);
@@ -144,7 +144,7 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 				if (n== JOptionPane.YES_OPTION) {
 					JOptionPane.showMessageDialog(null, "취소되었습니다.");
 					frame.dispose();
-					GroupAfterLogin02.main(null);
+					GroupAfterLogin02 ga = new GroupAfterLogin02();
 					
 				}
 				

@@ -3,39 +3,39 @@ package RE;
 public class MMVO {
 	String id;
 	String pw;
-	int uniNum;
-	int majorNum;
-	public MMVO(String id, String pw, int uniNum, int majorNum) {
-		super();
+	String uniName;
+	String majorName;
+	
+	public MMVO(String id, String pw, String uniName, String majorName) {
 		this.id = id;
 		this.pw = pw;
-		this.uniNum = uniNum;
-		this.majorNum = majorNum;
+		this.uniName = uniName;
+		this.majorName = majorName;
 	}
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getPw() {
 		return pw;
+	}
+	public String getUniName() {
+		return uniName;
+	}
+	public String getMajorName() {
+		return majorName;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
-	public int getUniNum() {
-		return uniNum;
+	public void setUniName(String uniName) {
+		this.uniName = uniName;
 	}
-	public void setUniNum(int uniNum) {
-		this.uniNum = uniNum;
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
 	}
-	public int getMajorNum() {
-		return majorNum;
-	}
-	public void setMajorNum(int majorNum) {
-		this.majorNum = majorNum;
-	}
-	
+
 
 }

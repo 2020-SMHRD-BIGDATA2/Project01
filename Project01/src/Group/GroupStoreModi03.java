@@ -123,7 +123,7 @@ public class GroupStoreModi03 { // 주막 등록한 것 수정하는 화면
 				JOptionPane.showMessageDialog(null, "수정이 완료되었습니다.");
 
 				frame.dispose();
-				GroupAfterLogin02.main(null);
+				GroupAfterLogin02 ga = new GroupAfterLogin02();
 			}
 		});
 		btn_Complete.setBounds(80, 208, 97, 23);
@@ -139,7 +139,7 @@ public class GroupStoreModi03 { // 주막 등록한 것 수정하는 화면
 				if (n == JOptionPane.YES_OPTION) {
 					JOptionPane.showMessageDialog(null, "취소되었습니다.");
 					frame.dispose();
-					GroupAfterLogin02.main(null);
+					GroupAfterLogin02 ga = new GroupAfterLogin02();
 
 				}
 
