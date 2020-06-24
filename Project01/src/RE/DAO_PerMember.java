@@ -16,25 +16,31 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		super.close();
 	}
 
-	public int del(String id, String pw) { // 개인 계정 삭제
+	public int del(String id, String pw) { // 계정 삭제
 
 		try {
 			getConnection();
 			
-//			boolean isCheck = daopm.idCheck(txt_id.getText()); // 개인
-//			boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
-//			if (isCheck || isCheck2) {
-//				JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
-//				ck_unique.setSelected(false);
-//			} else {
-//				JOptionPane.showMessageDialog(null, "사용 가능한 아이디 입니다.");
-//			}
-
-			if (id.equals(pw)) {
-				String sql = "delete from personalmember where per_id = ? and per_pw = ?";
+			boolean isCheck = idCheck(id); // 개인
+			boolean isCheck2 = idCheck2(id); // 단체
+			boolean pwCheck = pwCheck(id); // 개인
+			boolean pwCheck2 = pwCheck2(id); // 단체
+			
+			if (isCheck && pwCheck) {
+				String sql = "delete from personalmember where per_id = '"+id+"' and per_pw = '"+pw+"' ";
 				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, "ksk");/* 로그인 한 계정 */
-				psmt.setString(2, "1234");/* 입력한 비밀번호 */
+				int cnt = psmt.executeUpdate();
+
+				if (cnt > 0) {
+					System.out.println(cnt);
+					return cnt;
+				}
+			
+			} 
+			if (isCheck2 && pwCheck2) {
+		
+				String sql = "delete from managermember where per_id = '"+id+"' and per_pw = '"+pw+"' ";
+				psmt = conn.prepareStatement(sql);
 				int cnt = psmt.executeUpdate();
 
 				if (cnt > 0) {
@@ -42,7 +48,9 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 					return cnt;
 				}
 			}
-
+			else {
+				JOptionPane.showMessageDialog(null, "일치하는 정보가 존재하지 않습니다.");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,6 +59,9 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		}
 		return 0;
 	}
+
+
+
 
 	public int update(String pw, String name, String phone) { // 본인 계정 정보 수정
 
@@ -100,8 +111,8 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		return cnt;
 	}
 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 	public PMVO login(String id, String pw) {
 		PMVO vo = null;
 
@@ -132,16 +143,16 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		return vo;
 	}
 
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
+//>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 	public boolean idCheck(String id) { // 개인아이디 중복확인 메소드
 		boolean isCheck = false;
 		System.out.println(id);
 		getConnection();
-		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
-//		String sql = "select * from personalmember where per_ID = '"+id+"' ";
+//		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
+		String sql = "select * from personalmember where per_ID = '"+id+"' ";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
+//			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				isCheck = true;
@@ -155,6 +166,25 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 
 		return isCheck;
 	}
+	private boolean pwCheck(String pw) {
+		boolean isCheck = false;
+		getConnection();
+//		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
+		String sql = "select * from personalmember where per_pw = '"+pw+"' ";
+		try {
+			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				isCheck = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return isCheck;
+	}
 
 	public boolean idCheck2(String id) { // 관리자아이디 중복확인 메소드
 		boolean isCheck = false;
@@ -163,7 +193,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		String sql = "select * from managermember where mgr_ID = '"+id+"' ";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
+//			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
 				isCheck = true;
@@ -175,6 +205,26 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 			close();
 		}
 
+		return isCheck;
+	}
+	
+	private boolean pwCheck2(String pw) {
+		boolean isCheck = false;
+		getConnection();
+//		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
+		String sql = "select * from managermember where per_pw = '"+pw+"' ";
+		try {
+			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				isCheck = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 		return isCheck;
 	}
 
