@@ -20,11 +20,45 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JScrollPane;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+
+import RE.Main01;
+import oracle.net.aso.e;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JTabbedPane;
+import javax.swing.JLayeredPane;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.net.URL;
+
+import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextArea;
+import javax.swing.JTable;
+import javax.swing.JRadioButton;
 
 public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, ÁÖ¸·¸®½ºÆ®, ÅÃ½ÃÇ®)
 
 	public JFrame frame;
-	private JTextField txt_Search;
 	private JPanel panel_1;
 	private JTabbedPane tabbedPane;
 	private JPanel panel_3;
@@ -36,6 +70,10 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 	private JPanel panel_7;
 	private PMVO vo;
 	private JLabel lbl_info;
+	private JScrollPane scrollPane;
+	private JTable table;
+	private JTextField txt_uni;
+	private JLabel lbl_line;
 
 	public void setPMVO(PMVO vo) {
 		this.vo = PerLogin02.vo;
@@ -51,36 +89,22 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 897, 657);
+		frame.setBounds(100, 100, 800, 729);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 10, 857, 598);
+		panel.setBounds(12, 10, 760, 668);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		txt_Search = new JTextField();
-		txt_Search.setBounds(12, 10, 200, 40);
-		txt_Search.setText("\uAC80\uC0C9\uD560 \uB300\uD559\uC744 \uC785\uB825\uD558\uC138\uC694...");
-		txt_Search.setColumns(10);
-		panel.add(txt_Search);
-
-		JButton btn_Search = new JButton("\uAC80\uC0C9");
-		btn_Search.setBounds(222, 10, 69, 40);
-		btn_Search.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panel.add(btn_Search);
-
 		panel_1 = new JPanel();
-		panel_1.setBounds(12, 127, 833, 461);
+		panel_1.setBounds(17, 124, 742, 527);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 0, 833, 461);
+		tabbedPane.setBounds(0, 0, 730, 461);
 		panel_1.add(tabbedPane);
 
 		panel_3 = new JPanel();
@@ -91,7 +115,7 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		tabbedPane.addTab("ÁÖ¸·¸®½ºÆ®", null, panel_5, null);
 
 		JButton btn_reserve = new JButton("\uC8FC\uB9C9\uC608\uC57D");
-		btn_reserve.setBounds(719, 10, 97, 23);
+		btn_reserve.setBounds(612, 11, 97, 23);
 		btn_reserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -101,9 +125,30 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		panel_5.setLayout(null);
 		panel_5.add(btn_reserve);
 
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(814, 42, -807, 380);
+		JLabel lbl_post = new JLabel();
+		lbl_post.setBounds(57, 55, 287, 329);
+		panel_3.add(lbl_post);
+
+		lbl_line = new JLabel();
+		lbl_line.setBounds(356, 55, 287, 329);
+		panel_3.add(lbl_line);
+
+		String colName[] = { "¹øÈ£", "´ëÇÐÀÌ¸§", "ÇÐ°ú", "ÁÖ¸·ÀÌ¸§" };
+		DefaultTableModel model = new DefaultTableModel(colName, 0);
+		JTable table = new JTable(model);
+
+		JScrollPane scrollPane_1 = new JScrollPane(table); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
+		scrollPane_1.setBounds(12, 42, 697, 380);
+
+		JFrame frame = new JFrame("Table Test");
+		frame.setPreferredSize(new Dimension(500, 400));
+		frame.setLocation(500, 400);
+
 		panel_5.add(scrollPane_1);
+		add(scrollPane_1);
+//		JScrollPane scrollPane_1 = new JScrollPane();
+//		scrollPane_1.setBounds(814, 42, -807, 380);
+//		panel_5.add(scrollPane_1);
 
 		panel_6 = new JPanel();
 		tabbedPane.addTab("\uAC8C\uC2DC\uD310", null, panel_6, null);
@@ -115,7 +160,7 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 
 			}
 		});
-		btn_Enroll.setBounds(700, 21, 97, 23);
+		btn_Enroll.setBounds(599, 13, 97, 23);
 		panel_6.add(btn_Enroll);
 
 		txt_SearchCarpool = new JTextField();
@@ -128,13 +173,17 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		panel_6.add(btn_SearchCarpool);
 
 		panel_7 = new JPanel();
-		panel_7.setBounds(33, 58, 764, 364);
+		panel_7.setBounds(33, 58, 661, 364);
 		panel_6.add(panel_7);
+		panel_7.setLayout(null);
 
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(3, 3, 654, 357);
 		panel_7.add(scrollPane);
+//		JScrollPane scrollPane = new JScrollPane();
+//		panel_7.add(scrollPane);
 
-		JLabel lbl_delete = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
+		JLabel lbl_delete = new JLabel("");
 		lbl_delete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -144,10 +193,10 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 
 			}
 		});
-		lbl_delete.setBounds(788, 10, 57, 15);
-		panel.add(lbl_delete);
+		lbl_delete.setBounds(508, 20, 95, 27);
+		panel_1.add(lbl_delete);
 
-		JLabel lbl_logout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		JLabel lbl_logout = new JLabel("");
 		lbl_logout.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -155,17 +204,88 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 				Main01.main(null);
 			}
 		});
-		lbl_logout.setBounds(715, 10, 57, 15);
-		panel.add(lbl_logout);
+		lbl_logout.setBounds(630, 19, 92, 26);
+		panel_1.add(lbl_logout);
+		txt_uni = new JTextField();
+		 lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4.");
 
-		lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4.");
+		 lbl_info.setBounds(580, 10, 123, 15);
+		 panel.add(lbl_info);
 
-		DAO_PerMember daopm = new DAO_PerMember();
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(17, 10, 135, 39);
+		panel.add(comboBox);
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 
-//		PMVO pmvo = new PMVO();
+				String text = (String) comboBox.getSelectedItem();
+				// ÄÞº¸¹Ú½º ¼±ÅÃÇÑ ±ÛÀÚ °¡Á®¿À´Â ÄÚµå
+				if (text.equals("°í·Á´ë")) {
 
-//		lbl_info.setText(daopm.login(id, pw).ge+"È¯¿µÇÕ´Ï´Ù");
-		lbl_info.setBounds(580, 10, 123, 15);
-		panel.add(lbl_info);
+					text = (String) comboBox.getSelectedItem();
+					txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
+					txt_uni.setBounds(220, 10, 300, 30);
+					panel_3.add(txt_uni);
+					txt_uni.setColumns(10);
+
+					URL url_post = this.getClass().getResource("../univ_image/ko_1.jpg");
+					String path_post = url_post.getPath();
+					Image image_post = new ImageIcon(path_post).getImage();
+					lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+
+					URL url_line = this.getClass().getResource("../univ_image/ko_line.png");
+					String path_line = url_line.getPath();
+					Image image_line = new ImageIcon(path_line).getImage();
+					lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+
+				} else if (text.equals("ÇÑ¾ç´ë")) {
+
+					text = (String) comboBox.getSelectedItem();
+					txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
+					txt_uni.setBounds(220, 10, 300, 30);
+					panel_3.add(txt_uni);
+					txt_uni.setColumns(10);
+
+					URL url_post = this.getClass().getResource("../univ_image/han_2.jpg");
+					String path_post = url_post.getPath();
+					Image image_post = new ImageIcon(path_post).getImage();
+					lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+
+					URL url_line = this.getClass().getResource("../univ_image/han_line.png");
+					String path_line = url_line.getPath();
+					Image image_line = new ImageIcon(path_line).getImage();
+					lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+
+				} else if (text.equals("¼­°­´ë")) {
+
+					text = (String) comboBox.getSelectedItem();
+					txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
+					txt_uni.setBounds(220, 10, 300, 30);
+					panel_3.add(txt_uni);
+					txt_uni.setColumns(10);
+
+					URL url_post = this.getClass().getResource("../univ_image/seo.jpg");
+					String path_post = url_post.getPath();
+					Image image_post = new ImageIcon(path_post).getImage();
+					lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+
+					URL url_line = this.getClass().getResource("../univ_image/seo_line.png");
+					String path_line = url_line.getPath();
+					Image image_line = new ImageIcon(path_line).getImage();
+					lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+//                 lbl_line.setBounds(12, 10, 760, 666);
+//                  frame.getContentPane().add(lbl_line);
+
+				}
+			}
+		});
+		comboBox.setModel(new DefaultComboBoxModel(
+				new String[] { "\uACE0\uB824\uB300", "\uC11C\uAC15\uB300", "\uD55C\uC591\uB300" }));
+
+	}
+
+	private void add(JScrollPane scrollPane_1) {
+		// TODO Auto-generated method stub
+
 	}
 }
