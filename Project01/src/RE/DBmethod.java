@@ -16,8 +16,8 @@ public class DBmethod { //커넥션 getConnection() & 클로즈close()
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String db_id = "psh";
-			String db_pw = "psh";
+			String db_id = "ksk";
+			String db_pw = "ksk";
 			conn = DriverManager.getConnection(db_url, db_id, db_pw);
 			System.out.println("연결성공");
 		} catch (ClassNotFoundException e) {

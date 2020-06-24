@@ -89,35 +89,6 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		return cnt;
 	}
 
-	public PMVO login(String id, String pw) {
-		PMVO vo = null;
-
-		getConnection();
-
-		try {
-			String sql = "Select * from PERSONALMEMBER where PER_ID = ? AND PER_PW = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			psmt.setString(2, pw);
-			rs = psmt.executeQuery();
-			if (rs.next()) {
-				// 로그인 성공 시 들어옴
-				String PER_ID = rs.getString(1);
-				String PER_PW = rs.getString(2);
-				String PER_NAME = rs.getString(3);
-				String PER_PHONE = rs.getString(4);
-				String PER_SECURITYNUM = rs.getString(5);
-				vo = new PMVO(PER_ID, PER_PW, PER_NAME, PER_PHONE, PER_SECURITYNUM);
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return vo;
-	}
-
 	public boolean idCheck(String id) { // 개인아이디 중복확인 메소드
 		boolean isCheck = false;
 		getConnection();

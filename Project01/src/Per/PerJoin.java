@@ -156,7 +156,9 @@ public class PerJoin { // 개인화면 회원가입 화면
 				System.out.println(id + pw + name + phone + SecurityNum);
 				if (ck_unique.isSelected()) {
 					int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
+					System.out.println(cnt);
 					if (cnt > 0) {
+						System.out.println("a");
 						frame.dispose();
 						PerLogin02.main(null);
 
