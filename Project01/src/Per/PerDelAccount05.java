@@ -15,23 +15,18 @@ import RE.Main01;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
-<<<<<<< HEAD
-=======
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
+
 
 public class PerDelAccount05 { // È¸¿ø Å»Åð
 
 	private JFrame frame;
 	private JPasswordField txt_pw;
-<<<<<<< HEAD
-	private JButton btn_Cancel;
-=======
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 	private JTextField txt_id;
 
 	/**
@@ -81,10 +76,6 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		panel.setLayout(null);
 
 		txt_pw = new JPasswordField();
-<<<<<<< HEAD
-		txt_pw.setBounds(114, 100, 173, 21);
-		panel.add(txt_pw);
-=======
 		txt_pw.setBounds(178, 303, 417, 56);
 		panel.add(txt_pw);
 
@@ -92,33 +83,22 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		txt_id.setBounds(178, 231, 416, 55);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
-<<<<<<< HEAD
-		JButton btn_Del = new JButton("\uD0C8\uD1F4");
-		btn_Del.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JLabel lbl_Del = new JLabel("");
+		lbl_Del.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
 				DAO_PerMember daopm = new DAO_PerMember();
 				
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
-				
+
 				int cnt = daopm.del(id, pw);
 				if (cnt > 0) {
 					int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
-=======
-		JLabel lbl_Del = new JLabel("");
-		lbl_Del.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-//				if(txt_pw1.equals(txt_pw2)) {
-//				°èÁ¤»èÁ¦
-				int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
-						JOptionPane.INFORMATION_MESSAGE);
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
-<<<<<<< HEAD
 					if (n== JOptionPane.YES_OPTION) {
 						JOptionPane.showMessageDialog(null, "Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
 						frame.dispose();
@@ -128,40 +108,15 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 						frame.dispose();
 						PerResearchPage.main(null);
 						System.exit(0);
-						
-=======
-				if (n == JOptionPane.YES_OPTION) {
-					JOptionPane.showMessageDialog(null, "Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
-					frame.dispose();
-					Main01.main(null);
-
-				} else {
-					frame.dispose();
-					PerResearchPage.main(null);
-//				System.exit(0);
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
-
-<<<<<<< HEAD
+				
 					}
 				}
-
-				
-=======
-//			}
-//			
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
-				}
-
 			}
-<<<<<<< HEAD
-		);
-		btn_Del.setBounds(114, 169, 73, 23);
-		panel.add(btn_Del);
-=======
+
 		});
+		
 		lbl_Del.setBounds(199, 434, 169, 38);
 		panel.add(lbl_Del);
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
 		JLabel lbl_Cancel = new JLabel("");
 		lbl_Cancel.addMouseListener(new MouseAdapter() {
@@ -173,17 +128,9 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 
 			}
 		});
-<<<<<<< HEAD
-		btn_Cancel.setBounds(214, 169, 73, 23);
-		panel.add(btn_Cancel);
 		
-		txt_id = new JTextField();
-		txt_id.setBounds(114, 57, 173, 21);
-		panel.add(txt_id);
-		txt_id.setColumns(10);
-=======
+
 		lbl_Cancel.setBounds(401, 434, 169, 38);
 		panel.add(lbl_Cancel);
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 	}
 }

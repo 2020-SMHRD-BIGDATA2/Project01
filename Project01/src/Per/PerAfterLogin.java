@@ -119,10 +119,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				if (btn_Cancel.isSelected()) {
-					JOptionPane.showMessageDialog(null, btn_Cancel.getText(), "SEX", JOptionPane.INFORMATION_MESSAGE);
 
-				}
 
 			}
 		});
