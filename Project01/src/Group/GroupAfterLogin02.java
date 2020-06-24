@@ -1,8 +1,10 @@
 package Group;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -17,6 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
 public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 
@@ -57,6 +60,9 @@ public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+
+		
+		
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 410, 241);
 		frame.getContentPane().add(panel);
