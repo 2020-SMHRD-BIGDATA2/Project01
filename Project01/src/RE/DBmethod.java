@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DBmethod { //커넥션 getConnection() & 클로즈close()
+public class DBmethod { // 커넥션 getConnection() & 클로즈close()
 
 	Connection conn;
 	PreparedStatement psmt;
@@ -16,9 +16,9 @@ public class DBmethod { //커넥션 getConnection() & 클로즈close()
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 //<<<<<<< HEAD
-			String db_url = "jdbc:oracle:thin:@172.30.1.56:1521:xe";
-			String db_id = "psh";
-			String db_pw = "psh";
+			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String db_id = "ksk";
+			String db_pw = "ksk";
 //=======
 //			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
 //			String db_id = "ksk";

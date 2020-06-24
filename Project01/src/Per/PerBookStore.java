@@ -16,9 +16,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.event.AncestorListener;
+
+import RE.DAO_PerMember;
+import RE.DAO_Store;
+
+import javax.swing.event.AncestorEvent;
 
 public class PerBookStore { // 주막예약화면
-
+	private JComboBox combo_time;
+	private JComboBox combo_name;
+	private JComboBox combo_table;
 	private JFrame frame;
 
 	/**
@@ -57,10 +65,6 @@ public class PerBookStore { // 주막예약화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
-
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
@@ -70,7 +74,23 @@ public class PerBookStore { // 주막예약화면
 		lbl_Book.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				String time = (String) combo_time.getSelectedItem();
+				// int time = Integer.parseInt((String)combo_time.getSelectedItem());
+				String name = (String) combo_name.getSelectedItem();
+				String table = (String) combo_table.getSelectedItem();
 
+				System.out.println("클릭");
+				DAO_Store daobook = new DAO_Store();
+				int cnt = daobook.booking(table, time);
+
+				if (cnt > 0) {
+					System.out.println("a");
+					frame.dispose();
+					PerLogin02.main(null);
+				} else {
+
+				}
+				System.out.println(cnt);
 				JOptionPane.showMessageDialog(null, "예약이완료되었습니다.");
 
 				frame.dispose();
@@ -78,21 +98,22 @@ public class PerBookStore { // 주막예약화면
 
 			}
 		});
-		
-		JComboBox combo_time = new JComboBox();
-		combo_time.setModel(new DefaultComboBoxModel(new String[] {"17:00~18:00", "18:00~19:00", "19:00~20:00", "20:00~21:00", "21:00~22:00"}));
-		combo_time.setBounds(183, 231, 418, 56);
+
+		combo_time = new JComboBox();
+		combo_time.setModel(new DefaultComboBoxModel(
+				new String[] { "17:00~18:00", "18:00~19:00", "19:00~20:00", "20:00~21:00", "21:00~22:00" }));
+		combo_time.setBounds(194, 242, 418, 56);
 		panel.add(combo_time);
-		
-		JComboBox combo_name = new JComboBox();
-		combo_name.setBounds(183, 159, 418, 56);
+
+		combo_name = new JComboBox();
+		combo_name.setBounds(194, 170, 418, 56);
 		panel.add(combo_name);
-		
-		JComboBox combo_table = new JComboBox();
-		combo_table.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
-		combo_table.setBounds(184, 302, 417, 56);
+
+		combo_table = new JComboBox();
+		combo_table.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
+		combo_table.setBounds(194, 313, 417, 56);
 		panel.add(combo_table);
-		lbl_Book.setBounds(205, 436, 168, 37);
+		lbl_Book.setBounds(215, 446, 168, 37);
 		panel.add(lbl_Book);
 
 		JLabel lbl_Cancel = new JLabel("");
@@ -113,7 +134,12 @@ public class PerBookStore { // 주막예약화면
 
 			}
 		});
-		lbl_Cancel.setBounds(405, 436, 168, 37);
+		lbl_Cancel.setBounds(416, 446, 168, 37);
 		panel.add(lbl_Cancel);
+
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(12, 10, 760, 666);
+		// panel.add
+		panel.add(lbl_image);
 	}
 }
