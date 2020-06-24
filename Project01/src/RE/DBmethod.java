@@ -8,22 +8,16 @@ import java.sql.SQLException;
 
 public class DBmethod { // 커넥션 getConnection() & 클로즈close()
 
-	Connection conn;
-	PreparedStatement psmt;
-	ResultSet rs;
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
 
 	public void getConnection() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-//<<<<<<< HEAD
 			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String db_id = "ksk";
-			String db_pw = "ksk";
-//=======
-//			String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-//			String db_id = "ksk";
-//			String db_pw = "ksk";
-//>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
+			String db_id = "psh";
+			String db_pw = "psh";
 			conn = DriverManager.getConnection(db_url, db_id, db_pw);
 			System.out.println("연결성공");
 		} catch (ClassNotFoundException e) {

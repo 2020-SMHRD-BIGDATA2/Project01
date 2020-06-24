@@ -77,30 +77,30 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 		txt_id = new JTextField();
 		txt_id.setText("ID");
-		txt_id.setBounds(207, 109, 417, 56);
+		txt_id.setBounds(218, 120, 419, 57);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 
 		txt_name = new JTextField();
 		txt_name.setText("\uC774\uB984");
 		txt_name.setColumns(10);
-		txt_name.setBounds(207, 301, 419, 55);
+		txt_name.setBounds(218, 313, 419, 57);
 		panel.add(txt_name);
 
 		txt_phone = new JTextField();
 		txt_phone.setText("\uD578\uB4DC\uD3F0\uBC88\uD638");
 		txt_phone.setColumns(10);
-		txt_phone.setBounds(207, 380, 418, 57);
+		txt_phone.setBounds(219, 390, 418, 57);
 		panel.add(txt_phone);
 
 		txt_snum = new JTextField();
 		txt_snum.setText("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
 		txt_snum.setColumns(10);
-		txt_snum.setBounds(207, 460, 417, 56);
+		txt_snum.setBounds(218, 471, 417, 56);
 		panel.add(txt_snum);
 
 		txt_pw = new JPasswordField();
-		txt_pw.setBounds(207, 220, 417, 56);
+		txt_pw.setBounds(218, 226, 417, 57);
 		panel.add(txt_pw);
 
 //<<<<<<< HEAD
@@ -111,6 +111,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 //>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 		// action listener....check박스에....달아놓다니....이건...배신이에요...
 		// 왜죠,,선생님,,,
+		ck_unique.setOpaque(false);
 		ck_unique.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -131,7 +132,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 		});
 
-		ck_unique.setBounds(204, 179, 21, 23);
+		ck_unique.setBounds(215, 186, 21, 23);
 		panel.add(ck_unique);
 
 		JLabel lblComplete = new JLabel("");
@@ -162,7 +163,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 			}
 		});
-		lblComplete.setBounds(209, 553, 185, 34);
+		lblComplete.setBounds(214, 564, 185, 34);
 		panel.add(lblComplete);
 
 		JLabel lblCancel = new JLabel("");
@@ -174,7 +175,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 			}
 		});
-		lblCancel.setBounds(411, 552, 185, 34);
+		lblCancel.setBounds(422, 564, 185, 34);
 		panel.add(lblCancel);
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));

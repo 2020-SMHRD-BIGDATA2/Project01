@@ -22,7 +22,6 @@ import java.net.URL;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-
 public class PerDelAccount05 { // È¸¿ø Å»Åð
 
 	private JFrame frame;
@@ -36,7 +35,7 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
+
 					PerDelAccount05 window = new PerDelAccount05();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -66,58 +65,52 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
-
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		txt_pw = new JPasswordField();
-		txt_pw.setBounds(178, 303, 417, 56);
+		txt_pw.setBounds(191, 312, 417, 56);
 		panel.add(txt_pw);
 
 		txt_id = new JTextField();
-		txt_id.setBounds(178, 231, 416, 55);
+		txt_id.setBounds(191, 239, 416, 56);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 
 		JLabel lbl_Del = new JLabel("");
 		lbl_Del.addMouseListener(new MouseAdapter() {
-			
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				DAO_PerMember daopm = new DAO_PerMember();
-				
+
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
 
 				int cnt = daopm.del(id, pw);
-				
-				
+
 				if (cnt > 0) {
 					int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
 							JOptionPane.INFORMATION_MESSAGE);
 
-					if (n== JOptionPane.YES_OPTION) {
+					if (n == JOptionPane.YES_OPTION) {
 						JOptionPane.showMessageDialog(null, "Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
 						frame.dispose();
 						Main01.main(null);
-						
+
 					} else {
 						frame.dispose();
-						//PerResearchPage.main(null);
+						// PerResearchPage.main(null);
 						System.exit(0);
-				
+
 					}
 				}
 			}
 
 		});
-		
-		lbl_Del.setBounds(199, 434, 169, 38);
+
+		lbl_Del.setBounds(210, 444, 169, 38);
 		panel.add(lbl_Del);
 
 		JLabel lbl_Cancel = new JLabel("");
@@ -126,13 +119,16 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 			public void mouseClicked(MouseEvent arg0) {
 
 				frame.dispose();
-				//PerResearchPage.main(null);
+				// PerResearchPage.main(null);
 
 			}
 		});
-		
 
-		lbl_Cancel.setBounds(401, 434, 169, 38);
+		lbl_Cancel.setBounds(410, 444, 169, 38);
 		panel.add(lbl_Cancel);
+
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
 	}
 }

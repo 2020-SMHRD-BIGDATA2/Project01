@@ -1,2 +1,1 @@
-select *
-from personalmember
+select * from tab
