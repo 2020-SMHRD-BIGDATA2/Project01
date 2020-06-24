@@ -70,9 +70,9 @@ public class celeb {
 		DefaultTableModel model = new DefaultTableModel(colName, 0);
 		JTable table_list = new JTable(new DefaultTableModel(
 			new Object[][] {
-				{"\uC2F8\uC774", "\uAC00\uC218", "\uC804\uB0A8\uB300", "20.12.32"},
-				{"HOT", "\uAC00\uC218", "\uC870\uC120\uB300", "20.12.33"},
-				{"SES", "\uAC00\uC218", "\uD638\uB0A8\uB300", "20.12.34"},
+				{"PSY", "Singer", "AUniv", "20.12.32"},
+				{"HOT", "Singer", "BUniv", "20.12.33"},
+				{"SES", "Singer", "CUniv", "20.12.34"},
 			},
 			new String[] {
 				"\uC774\uB984", "\uBD84\uC57C", "\uD559\uAD50", "\uB0A0\uC790"
