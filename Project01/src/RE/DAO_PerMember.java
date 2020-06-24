@@ -234,16 +234,4 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		}
 		return isCheck;
 	}
-<<<<<<< HEAD
-
-
-
-
-	public PMVO cancelBooking() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	}
-=======
 }
->>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
