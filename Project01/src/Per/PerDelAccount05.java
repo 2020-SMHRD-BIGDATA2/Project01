@@ -7,18 +7,20 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
+import RE.DAO_PerMember;
 import RE.Main01;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class PerDelAccount05 { // È¸¿ø Å»Åð
 
 	private JFrame frame;
-	private JPasswordField txt_pw1;
-	private JPasswordField txt_pw2;
+	private JPasswordField txt_pw;
 	private JButton btn_Cancel;
+	private JTextField txt_id;
 
 	/**
 	 * Launch the application.
@@ -58,38 +60,41 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
-		txt_pw1 = new JPasswordField();
-		txt_pw1.setBounds(114, 67, 173, 21);
-		panel.add(txt_pw1);
-
-		txt_pw2 = new JPasswordField();
-		txt_pw2.setBounds(114, 116, 173, 21);
-		panel.add(txt_pw2);
+		txt_pw = new JPasswordField();
+		txt_pw.setBounds(114, 100, 173, 21);
+		panel.add(txt_pw);
 
 		JButton btn_Del = new JButton("\uD0C8\uD1F4");
 		btn_Del.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				if(txt_pw1.equals(txt_pw2)) {
-//					°èÁ¤»èÁ¦
-				int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
-						JOptionPane.INFORMATION_MESSAGE);
+				DAO_PerMember daopm = new DAO_PerMember();
+				
+				String id = txt_id.getText();
+				String pw = txt_pw.getText();
+				
+				int cnt = daopm.del(id, pw);
+				if (cnt > 0) {
+					int n = JOptionPane.showConfirmDialog(null, "Á¤¸» Å»ÅðÇÏ½Ã°Ú½À´Ï±î", "È®ÀÎ", JOptionPane.YES_NO_OPTION,
+							JOptionPane.INFORMATION_MESSAGE);
 
-				if (n== JOptionPane.YES_OPTION) {
-					JOptionPane.showMessageDialog(null, "Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
-					frame.dispose();
-					Main01.main(null);
-					
-				} else {
-					frame.dispose();
-					PerResearchPage.main(null);
-//					System.exit(0);
-					
+					if (n== JOptionPane.YES_OPTION) {
+						JOptionPane.showMessageDialog(null, "Å»Åð°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+						frame.dispose();
+						Main01.main(null);
+						
+					} else {
+						frame.dispose();
+						PerResearchPage.main(null);
+						System.exit(0);
+						
 
-//				}
-//				
+					}
+				}
+
+				
 				}
 			}
-		});
+		);
 		btn_Del.setBounds(114, 169, 73, 23);
 		panel.add(btn_Del);
 
@@ -103,6 +108,10 @@ public class PerDelAccount05 { // È¸¿ø Å»Åð
 		});
 		btn_Cancel.setBounds(214, 169, 73, 23);
 		panel.add(btn_Cancel);
+		
+		txt_id = new JTextField();
+		txt_id.setBounds(114, 57, 173, 21);
+		panel.add(txt_id);
+		txt_id.setColumns(10);
 	}
-
 }

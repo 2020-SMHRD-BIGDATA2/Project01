@@ -180,8 +180,8 @@ public class PerJoin { // 개인화면 회원가입 화면
 				if (ck_unique.isSelected()) {
 					// 내 DB연결해서 일치하는 정보 있는지 확인하기 위한 dao 객체 생성
 					boolean isCheck = daopm.idCheck(txt_id.getText()); // 개인
-					boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
-					if (isCheck || isCheck2) {
+//					boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
+					if (isCheck ) {
 						JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
 						ck_unique.setSelected(false);
 					} else {
