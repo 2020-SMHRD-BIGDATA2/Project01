@@ -94,7 +94,7 @@ public class Main01 { // 김축제 메인 화면(시작화면)
 		ButtonGroup group = new ButtonGroup();
 		group.add(rd_Group);
 
-		JLabel lblLogin = new JLabel("New label");
+		JLabel lblLogin = new JLabel("\uD68C\uC6D0\uAC00\uC785");
 		lblLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

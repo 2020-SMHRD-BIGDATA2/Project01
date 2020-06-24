@@ -7,30 +7,41 @@ import javax.swing.JOptionPane;
 
 public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > update > insert
 
+	@Override
+	public void getConnection() {
+		// TODO Auto-generated method stub
+		super.getConnection();
+	}
+
+	@Override
+	public void close() {
+		// TODO Auto-generated method stub
+		super.close();
+	}
 
 	public int del(String id, String pw) { // 계정 삭제
 
 		try {
 			getConnection();
-			
+
 			boolean isCheck = idCheck(id); // 개인
 			boolean isCheck2 = idCheck2(id); // 단체
 			boolean pwCheck = pwCheck(id); // 개인
 			boolean pwCheck2 = pwCheck2(id); // 단체
-			
+
 			if (isCheck && pwCheck) {
 				System.out.println("개인회원 일치성공");
-				System.out.println("꾸꺠럘"+id);
 				String sql = "delete from personalmember where per_id = '"+id+"'";
 				psmt = conn.prepareStatement(sql);
 				int cnt = psmt.executeUpdate();
+				System.out.println("update");
 
 				if (cnt > 0) {
 					System.out.println(cnt);
 					return cnt;
 				}
-			
-			} 
+
+			}
 //			if (isCheck2 && pwCheck2) {
 //				System.out.println("관리자회원 일치성공");
 //				String sql = "delete from managermember where mgr_id = '"+id+"' ";
@@ -53,9 +64,6 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		}
 		return 0;
 	}
-
-
-
 
 	public int update(String pw, String name, String phone) { // 본인 계정 정보 수정
 
@@ -114,7 +122,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 
 		try {
 //			String sql = "Select * from PERSONALMEMBER where PER_ID = ? AND PER_PW = ?";
-			String sql = "select * from personalmember where per_ID = '"+id+"' AND per_pw = '"+pw+"' ";
+			String sql = "select * from personalmember where per_ID = '" + id + "' AND per_pw = '" + pw + "' ";
 			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, id);
 //			psmt.setString(2, pw);
@@ -143,29 +151,30 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		System.out.println(id);
 		getConnection();
 //		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
-		String sql = "select * from personalmember where per_ID = '"+id+"' ";
+		String sql = "select * from personalmember where per_ID = '" + id + "' ";
 		try {
 			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-			System.out.println("per_id");
+				System.out.println("per_id");
 				isCheck = true;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 
 		return isCheck;
 	}
+
 	private boolean pwCheck(String pw) {
 		boolean isCheck = false;
 		getConnection();
 //		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
-		String sql = "select * from personalmember where per_pw = '"+pw+"' ";
+		String sql = "select * from personalmember where per_pw = '" + pw + "' ";
 		try {
 			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, id);
@@ -176,7 +185,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return isCheck;
@@ -186,7 +195,7 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		boolean isCheck = false;
 		getConnection();
 //		String sql = "select * from managermember where mgr_ID = ? ";
-		String sql = "select * from managermember where mgr_ID = '"+id+"' ";
+		String sql = "select * from managermember where mgr_ID = '" + id + "' ";
 		try {
 			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, id);
@@ -198,18 +207,18 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 
 		return isCheck;
 	}
-	
+
 	private boolean pwCheck2(String pw) {
 		boolean isCheck = false;
 		getConnection();
 //		String sql = "select * from PERSONALMEMBER where PER_ID = ? ";
-		String sql = "select * from managermember where mgr_pw = '"+pw+"' ";
+		String sql = "select * from managermember where mgr_pw = '" + pw + "' ";
 		try {
 			psmt = conn.prepareStatement(sql);
 //			psmt.setString(1, id);
@@ -220,9 +229,9 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return isCheck;
 	}
-	}
+}
