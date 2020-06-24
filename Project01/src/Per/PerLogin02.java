@@ -16,18 +16,21 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import RE.DAO_PerMember;
+import RE.DBmethod;
 import RE.PMVO;
 import RE.researchPage;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
 public class PerLogin02 { // 개인회원 로그인 화면
 
 	private JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField txt_pw;
+	
 
 	/**
 	 * Launch the application.
@@ -61,7 +64,8 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		String path = "C:\\Users\\SMHRD\\git\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\Project01\\src\\image\\PerLogin.png";
+		URL url = this.getClass().getResource("../image/PerLogin.png");
+		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));

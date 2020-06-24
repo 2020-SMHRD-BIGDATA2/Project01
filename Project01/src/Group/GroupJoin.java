@@ -19,7 +19,6 @@ public class GroupJoin { // 관리자 회원가입 화면
 	private JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField txt_pw1;
-	private JPasswordField txt_emailID;
 	private JTextField txt_Uni;
 	private JTextField txt_Major;
 	private JButton btn_Cancel;
@@ -83,11 +82,6 @@ public class GroupJoin { // 관리자 회원가입 화면
 		txt_pw1 = new JPasswordField();
 		txt_pw1.setBounds(146, 73, 116, 21);
 		panel.add(txt_pw1);
-
-		txt_emailID = new JPasswordField();
-		txt_emailID.setText("");
-		txt_emailID.setBounds(146, 104, 116, 21);
-		panel.add(txt_emailID);
 
 		txt_Uni = new JTextField();
 		txt_Uni.setBounds(146, 137, 116, 21);
