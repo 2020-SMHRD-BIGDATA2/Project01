@@ -35,6 +35,7 @@ public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 	private JRadioButton rd_Celeb;
 	MMVO vo;
 	private JLabel lbl_info2;
+	JLabel lbl_image ;
 
 	public void setMMVO(MMVO vo) {
 		this.vo = vo;
@@ -60,9 +61,7 @@ public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
+		
 
 		// panel.add(lbl_image);
 
@@ -131,6 +130,10 @@ public class GroupAfterLogin02 { // 관리자가 로그인시 보이는 화면
 		lbl_info2 = new JLabel("~\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4.");
 		lbl_info2.setBounds(457, 112, 144, 21);
 		panel.add(lbl_info2);
+		
+		lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
 
 	}
 }

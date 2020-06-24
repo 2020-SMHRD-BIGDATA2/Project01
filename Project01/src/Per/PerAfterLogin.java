@@ -25,7 +25,7 @@ import java.net.URL;
 
 public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txt_Search;
 	JRadioButton rd_Uni;
 	JRadioButton rd_Celeb;
@@ -129,7 +129,14 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		panel.add(lblCancel);
 
 		JLabel lblSearch = new JLabel("");
-		lblSearch.setBounds(475, 371, 51, 63);
+		lblSearch.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				// 입력 받은 값이랑 일치하는 정보 받게하기
+			}
+		});
+		lblSearch.setBounds(481, 382, 51, 63);
 		panel.add(lblSearch);
 
 		lbl_info = new JLabel();

@@ -105,9 +105,9 @@ public class PerLogin02 { // 개인회원 로그인 화면
 					JOptionPane.showMessageDialog(null, "로그인 성공!! " + vo.getPER_NAME() + "님 환영합니다!", "정보",
 							JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose();
-					PerResearchPage researchPage = new PerResearchPage();
-					researchPage.setPMVO(vo);
-					researchPage.frame.setVisible(true);
+					PerAfterLogin PerAfterLogin = new PerAfterLogin();
+					PerAfterLogin.setPMVO(vo);
+					PerAfterLogin.frame.setVisible(true);
 					// PerResearchPage.main(null);
 //					researchPage.setPMVO(vo);
 //					researchPage.frame.setVisible(true);
