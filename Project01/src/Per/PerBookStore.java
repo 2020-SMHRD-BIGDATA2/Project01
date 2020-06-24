@@ -20,6 +20,7 @@ import javax.swing.event.AncestorListener;
 
 import RE.DAO_PerMember;
 import RE.DAO_Store;
+import RE.PMVO;
 
 import javax.swing.event.AncestorEvent;
 
@@ -92,9 +93,8 @@ public class PerBookStore { // 주막예약화면
 				}
 				System.out.println(cnt);
 				JOptionPane.showMessageDialog(null, "예약이완료되었습니다.");
-
+				PMVO vo = PerLogin02.vo;
 				frame.dispose();
-				PerAfterLogin.main(null);
 
 			}
 		});
@@ -127,7 +127,7 @@ public class PerBookStore { // 주막예약화면
 				if (n == JOptionPane.YES_OPTION) {
 					JOptionPane.showMessageDialog(null, "취소가 완료되었습니다.");
 					frame.dispose();
-					PerAfterLogin.main(null);
+					// PerAfterLogin.main(null);
 
 				} else {
 				}

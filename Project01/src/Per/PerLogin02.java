@@ -19,7 +19,6 @@ import RE.DAO_PerMember;
 import RE.DBmethod;
 import RE.PMVO;
 
-
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -30,6 +29,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 	private JFrame frame;
 	private JTextField txt_id;
 	private JPasswordField txt_pw;
+	static PMVO vo;
 
 	/**
 	 * Launch the application.
@@ -67,7 +67,6 @@ public class PerLogin02 { // 개인회원 로그인 화면
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-	
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 668);
 		frame.getContentPane().add(panel);
@@ -100,7 +99,7 @@ public class PerLogin02 { // 개인회원 로그인 화면
 				// 로그인 성공여부 판별
 				// 로그인 실패시에는 null
 				// 로그인 성공시에는 객체를 가져온다
-				PMVO vo = dao.login(id, pw);
+				vo = dao.login(id, pw);
 
 				if (vo != null) {
 					JOptionPane.showMessageDialog(null, "로그인 성공!! " + vo.getPER_NAME() + "님 환영합니다!", "정보",
@@ -109,11 +108,10 @@ public class PerLogin02 { // 개인회원 로그인 화면
 					PerResearchPage researchPage = new PerResearchPage();
 					researchPage.setPMVO(vo);
 					researchPage.frame.setVisible(true);
-					//PerResearchPage.main(null);
+					// PerResearchPage.main(null);
 //					researchPage.setPMVO(vo);
 //					researchPage.frame.setVisible(true);
-					
-					
+
 				} else {
 					JOptionPane.showMessageDialog(null, "아이디와 비밀번호를 다시 확인해주세요", "경고", JOptionPane.WARNING_MESSAGE);
 				}
