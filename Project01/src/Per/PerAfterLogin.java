@@ -62,10 +62,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
-		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setBounds(12, 10, 760, 666);
-		frame.getContentPane().add(lbl_image);
-
+	
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
@@ -74,7 +71,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		txt_Search = new JTextField();
 		txt_Search.setText("Search");
 		txt_Search.setHorizontalAlignment(SwingConstants.LEFT);
-		txt_Search.setBounds(249, 371, 227, 63);
+		txt_Search.setBounds(262, 382, 227, 63);
 		panel.add(txt_Search);
 		txt_Search.setColumns(10);
 
@@ -129,5 +126,10 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		JLabel lblSearch = new JLabel("");
 		lblSearch.setBounds(475, 371, 51, 63);
 		panel.add(lblSearch);
+		
+		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
+
 	}
 }
