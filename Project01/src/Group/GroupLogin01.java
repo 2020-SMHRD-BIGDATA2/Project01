@@ -76,6 +76,8 @@ public class GroupLogin01 { // 관리자 로그인 화면
 				String id = txt_id.getText();
 				String pw = txt_pw.getText();
 				daomgr = new DAO_Manager();
+				
+			
 
 				// 로그인 성공여부 판별
 				// 로그인 실패시에는 null
