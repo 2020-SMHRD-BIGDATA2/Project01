@@ -208,7 +208,7 @@ public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, �
 		scrollPane_board.setBounds(3, 3, 654, 357);
 		panel_7.add(scrollPane_board);
 		txt_uni = new JTextField();
-		lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569\uB2C8\uB2E4.");
+		lbl_info = new JLabel("");
 
 		JFrame frame_01 = new JFrame("Table Test");
 		frame_01.setPreferredSize(new Dimension(500, 400));

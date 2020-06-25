@@ -1,5 +1,6 @@
 package Per;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -19,6 +20,7 @@ import javax.swing.table.TableModel;
 
 import RE.DAO_Show;
 import RE.Main01;
+import RE.PMVO;
 
 import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
@@ -26,16 +28,26 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
+import javax.swing.JTextField;
 
 public class celeb {
 
 	public JFrame frame;
 	private JLabel lbl_image;
 	private ArrayList<DAO_Show> list2;
+	private ArrayList<String> list;
+	private PMVO vo;
+	private JLabel lbl_info;
+	private JLabel lbl_Star;
+	private String ffff;
+	
+	public void setPMVO(PMVO vo) {
+		this.vo = vo;
+		System.out.println(vo.getPER_ID());
+		lbl_info.setForeground(new Color(255, 255, 255));
+		lbl_info.setText(vo.getPER_NAME() + "님 환영합니다.");
+	}
 
-	/**
-	 * Launch the application.
-	 */
 //	public static void main(String[] args) {
 //		EventQueue.invokeLater(new Runnable() {
 //			public void run() {
@@ -52,6 +64,10 @@ public class celeb {
 	public void setList(ArrayList<DAO_Show> list2) {
 		this.list2 = list2;
 
+	}
+	
+	public void setText(String text) {
+		ffff = text;
 	}
 
 //	public void setList(ArrayList<String> list) {
@@ -85,7 +101,7 @@ public class celeb {
 		panel.setBounds(12, 10, 760, 666);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-
+		
 		String colName[] = { "이름", "분야", "학교", "날짜" };
 		DefaultTableModel model = new DefaultTableModel(colName, 0);
 		JTable table_list = new JTable(new DefaultTableModel(
@@ -106,22 +122,45 @@ public class celeb {
 		panel.add(scrollPane);
 
 		lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.setFont(new Font("굴림", Font.PLAIN, 16));
-		lbl_image.setBounds(12, 10, 760, 666);
-		panel.add(lbl_image);
 
 		JLabel lbl_home = new JLabel("");
 		lbl_home.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
 				frame.dispose();
 				Main01.main(null);
-
 			}
 		});
 		lbl_home.setBounds(75, 525, 57, 61);
 		panel.add(lbl_home);
+
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				frame.dispose();
+				PerAfterLogin back = new PerAfterLogin();
+				// PerResearchPage.setList(list);
+				back.frame.setVisible(true);
+			}
+		});
+		lblNewLabel.setBounds(654, 534, 57, 50);
+		panel.add(lblNewLabel);
+
+		lbl_info = new JLabel("New label");
+		lbl_info.setBounds(524, 108, 167, 27);
+		panel.add(lbl_info);
+
+		lbl_Star = new JLabel("Star");
+		lbl_Star.setBounds(75, 120, 220, 27);
+		lbl_Star.setText(ffff);
+		panel.add(lbl_Star);
+		
+		lbl_image.setFont(new Font("굴림", Font.PLAIN, 16));
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
+		
+		
 
 	}
 }
