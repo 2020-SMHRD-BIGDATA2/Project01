@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import RE.DAO_Store;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -27,6 +30,9 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 	private JButton btn_Complete;
 	private JButton btn_Cancel;
 	private JLabel lbl_image;
+	private DAO_Store daostore;
+
+
 
 	/**
 	 * Launch the application.
@@ -63,7 +69,7 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		 * 이미지경로
 		 */
 
-		URL url = this.getClass().getResource("../image/GroupStoreEnroll.png");
+		URL url = this.getClass().getResource("../image/GroupstroeEnroll.png");
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 		
@@ -77,6 +83,7 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		txt_name.setText("\uC8FC\uB9C9 \uC774\uB984");
 		panel.add(txt_name);
 		txt_name.setColumns(10);
+		
 
 		txt_location = new JTextField();
 		txt_location.setBounds(79, 41, 116, 21);
@@ -137,10 +144,15 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				String store_name = txt_name.getText();
+				
+				daostore.setName(store_name);
+				
 				JOptionPane.showMessageDialog(null, "주막이 등록되었습니다.");
 				
 				frame.dispose();
 				GroupAfterLogin02 ga = new GroupAfterLogin02(); //main이 없으니까 생성자로 불러오는 것
+				
 			}
 		});
 		panel.add(btn_Complete);
@@ -172,4 +184,6 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 	      lbl_image.setBounds(0, 0, 772, 676);
 	      panel.add(lbl_image);
 	}
+	
+	
 }

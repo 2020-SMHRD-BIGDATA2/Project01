@@ -116,6 +116,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
       	@Override
       	public void mouseClicked(MouseEvent e) {
       		boolean rd_uni = rd_Uni.isSelected();
+      		boolean rd_celeb = rd_Celeb.isSelected();
 			if (rd_uni) {
 				uni_name = txt_Search.getText();
 				DAO_Manager dao = new DAO_Manager();
@@ -130,7 +131,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 				JOptionPane.showMessageDialog(null, "검색 분야를 선택해주세요!");
 			}
 			
-			boolean rd_celeb = rd_Celeb.isSelected();
+			
 			if (rd_celeb) {
 				celeb_name = txt_Search.getText();
 				DAO_Manager dao = new DAO_Manager();
