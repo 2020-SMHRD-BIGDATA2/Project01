@@ -238,9 +238,7 @@ public class GroupJoin { // 관리자 회원가입 화면
       ck_unique.setBounds(168, 246, 21, 21);
       panel.add(ck_unique);
 
-      JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-      lbl_image.setBounds(12, 10, 760, 666);
-      panel.add(lbl_image);
+     
       
       lbl_home = new JLabel("");
       lbl_home.addMouseListener(new MouseAdapter() {
@@ -254,10 +252,19 @@ public class GroupJoin { // 관리자 회원가입 화면
       panel.add(lbl_home);
       
       lbl_return = new JLabel("");
+      lbl_return.addMouseListener(new MouseAdapter() {
+      	@Override
+      	public void mouseClicked(MouseEvent e) {
+      		frame.dispose();
+      		Main01.main(null);
+      	}
+      });
       lbl_return.setBounds(657, 595, 57, 61);
       panel.add(lbl_return);
       
-     
+      JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+      lbl_image.setBounds(12, 10, 760, 666);
+      panel.add(lbl_image);
       
 
       

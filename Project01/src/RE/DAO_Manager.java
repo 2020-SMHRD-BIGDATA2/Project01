@@ -110,22 +110,23 @@ public class DAO_Manager extends DBmethod {
 		return vo;
 	}
 
-
 	public ArrayList<String> getUni_name(String uni_name) {
 
 		ArrayList<String> list = new ArrayList<String>();
 		getConnection();
 		System.out.println(uni_name);
 		try {
-			String sql = "select * from university where UNI_NAME = '"+uni_name+"'";
+			String sql = "select * from university where UNI_NAME = '" + uni_name + "'";
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				String name = rs.getString(2);
 				list.add(name);
+				System.out.println(list.get(0) + "DB에서 uniname 가져옴");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("uni_name 가져오기 실패");
 			e.printStackTrace();
 		} finally {
 			close();

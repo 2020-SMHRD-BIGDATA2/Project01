@@ -125,19 +125,26 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 					uni_name = txt_Search.getText();
 					DAO_Manager dao = new DAO_Manager();
 					ArrayList<String> list = dao.getUni_name(uni_name);
-
-					frame.dispose();
-					PerResearchPage PerResearchPage = new PerResearchPage();
-					PerResearchPage.setList(list);
-					PerResearchPage.frame.setVisible(true);
+					System.out.println(list.get(0)+"안녕여기얌");
+					System.out.println("라디오박스 체크 됌");
+					if (list.get(0).equals(uni_name)) {
+						System.out.println("uni_name과 일치");
+						frame.dispose();
+						PerResearchPage PerResearchPage = new PerResearchPage();
+						PerResearchPage.setList(list);
+						PerResearchPage.frame.setVisible(true);
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "일치하는 정보가 없습니다.");
+					}
+	
 				}
-				if (rd_celeb) {
+				else if (rd_celeb) {
 					celeb_name = txt_Search.getText();
 					// DAO_Manager dao = new DAO_Manager();
 					// ArrayList<DAO_Show> list2 = dao.getCeleb_name(celeb_name);
 
 					frame.dispose();
-					
 					celeb celeb = new celeb(celeb_name);
 					celeb.setText(celeb_name);
 					celeb.frame.setVisible(true);

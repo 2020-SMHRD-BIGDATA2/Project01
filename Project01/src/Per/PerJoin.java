@@ -44,6 +44,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 	private JLabel lbl_txt_phone;
 	private JLabel lbl_txt_snum;
 	private JLabel lbl_home;
+	private JLabel lbl_home2;
 
 	/**
 	 * Launch the application.
@@ -194,22 +195,21 @@ public class PerJoin { // 개인화면 회원가입 화면
 		ck_unique_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				// 아이디중복확인
-				if (ck_unique.isSelected()) {
 					// 내 DB연결해서 일치하는 정보 있는지 확인하기 위한 dao 객체 생성
 					boolean isCheck = daopm.idCheck(txt_id.getText()); // 개인
-//					boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
-					if (isCheck) {
+					boolean isCheck2 = daopm.idCheck2(txt_id.getText()); // 단체
+					if (isCheck || isCheck2) {
 						JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
 						ck_unique.setSelected(false);
 					} else {
 						JOptionPane.showMessageDialog(null, "사용 가능한 아이디 입니다.");
 					}
 				}
-
-			}
-
+					
+				
 		});
+
+
 
 		ck_unique_1.setBounds(167, 197, 21, 23);
 		panel.add(ck_unique_1);
@@ -260,14 +260,26 @@ public class PerJoin { // 개인화면 회원가입 화면
 		lblCancel.setBounds(653, 608, 62, 34);
 		panel.add(lblCancel);
 
+		
+		
+		lbl_home2 = new JLabel("");
+		lbl_home2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				frame.dispose();
+				Main01.main(null);
+
+			}
+		});
+		lbl_home2.setBounds(70, 588, 70, 68);
+		panel.add(lbl_home2);
+		
+
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.addMouseListener(new MouseAdapter() {
 		});
 		lbl_image.setBounds(12, 10, 760, 666);
 		panel.add(lbl_image);
-		
-
-
 		
 		
 		
