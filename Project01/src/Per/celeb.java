@@ -81,14 +81,14 @@ public class celeb {
    /**
     * Create the application.
     */
-   public celeb() {
-      initialize();
+   public celeb(String text) {
+      initialize(text);
    }
 
    /**
     * Initialize the contents of the frame.
     */
-   private void initialize() {
+   private void initialize(String text) {
       frame = new JFrame();
       frame.setBounds(100, 100, 800, 729);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -153,7 +153,7 @@ public class celeb {
 
       lbl_Star = new JLabel("Star");
       lbl_Star.setBounds(75, 120, 220, 27);
-      lbl_Star.setText(ffff);
+      lbl_Star.setText(text);
       panel.add(lbl_Star);
       
       lbl_image.setFont(new Font("±¼¸²", Font.PLAIN, 16));
