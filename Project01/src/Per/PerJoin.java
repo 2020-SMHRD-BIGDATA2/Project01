@@ -22,6 +22,9 @@ import RE.Main01;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
+import java.awt.Color;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
 
 public class PerJoin { // 개인화면 회원가입 화면
 
@@ -33,6 +36,14 @@ public class PerJoin { // 개인화면 회원가입 화면
 	private JPasswordField txt_pw;
 	private DAO_PerMember daopm = new DAO_PerMember();
 	private JCheckBox ck_unique;
+	private JCheckBox ck_unique_1;
+	private JLabel lblNewLabel;
+	private JLabel lbl_txt_id;
+	private JLabel lbl_txt_pw;
+	private JLabel lbl_txt_name;
+	private JLabel lbl_txt_phone;
+	private JLabel lbl_txt_snum;
+	private JLabel lbl_home;
 
 	/**
 	 * Launch the application.
@@ -75,44 +86,112 @@ public class PerJoin { // 개인화면 회원가입 화면
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
+		lbl_txt_id = new JLabel("\uC544\uC774\uB514\uB97C \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_id.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_id.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_id.setVisible(false);
+			}
+		});
+		lbl_txt_id.setBounds(165, 128, 458, 57);
+		panel.add(lbl_txt_id);
+		
+		lbl_txt_pw = new JLabel("\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_pw.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_pw.setVisible(false);
+			}
+		});
+		lbl_txt_pw.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_pw.setBounds(165, 234, 458, 57);
+		panel.add(lbl_txt_pw);
+		
+		lbl_txt_name = new JLabel("\uC774\uB984\uC744 \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_name.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_name.setVisible(false);
+			}
+		});
+		lbl_txt_name.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_name.setBounds(165, 301, 458, 63);
+		panel.add(lbl_txt_name);
+		
+		lbl_txt_phone = new JLabel("\uD578\uB4DC\uD3F0 \uBC88\uD638\uB97C \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_phone.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_phone.setVisible(false);
+			}
+		});
+		lbl_txt_phone.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_phone.setBounds(165, 382, 451, 56);
+		panel.add(lbl_txt_phone);
+		
+		lbl_txt_snum = new JLabel("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638\uB97C \uC785\uB825\uD558\uC138\uC694");
+		lbl_txt_snum.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_snum.setVisible(false);
+			}
+		});
+		lbl_txt_snum.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_snum.setBounds(165, 460, 458, 56);
+		panel.add(lbl_txt_snum);
+		
+		
+		
 		txt_id = new JTextField();
-		txt_id.setText("ID");
-		txt_id.setBounds(218, 120, 419, 57);
+		txt_id.setFont(new Font("굴림", Font.PLAIN, 20));
+		txt_id.setBounds(165, 128, 459, 57);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
+		txt_id.setBorder(null);
+		txt_id.setOpaque(false);
 
 		txt_name = new JTextField();
-		txt_name.setText("\uC774\uB984");
+		txt_name.setFont(new Font("굴림", Font.PLAIN, 20));
 		txt_name.setColumns(10);
-		txt_name.setBounds(218, 313, 419, 57);
+		txt_name.setBounds(165, 299, 458, 63);
 		panel.add(txt_name);
-
+		txt_name.setBorder(null);
+		txt_name.setOpaque(false);
+		
 		txt_phone = new JTextField();
-		txt_phone.setText("\uD578\uB4DC\uD3F0\uBC88\uD638");
+		txt_phone.setFont(new Font("굴림", Font.PLAIN, 20));
 		txt_phone.setColumns(10);
-		txt_phone.setBounds(219, 390, 418, 57);
+		txt_phone.setBounds(165, 380, 458, 57);
 		panel.add(txt_phone);
+		txt_phone.setBorder(null);
+		txt_phone.setOpaque(false);
 
 		txt_snum = new JTextField();
-		txt_snum.setText("\uC8FC\uBBFC\uB4F1\uB85D\uBC88\uD638");
+		txt_snum.setFont(new Font("굴림", Font.PLAIN, 20));
 		txt_snum.setColumns(10);
-		txt_snum.setBounds(218, 471, 417, 56);
+		txt_snum.setBounds(165, 458, 458, 56);
 		panel.add(txt_snum);
+		txt_snum.setBorder(null);
+		txt_snum.setOpaque(false);
 
 		txt_pw = new JPasswordField();
-		txt_pw.setBounds(218, 226, 417, 57);
+		txt_pw.setFont(new Font("굴림", Font.PLAIN, 20));
+		txt_pw.setBounds(165, 232, 458, 57);
 		panel.add(txt_pw);
-
+		txt_pw.setBorder(null);
+		txt_pw.setOpaque(false);
 //<<<<<<< HEAD
 		ck_unique = new JCheckBox("");
 //=======
 
-		ck_unique = new JCheckBox("\uC544\uC774\uB514 \uC911\uBCF5\uD655\uC778");
+		ck_unique_1 = new JCheckBox("\uC544\uC774\uB514 \uC911\uBCF5\uD655\uC778");
+		ck_unique_1.setBackground(Color.WHITE);
 //>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 		// action listener....check박스에....달아놓다니....이건...배신이에요...
 		// 왜죠,,선생님,,,
-		ck_unique.setOpaque(false);
-		ck_unique.addActionListener(new ActionListener() {
+		ck_unique_1.setOpaque(false);
+		ck_unique_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				// 아이디중복확인
@@ -132,8 +211,8 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 		});
 
-		ck_unique.setBounds(215, 186, 21, 23);
-		panel.add(ck_unique);
+		ck_unique_1.setBounds(167, 197, 21, 23);
+		panel.add(ck_unique_1);
 
 		JLabel lblComplete = new JLabel("");
 		lblComplete.addMouseListener(new MouseAdapter() {
@@ -163,9 +242,12 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 			}
 		});
-		lblComplete.setBounds(214, 564, 185, 34);
+		lblComplete.setBounds(165, 545, 458, 34);
 		panel.add(lblComplete);
-
+		
+		
+		
+		
 		JLabel lblCancel = new JLabel("");
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -175,7 +257,7 @@ public class PerJoin { // 개인화면 회원가입 화면
 
 			}
 		});
-		lblCancel.setBounds(422, 564, 185, 34);
+		lblCancel.setBounds(653, 608, 62, 34);
 		panel.add(lblCancel);
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
@@ -183,5 +265,14 @@ public class PerJoin { // 개인화면 회원가입 화면
 		});
 		lbl_image.setBounds(12, 10, 760, 666);
 		panel.add(lbl_image);
+		
+
+
+		
+		
+		
+	
+		
+
 	}
 }

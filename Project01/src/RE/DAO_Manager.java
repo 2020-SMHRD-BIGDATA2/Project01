@@ -110,6 +110,7 @@ public class DAO_Manager extends DBmethod {
 		return vo;
 	}
 
+
 	public ArrayList<String> getUni_name(String uni_name) {
 
 		ArrayList<String> list = new ArrayList<String>();

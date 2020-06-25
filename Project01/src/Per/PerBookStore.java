@@ -20,15 +20,19 @@ import javax.swing.event.AncestorListener;
 
 import RE.DAO_PerMember;
 import RE.DAO_Store;
+import RE.Main01;
 import RE.PMVO;
 
 import javax.swing.event.AncestorEvent;
+import java.awt.Color;
 
 public class PerBookStore { // 주막예약화면
 	private JComboBox combo_time;
 	private JComboBox combo_name;
 	private JComboBox combo_table;
 	private JFrame frame;
+	private JLabel lbl_home;
+	private JLabel lbl_return;
 
 	/**
 	 * Launch the application.
@@ -62,7 +66,7 @@ public class PerBookStore { // 주막예약화면
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		URL url = this.getClass().getResource("../image/PerBook.png");
+		URL url = this.getClass().getResource("../image/PerBookStore.png");
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
@@ -98,22 +102,40 @@ public class PerBookStore { // 주막예약화면
 
 			}
 		});
-
+		
+		
+		/*콤보박스 색 변경하는 방법 (지윤이한테 물어보기)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		*/
 		combo_time = new JComboBox();
 		combo_time.setModel(new DefaultComboBoxModel(
 				new String[] { "17:00~18:00", "18:00~19:00", "19:00~20:00", "20:00~21:00", "21:00~22:00" }));
-		combo_time.setBounds(194, 242, 418, 56);
+		combo_time.setBounds(191, 294, 418, 56);
 		panel.add(combo_time);
 
 		combo_name = new JComboBox();
-		combo_name.setBounds(194, 170, 418, 56);
+		combo_name.setBackground(Color.WHITE);
+		combo_name.setBounds(191, 199, 418, 56);
 		panel.add(combo_name);
 
 		combo_table = new JComboBox();
 		combo_table.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
-		combo_table.setBounds(194, 313, 417, 56);
+		combo_table.setBounds(191, 391, 417, 56);
 		panel.add(combo_table);
-		lbl_Book.setBounds(215, 446, 168, 37);
+		lbl_Book.setBounds(209, 488, 168, 37);
 		panel.add(lbl_Book);
 
 		JLabel lbl_Cancel = new JLabel("");
@@ -134,12 +156,34 @@ public class PerBookStore { // 주막예약화면
 
 			}
 		});
-		lbl_Cancel.setBounds(416, 446, 168, 37);
+		lbl_Cancel.setBounds(419, 488, 168, 37);
 		panel.add(lbl_Cancel);
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.setBounds(12, 10, 760, 666);
 		// panel.add
 		panel.add(lbl_image);
+		
+		lbl_home = new JLabel("");
+		lbl_home.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_home.setBounds(77, 535, 57, 61);
+		panel.add(lbl_home);
+		
+		lbl_return = new JLabel("");
+		lbl_return.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_return.setBounds(659, 546, 57, 50);
+		panel.add(lbl_return);
 	}
 }
