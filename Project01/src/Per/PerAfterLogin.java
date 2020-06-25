@@ -36,9 +36,10 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 	private PMVO vo;
 	private JLabel lbl_info;
 	public DBmethod dbm;
+////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
 	static String uni_name;
 	static String celeb_name;
-
+////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
 	/**
 	 * Launch the application.
 	 */
@@ -119,7 +120,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		lblCancel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-
+			////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
 				DAO_PerMember dao = new DAO_PerMember();
 		
 				int cnt = 0;
@@ -131,6 +132,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 				}
 
 			}
+		////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
 		});
 		lblCancel.setBounds(413, 230, 170, 37);
 		panel.add(lblCancel);

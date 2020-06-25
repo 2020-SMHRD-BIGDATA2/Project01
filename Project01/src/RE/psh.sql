@@ -1,1 +1,1 @@
-select * from university
+select * from show

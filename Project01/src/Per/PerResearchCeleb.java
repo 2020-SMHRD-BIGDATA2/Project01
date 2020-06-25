@@ -15,17 +15,19 @@ public class PerResearchCeleb {
 	/**
 	 * Launch the application.
 	 */
+////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
 	public void setList(ArrayList<DAO_Show> list2) {
 		this.list2 = list2;
 		
 	}
+	
 //	public void setList(ArrayList<String> list) {
 //		this.list = list;
 //		String[] value = new String[list.size()];
 //		for (int i = 0; i < value.length; i++) {
 //			value[i] = list.get(i);
 //		}
-
+////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
 	/**
 	 * Create the application.
 	 */
