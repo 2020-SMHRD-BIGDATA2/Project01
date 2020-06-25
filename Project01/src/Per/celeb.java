@@ -14,13 +14,19 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import javax.swing.table.TableModel;
+
+import RE.Main01;
+
 import javax.swing.ScrollPaneConstants;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class celeb {
 
 	private JFrame frame;
 	private JLabel lbl_image;
+	private JLabel lbl_return;
 
 	/**
 	 * Launch the application.
@@ -53,7 +59,7 @@ public class celeb {
 		frame.setBounds(100, 100, 800, 729);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		URL url = this.getClass().getResource("../image/Cel.png");
+		URL url = this.getClass().getResource("../image/Celeb_bg.png");
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 		
@@ -97,6 +103,29 @@ public class celeb {
 		lbl_image.setFont(new Font("±¼¸²", Font.PLAIN, 16));
 		lbl_image.setBounds(12, 10, 760, 666);
 		panel.add(lbl_image);
+		
+		lbl_return = new JLabel("");
+		lbl_return.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				PerAfterLogin per = new PerAfterLogin();
+				per.frame.setVisible(true);
+			}
+		});
+		lbl_return.setBounds(657, 546, 57, 48);
+		panel.add(lbl_return);
+		
+		JLabel lbl_home = new JLabel("");
+		lbl_home.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_home.setBounds(73, 534, 57, 60);
+		panel.add(lbl_home);
 		
 	}
 }
