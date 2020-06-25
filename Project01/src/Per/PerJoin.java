@@ -201,8 +201,10 @@ public class PerJoin { // 개인화면 회원가입 화면
 					if (isCheck || isCheck2) {
 						JOptionPane.showMessageDialog(null, "중복되는 아이디가 존재합니다.");
 						ck_unique.setSelected(false);
+						System.out.println("중복아이디 존재");
 					} else {
 						JOptionPane.showMessageDialog(null, "사용 가능한 아이디 입니다.");
+						System.out.println("사용가능아이디");
 					}
 				}
 					
@@ -226,12 +228,13 @@ public class PerJoin { // 개인화면 회원가입 화면
 				String SecurityNum = txt_snum.getText();
 
 				System.out.println(id + pw + name + phone + SecurityNum);
-
-				if (ck_unique.isSelected()) {
+				System.out.println(ck_unique.isSelected());
+				if (ck_unique_1.isSelected()) {
+					System.out.println("insert 이전");
 					int cnt = daopm.insert(id, pw, name, phone, SecurityNum);
-					System.out.println(cnt);
+					System.out.println(cnt+"cnt 개수");
 					if (cnt > 0) {
-						System.out.println("a");
+						System.out.println("아이디 DB에 넣어짐");
 						frame.dispose();
 						PerLogin02.main(null);
 

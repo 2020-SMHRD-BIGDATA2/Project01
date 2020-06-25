@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JButton;
 import javax.swing.table.TableModel;
 
+import RE.CelebVO;
+import RE.DAO_Manager;
 import RE.DAO_Show;
 import RE.Main01;
 import RE.PMVO;
@@ -40,13 +42,19 @@ public class celeb {
    private JLabel lbl_info;
    private JLabel lbl_Star;
    private String ffff;
+   private JScrollPane scrollPane;
+   private CelebVO cvo;
+   private DAO_Manager daoMgr;
    
    public void setPMVO(PMVO vo) {
       this.vo = vo;
       System.out.println(vo.getPER_ID());
       lbl_info.setForeground(new Color(255, 255, 255));
       lbl_info.setText(vo.getPER_NAME() + "님 환영합니다.");
+      
    }
+   
+   
 
 //   public static void main(String[] args) {
 //      EventQueue.invokeLater(new Runnable() {
@@ -67,7 +75,8 @@ public class celeb {
    }
    
    public void setText(String text) {
-      ffff = text;
+
+      
    }
 
 //   public void setList(ArrayList<String> list) {
@@ -92,7 +101,9 @@ public class celeb {
       frame = new JFrame();
       frame.setBounds(100, 100, 800, 729);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+      
+      ffff = text;
+      
       URL url = this.getClass().getResource("../image/Cel_update.png");
       String path = url.getPath();
       Image image = new ImageIcon(path).getImage();
@@ -100,14 +111,23 @@ public class celeb {
       JPanel panel = new JPanel();
       panel.setBounds(12, 10, 760, 666);
       frame.getContentPane().add(panel);
+      daoMgr = new DAO_Manager();
+      ArrayList<CelebVO> Clist = daoMgr.getinfo(ffff);
+      Object[][] data = new Object[Clist.size()][4];
+      for (int i = 0; i < Clist.size(); i++) {
+    	  System.out.println("나 들어옴");
+         data[i][0] = i+1;
+         data[i][1] = Clist.get(i).getCelebName();
+         data[i][2] = Clist.get(i).getCelebJob();
+         data[i][3] = Clist.get(i).getUniname();
+      }
+            
+            
+      String colName[] = { "번호", "연예인", "직업","학교" };
+      DefaultTableModel model = new DefaultTableModel(data, colName);
       panel.setLayout(null);
+      JTable table_list = new JTable(data,colName);
       
-      String colName[] = { "이름", "분야", "학교", "날짜" };
-      DefaultTableModel model = new DefaultTableModel(colName, 0);
-      JTable table_list = new JTable(new DefaultTableModel(
-            new Object[][] { { "PSY", "Singer", "AUniv", "20.12.32" }, { "HOT", "Singer", "BUniv", "20.12.33" },
-                  { "SES", "Singer", "CUniv", "20.12.34" }, },
-            new String[] { "\uC774\uB984", "\uBD84\uC57C", "\uD559\uAD50", "\uB0A0\uC790" }));
 
 //      JScrollPane scrollPane_list = new JScrollPane(); // ScrollPane에 table 삽입 잊지말기!
 //      scrollPane_list.setBounds(12, 42, 697, 380);
@@ -116,14 +136,16 @@ public class celeb {
 //      frame.setPreferredSize(new Dimension(500, 400));
 //      frame.setLocation(500, 400);
 
-      JScrollPane scrollPane = new JScrollPane(table_list);
-      scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+      scrollPane = new JScrollPane(table_list);
       scrollPane.setBounds(93, 172, 598, 352);
+      scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
       panel.add(scrollPane);
 
       lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+      lbl_image.setBounds(12, 10, 760, 666);
 
       JLabel lbl_home = new JLabel("");
+      lbl_home.setBounds(75, 525, 57, 61);
       lbl_home.addMouseListener(new MouseAdapter() {
          @Override
          public void mouseClicked(MouseEvent arg0) {
@@ -131,11 +153,11 @@ public class celeb {
             Main01.main(null);
          }
       });
-      lbl_home.setBounds(75, 525, 57, 61);
       panel.add(lbl_home);
 
-      JLabel lblNewLabel = new JLabel("");
-      lblNewLabel.addMouseListener(new MouseAdapter() {
+      JLabel lbl_back = new JLabel("");
+      lbl_back.setBounds(654, 534, 57, 50);
+      lbl_back.addMouseListener(new MouseAdapter() {
          @Override
          public void mouseClicked(MouseEvent arg0) {
             frame.dispose();
@@ -144,21 +166,23 @@ public class celeb {
             back.frame.setVisible(true);
          }
       });
-      lblNewLabel.setBounds(654, 534, 57, 50);
-      panel.add(lblNewLabel);
+      panel.add(lbl_back);
 
-      lbl_info = new JLabel("New label");
+      lbl_info = new JLabel("");
       lbl_info.setBounds(524, 108, 167, 27);
       panel.add(lbl_info);
 
       lbl_Star = new JLabel("Star");
-      lbl_Star.setBounds(75, 120, 220, 27);
-      lbl_Star.setText(text);
+      lbl_Star.setForeground(Color.WHITE);
+      lbl_Star.setBounds(328, 135, 207, 27);
+      lbl_Star.setText(ffff+"님이 공연하는 학교 정보입니다.");
       panel.add(lbl_Star);
       
       lbl_image.setFont(new Font("굴림", Font.PLAIN, 16));
-      lbl_image.setBounds(12, 10, 760, 666);
       panel.add(lbl_image);
+      
+      
+   
       
       
 

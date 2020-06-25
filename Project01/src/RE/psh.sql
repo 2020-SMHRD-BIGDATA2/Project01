@@ -7,3 +7,10 @@ insert into store
 values(2, 'k_e store', '2020-06-24', '19:00', 'chicken', '15000', 'a2', '15', 's','english','dddd');
 
 select * from university
+
+select * from tab
+select * from PERSONALMEMBER
+
+select * from booking
+
+insert into PERSONALMEMBER values('a','a',null,null,null)

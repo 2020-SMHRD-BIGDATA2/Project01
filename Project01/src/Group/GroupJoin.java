@@ -164,7 +164,7 @@ public class GroupJoin { // 관리자 회원가입 화면
                int cnt = daomgr.insert(id, pw, uni, major);
                if (cnt > 0) {
                   frame.dispose();
-                  PerLogin02.main(null);
+                  GroupLogin01.main(null);
                }
             } else {
                JOptionPane.showMessageDialog(null, "아이디 중복확인을 해주세요");

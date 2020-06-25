@@ -2,6 +2,7 @@ package RE;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAO_Texi extends DBmethod{
 
@@ -112,10 +113,32 @@ public class DAO_Texi extends DBmethod{
 			close();
 		}
 		return 0;
-	}	
-	
-	
-	
-	
+	}
+	public ArrayList<TaxiVO> gettaxiinfo() {
+		ArrayList<TaxiVO> taxilist = new ArrayList<TaxiVO>();
 
+		try {
+			getConnection();
+			String sql = "select * from taxi";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int taxi_num = rs.getInt("taxi_num");
+				String per_id = rs.getString("per_id");
+				String taxi_title = rs.getString("taxi_title");
+				String taxi_date = rs.getString("taxi_date");
+				String taxi_sub = rs.getString("taxi_sub");
+				taxilist.add(new TaxiVO(taxi_num, taxi_title, taxi_sub, taxi_date, per_id));
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("택시 게시판 값 가져오기 실패");
+		} finally {
+			close();
+		}
+		return taxilist;
+
+	};
 }
+	

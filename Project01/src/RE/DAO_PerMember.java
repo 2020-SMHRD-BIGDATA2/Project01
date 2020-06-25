@@ -93,13 +93,13 @@ public class DAO_PerMember extends DBmethod { // 회원 계정 관리 select > del > u
 		int cnt = 0;
 		try {
 			getConnection();
-			String sql = "insert into personalmember values(?,?,?,?,?)";
+			String sql = "insert into personalmember values('"+id+"','"+pw+"', '"+name+"','"+phone+"','"+SecurityNum+"')";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);// 입력한 id
-			psmt.setString(2, pw);// 입력한 pw1
-			psmt.setString(3, name);// 입력한 name
-			psmt.setString(4, phone);// 입력한 phone
-			psmt.setString(5, SecurityNum);// 입력한 securityNum
+//			psmt.setString(1, id);// 입력한 id
+//			psmt.setString(2, pw);// 입력한 pw1
+//			psmt.setString(3, name);// 입력한 name
+//			psmt.setString(4, phone);// 입력한 phone
+//			psmt.setString(5, SecurityNum);// 입력한 securityNum
 			cnt = psmt.executeUpdate();
 			if (cnt > 0) {
 				System.out.println(cnt);

@@ -25,14 +25,15 @@ import RE.PMVO;
 
 import javax.swing.event.AncestorEvent;
 import java.awt.Color;
+import javax.swing.JTextField;
 
 public class PerBookStore { // 주막예약화면
 	private JComboBox combo_time;
-	private JComboBox combo_name;
 	private JComboBox combo_table;
 	private JFrame frame;
 	private JLabel lbl_home;
 	private JLabel lbl_return;
+	private JTextField txt_name;
 
 	/**
 	 * Launch the application.
@@ -81,12 +82,12 @@ public class PerBookStore { // 주막예약화면
 			public void mouseClicked(MouseEvent e) {
 				String time = (String) combo_time.getSelectedItem();
 				// int time = Integer.parseInt((String)combo_time.getSelectedItem());
-				String name = (String) combo_name.getSelectedItem();
-				String table = (String) combo_table.getSelectedItem();
+				String name = (String) txt_name.getText();
+				String table_num = (String) combo_table.getSelectedItem();
 
 				System.out.println("클릭");
 				DAO_Store daobook = new DAO_Store();
-				int cnt = daobook.booking(table, time);
+				int cnt = daobook.booking(name, table_num, time);
 
 				if (cnt > 0) {
 					System.out.println("a");
@@ -102,34 +103,29 @@ public class PerBookStore { // 주막예약화면
 
 			}
 		});
-		
-		
-		/*콤보박스 색 변경하는 방법 (지윤이한테 물어보기)
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		*/
+
+		/*
+		 * 콤보박스 색 변경하는 방법 (지윤이한테 물어보기)
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
 		combo_time = new JComboBox();
 		combo_time.setModel(new DefaultComboBoxModel(
 				new String[] { "17:00~18:00", "18:00~19:00", "19:00~20:00", "20:00~21:00", "21:00~22:00" }));
 		combo_time.setBounds(191, 294, 418, 56);
 		panel.add(combo_time);
-
-		combo_name = new JComboBox();
-		combo_name.setBackground(Color.WHITE);
-		combo_name.setBounds(191, 199, 418, 56);
-		panel.add(combo_name);
 
 		combo_table = new JComboBox();
 		combo_table.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
@@ -163,7 +159,7 @@ public class PerBookStore { // 주막예약화면
 		lbl_image.setBounds(12, 10, 760, 666);
 		// panel.add
 		panel.add(lbl_image);
-		
+
 		lbl_home = new JLabel("");
 		lbl_home.addMouseListener(new MouseAdapter() {
 			@Override
@@ -174,7 +170,7 @@ public class PerBookStore { // 주막예약화면
 		});
 		lbl_home.setBounds(77, 535, 57, 61);
 		panel.add(lbl_home);
-		
+
 		lbl_return = new JLabel("");
 		lbl_return.addMouseListener(new MouseAdapter() {
 			@Override
@@ -185,5 +181,10 @@ public class PerBookStore { // 주막예약화면
 		});
 		lbl_return.setBounds(659, 546, 57, 50);
 		panel.add(lbl_return);
+
+		txt_name = new JTextField();
+		txt_name.setBounds(190, 199, 419, 56);
+		panel.add(txt_name);
+		txt_name.setColumns(10);
 	}
 }

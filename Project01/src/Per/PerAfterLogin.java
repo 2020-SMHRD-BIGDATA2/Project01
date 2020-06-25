@@ -146,7 +146,7 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 
 					frame.dispose();
 					celeb celeb = new celeb(celeb_name);
-					celeb.setText(celeb_name);
+//					celeb.setText(celeb_name);
 					celeb.frame.setVisible(true);
 
 				} else {

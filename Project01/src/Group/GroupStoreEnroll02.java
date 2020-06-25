@@ -266,7 +266,8 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		btn_Complete.setBounds(437, 141, 120, 38);
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				
 				String store_name = txt_name.getText();
 				String store_location = txt_location.getText();
 				int store_tableN = Integer.parseInt((String) cmb_Seats.getSelectedItem());
@@ -285,6 +286,7 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 
 				frame.dispose();
 				GroupAfterLogin02 ga = new GroupAfterLogin02(); // main이 없으니까 생성자로 불러오는 것
+				ga.frame.setVisible(true);
 
 			}
 		});

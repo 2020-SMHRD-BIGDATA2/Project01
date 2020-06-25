@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DAO_Store extends DBmethod {
-
+	
 //==================================수현수정===================================================
 	@Override
 	public void getConnection() {
@@ -16,15 +16,17 @@ public class DAO_Store extends DBmethod {
 		super.close();
 	}
 
-	public int booking(String table, String time) {
+	public int booking(String name, String table_num, String time) {
+
 		int cnt = 0;
 		try {
 			getConnection();
-			String n = "a";
-			String sql = "insert into booking values('" + n + "','" + n + "','" + n + "','" + n + "','" + n + "','" + n
-					+ "') "; // 예약한 // 일치할때
+			String sql = "insert into booking(book_num, book_tablenum, book_time, store_num) values(book_SEQ.NEXTVAL, '" + table_num + "','" + time + "','" + name + "') "; // 예약한 // 일치할때
 			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
+			int cnt2 = psmt.executeUpdate();
+			if (cnt2 >0) {
+				System.out.println(cnt2);
+			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -130,12 +132,14 @@ public class DAO_Store extends DBmethod {
 //
 //	return cnt;
 //}
+
 	public int insertStore(String store_name, String store_location, int store_tableN, String date,
 			String time, String menu_name, int menu_price) {
 		int cnt = 0;
 		try {
 			getConnection();
-			String sql = "insert into store(store_name, store_date, store_time, menu_name, nenu_price, store_location, store_tablenum) values ('"+store_name+"','"+date+"','"+time+"','"+menu_name+"','"+menu_price+"','"+store_location+"','"+store_tableN+"') ";
+			String sql = "insert into store(store_num, store_name, store_date, store_time, menu_name, nenu_price, store_location, store_tablenum) values (store_SEQ.NEXTVAL,'"+store_name+"','"+date+"','"+time+"','"+menu_name+"','"+menu_price+"','"+store_location+"','"+store_tableN+"') ";
+//			String sql = "INSERT INTO STORE(store_num, store_name, store_date, store_time, menu_name, nenu_price, store_location, store_tablenum) VALUES (NUM_SEQ.NEXTVAL, '"+store_num+"', '"+store_date+"', store_time, menu_name, menu_price, store_location, store_talbenum)";
 			psmt = conn.prepareStatement(sql);
 			cnt = psmt.executeUpdate();
 			if (cnt > 0) {
@@ -146,7 +150,7 @@ public class DAO_Store extends DBmethod {
 			System.out.println("DB에 주막등록 실패");
 		} finally {
 			close();
-		}
+		
 		return cnt;
 	}
-}
+}}
