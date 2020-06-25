@@ -48,6 +48,7 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
@@ -74,10 +75,24 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 	private JTable table;
 	private JTextField txt_uni;
 	private JLabel lbl_line;
+	private ArrayList<String> list;
+	private JComboBox comboBox;
+	private PerAfterLogin pal;
 
 	public void setPMVO(PMVO vo) {
 		this.vo = PerLogin02.vo;
 		lbl_info.setText(vo.getPER_NAME() + "´Ô È¯¿µÇÕ´Ï´Ù.");
+	}
+
+	public void setList(ArrayList<String> list) {
+		this.list = list;
+		String[] value = new String[list.size()];
+		for (int i = 0; i < value.length; i++) {
+			value[i] = list.get(i);
+		}
+
+		comboBox.setModel(new DefaultComboBoxModel(value));
+//      comboBox.setModel(new DefaultComboBoxModel(new String[] { "\uACE0\uB824\uB300", "\uC11C\uAC15\uB300", "\uD55C\uC591\uB300" }));
 	}
 
 	public PerResearchPage() {
@@ -136,13 +151,9 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		String colName[] = { "¹øÈ£", "´ëÇÐÀÌ¸§", "ÇÐ°ú", "ÁÖ¸·ÀÌ¸§" };
 		DefaultTableModel model = new DefaultTableModel(colName, 0);
 		JTable table_list = new JTable(new DefaultTableModel(
-			new Object[][] {
-				{"1", "\uC804\uB0A8\uB300", "\uAE30\uACC4\uACF5\uD559\uACFC", "F=ma"},
-			},
-			new String[] {
-				"\uBC88\uD638", "\uB300\uD559\uC774\uB984", "\uD559\uACFC", "\uC8FC\uB9C9\uC774\uB984"
-			}
-		));
+				new Object[][] { { "1", "\uC804\uB0A8\uB300", "\uAE30\uACC4\uACF5\uD559\uACFC", "F=ma" }, },
+				new String[] { "\uBC88\uD638", "\uB300\uD559\uC774\uB984", "\uD559\uACFC",
+						"\uC8FC\uB9C9\uC774\uB984" }));
 
 		JScrollPane scrollPane_list = new JScrollPane(table_list); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
 		scrollPane_list.setBounds(12, 42, 697, 380);
@@ -164,8 +175,6 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		btn_Enroll = new JButton("\uAC8C\uC2DC\uAE00 \uB4F1\uB85D");
 		btn_Enroll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
 
 			}
 		});
@@ -189,16 +198,11 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		String colBoard[] = { "¹øÈ£", "Á¦¸ñ", "³»¿ë", "³¯ÀÚ", "¾ÆÀÌµð" };
 		DefaultTableModel Board = new DefaultTableModel(colBoard, 0);
 		JTable table_board = new JTable(new DefaultTableModel(
-			new Object[][] {
-				{"1", "\uD0DD\uC2DC", "\uC6B4\uC554\uB3D9", "20.06.24", "jhs"},
-			},
-			new String[] {
-				"\uBC88\uD638", "\uC81C\uBAA9", "\uB0B4\uC6A9", "\uB0A0\uC790", "\uC544\uC774\uB514"
-			}
-		));
+				new Object[][] { { "1", "\uD0DD\uC2DC", "\uC6B4\uC554\uB3D9", "20.06.24", "jhs" }, },
+				new String[] { "\uBC88\uD638", "\uC81C\uBAA9", "\uB0B4\uC6A9", "\uB0A0\uC790", "\uC544\uC774\uB514" }));
 
-//		JScrollPane scrollPane_board = new JScrollPane(table_board); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
-//		scrollPane_list.setBounds(12, 42, 697, 380);
+//      JScrollPane scrollPane_board = new JScrollPane(table_board); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
+//      scrollPane_list.setBounds(12, 42, 697, 380);
 
 		scrollPane_board = new JScrollPane(table_board);
 		scrollPane_board.setBounds(3, 3, 654, 357);
@@ -213,75 +217,76 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		lbl_info.setBounds(437, 10, 288, 39);
 		panel.add(lbl_info);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBounds(17, 10, 135, 39);
 		panel.add(comboBox);
+
+		String text = (String) comboBox.getSelectedItem();
+		// ÄÞº¸¹Ú½º ¼±ÅÃÇÑ ±ÛÀÚ °¡Á®¿À´Â ÄÚµå
+		if (pal.uni_name.equals("k")) {
+
+			text = (String) comboBox.getSelectedItem();
+			txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
+			txt_uni.setBounds(220, 10, 300, 30);
+			panel_3.add(txt_uni);
+			txt_uni.setColumns(10);
+
+			URL url_post = this.getClass().getResource("../univ_image/ko.jpg");
+			String path_post = url_post.getPath();
+			Image image_post = new ImageIcon(path_post).getImage();
+			lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+			lbl_post.setBounds(380, 50, 300, 400);
+			URL url_line = this.getClass().getResource("../univ_image/ko_line.png");
+			String path_line = url_line.getPath();
+			Image image_line = new ImageIcon(path_line).getImage();
+			lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+			lbl_line.setBounds(50, 50, 300, 400);
+		} else if (text.equals("ÇÑ¾ç´ë")) {
+
+			text = (String) comboBox.getSelectedItem();
+			txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
+			txt_uni.setBounds(220, 10, 300, 30);
+			panel_3.add(txt_uni);
+			txt_uni.setColumns(10);
+
+			URL url_post = this.getClass().getResource("../univ_image/han.jpg");
+			String path_post = url_post.getPath();
+			Image image_post = new ImageIcon(path_post).getImage();
+			lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+			lbl_post.setBounds(380, 50, 300, 400);
+			URL url_line = this.getClass().getResource("../univ_image/han_line.png");
+			String path_line = url_line.getPath();
+			Image image_line = new ImageIcon(path_line).getImage();
+			lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+			lbl_line.setBounds(50, 50, 300, 400);
+		} else if (text.equals("¼­°­´ë")) {
+
+			text = (String) comboBox.getSelectedItem();
+			txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
+			txt_uni.setBounds(220, 10, 300, 30);
+			panel_3.add(txt_uni);
+			txt_uni.setColumns(10);
+
+			URL url_post = this.getClass().getResource("../univ_image/seo.jpg");
+			String path_post = url_post.getPath();
+			Image image_post = new ImageIcon(path_post).getImage();
+			lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+			lbl_post.setBounds(380, 50, 300, 400);
+
+			URL url_line = this.getClass().getResource("../univ_image/seo_line.png");
+			String path_line = url_line.getPath();
+			Image image_line = new ImageIcon(path_line).getImage();
+			lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
+			lbl_line.setBounds(50, 50, 300, 400);
+
+		}
+
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				String text = (String) comboBox.getSelectedItem();
-				// ÄÞº¸¹Ú½º ¼±ÅÃÇÑ ±ÛÀÚ °¡Á®¿À´Â ÄÚµå
-				if (text.equals("°í·Á´ë")) {
-
-					text = (String) comboBox.getSelectedItem();
-					txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
-					txt_uni.setBounds(220, 10, 300, 30);
-					panel_3.add(txt_uni);
-					txt_uni.setColumns(10);
-
-					URL url_post = this.getClass().getResource("../univ_image/ko.jpg");
-					String path_post = url_post.getPath();
-					Image image_post = new ImageIcon(path_post).getImage();
-					lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
-					lbl_post.setBounds(380, 50, 300, 400);
-					URL url_line = this.getClass().getResource("../univ_image/ko_line.png");
-					String path_line = url_line.getPath();
-					Image image_line = new ImageIcon(path_line).getImage();
-					lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
-					lbl_line.setBounds(50, 50, 300, 400);
-				} else if (text.equals("ÇÑ¾ç´ë")) {
-
-					text = (String) comboBox.getSelectedItem();
-					txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
-					txt_uni.setBounds(220, 10, 300, 30);
-					panel_3.add(txt_uni);
-					txt_uni.setColumns(10);
-
-					URL url_post = this.getClass().getResource("../univ_image/han.jpg");
-					String path_post = url_post.getPath();
-					Image image_post = new ImageIcon(path_post).getImage();
-					lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
-					lbl_post.setBounds(380, 50, 300, 400);
-					URL url_line = this.getClass().getResource("../univ_image/han_line.png");
-					String path_line = url_line.getPath();
-					Image image_line = new ImageIcon(path_line).getImage();
-					lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
-					lbl_line.setBounds(50, 50, 300, 400);
-				} else if (text.equals("¼­°­´ë")) {
-
-					text = (String) comboBox.getSelectedItem();
-					txt_uni = new JTextField(text + "ÇÐ±³ ÃàÁ¦ Á¤º¸ÀÔ´Ï´Ù.");
-					txt_uni.setBounds(220, 10, 300, 30);
-					panel_3.add(txt_uni);
-					txt_uni.setColumns(10);
-
-					URL url_post = this.getClass().getResource("../univ_image/seo.jpg");
-					String path_post = url_post.getPath();
-					Image image_post = new ImageIcon(path_post).getImage();
-					lbl_post.setIcon(new ImageIcon(image_post.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
-					lbl_post.setBounds(380, 50, 300, 400);
-
-					URL url_line = this.getClass().getResource("../univ_image/seo_line.png");
-					String path_line = url_line.getPath();
-					Image image_line = new ImageIcon(path_line).getImage();
-					lbl_line.setIcon(new ImageIcon(image_line.getScaledInstance(300, 400, Image.SCALE_SMOOTH)));
-					lbl_line.setBounds(50, 50, 300, 400);
-
-				}
 			}
 		});
-		comboBox.setModel(new DefaultComboBoxModel(
-				new String[] { "\uACE0\uB824\uB300", "\uC11C\uAC15\uB300", "\uD55C\uC591\uB300" }));
+//      comboBox.setModel(new DefaultComboBoxModel(
+//            new String[] { "\uACE0\uB824\uB300", "\uC11C\uAC15\uB300", "\uD55C\uC591\uB300" }));
 		// JScrollPane scrollPane = new JScrollPane();
 		// panel_7.add(scrollPane);
 
