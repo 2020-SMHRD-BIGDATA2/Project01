@@ -133,27 +133,27 @@ public class DAO_Manager extends DBmethod {
 		return list;
 	}
 
-	public ArrayList<DAO_Show> getCeleb_name(String celeb_name) {
-		ArrayList<DAO_Show> list2 = new ArrayList<DAO_Show>();
-		getConnection();
-		try {
-			String sql = "select * from show where CELEB_NAME = '"+celeb_name+"'";
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while (rs.next()) {
-				String name = rs.getString(2);
-				String job = rs.getString(3);
-				String uni_name = rs.getString(4);
-				DAO_Show daos = new DAO_Show(name, job, uni_name);
-				list2.add(daos);
-//				list2.add(name);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return list2;
-	}
+//	public ArrayList<DAO_Show> getCeleb_name(String celeb_name) {
+//		ArrayList<DAO_Show> list2 = new ArrayList<DAO_Show>();
+//		getConnection();
+//		try {
+//			String sql = "select * from show where CELEB_NAME = '"+celeb_name+"'";
+//			psmt = conn.prepareStatement(sql);
+//			rs = psmt.executeQuery();
+//			while (rs.next()) {
+//				String name = rs.getString(2);
+//				String job = rs.getString(3);
+//				String uni_name = rs.getString(4);
+//				DAO_Show daos = new DAO_Show(name, job, uni_name);
+//				list2.add(daos);
+////				list2.add(name);
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return list2;
+//	}
 }

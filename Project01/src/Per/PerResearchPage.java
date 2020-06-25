@@ -234,6 +234,11 @@ public class PerResearchPage { // 축제 정보 나오는 화면 (포스터, 일정, 라인업, �
 //	      lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569w JFrame("Table Test");
 //	      frame_01.setPreferredSize(new Dimension(500, 400));
 //	      frame_01.setLocation(500, 400);
+		scrollPane_board = new JScrollPane(table_board);
+		scrollPane_board.setBounds(3, 3, 654, 357);
+		panel_7.add(scrollPane_board);
+		txt_uni = new JTextField();
+		lbl_info = new JLabel("");
 
 //		JFrame frame_01 = new JFrame("Table Test");
 //		frame_01.setPreferredSize(new Dimension(500, 400));

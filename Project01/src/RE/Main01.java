@@ -79,7 +79,7 @@ public class Main01 { // 김축제 메인 화면(시작화면)
       frame.getContentPane().add(lbl_image);
 
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-      fm.fontChange(ge);
+      //fm.fontChange(ge);
 
       JPanel panel = new JPanel();
       panel.setBounds(12, 10, 760, 668);
