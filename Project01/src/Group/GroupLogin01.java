@@ -37,6 +37,9 @@ public class GroupLogin01 { // 관리자 로그인 화면
 	static MMVO vo;
 	JLabel lbl_image;
 	private JLabel lbl_join;
+	private JLabel lbl_return;
+	private JLabel lbl_txt_id;
+	private JLabel lbl_txt_pw;
 
 	/**
 	 * Launch the application.
@@ -73,7 +76,7 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		 * 이미지경로
 		 */
 
-		URL url = this.getClass().getResource("../image/GroupLogin.png");
+		URL url = this.getClass().getResource("../image/GroupLogin_0.png");
 		String path = url.getPath();
 		Image image = new ImageIcon(path).getImage();
 
@@ -82,24 +85,43 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
+		lbl_txt_id = new JLabel("\uC544\uC774\uB514\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694");
+		lbl_txt_id.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_id.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				lbl_txt_id.setVisible(false);
+			}
+		});
+		lbl_txt_id.setBounds(193, 239, 415, 54);
+		panel.add(lbl_txt_id);
+		
+		lbl_txt_pw = new JLabel("\uBE44\uBC00\uBC88\uD638\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694");
+		lbl_txt_pw.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				lbl_txt_pw.setVisible(false);
+			}
+		});
+		lbl_txt_pw.setFont(new Font("굴림", Font.PLAIN, 15));
+		lbl_txt_pw.setBounds(193, 314, 415, 54);
+		panel.add(lbl_txt_pw);
+		
+		
 		txt_id = new JTextField();
 		txt_id.setFont(new Font("굴림", Font.PLAIN, 20));
-		txt_id.setBounds(181, 229, 413, 52);
+		txt_id.setBounds(195, 241, 413, 52);
 		panel.add(txt_id);
 		txt_id.setColumns(10);
 		txt_id.setBorder(null);
 
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("굴림", Font.PLAIN, 20));
-		passwordField.setBounds(181, 303, 413, 52);
+		passwordField.setBounds(195, 314, 413, 52);
 		panel.add(passwordField);
 		passwordField.setBorder(null);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(194, 376, 400, 52);
-		panel.add(lblNewLabel);
-
-		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
+		JButton btn_login = new JButton("");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String id = txt_id.getText();
@@ -142,8 +164,11 @@ public class GroupLogin01 { // 관리자 로그인 화면
 
 			}
 		});
-		btn_login.setBounds(333, 376, 116, 23);
+		btn_login.setBounds(195, 376, 413, 52);
 		panel.add(btn_login);
+		btn_login.setBorder(null);
+		btn_login.setOpaque(false);
+		btn_login.setContentAreaFilled(false);
 
 		lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.addMouseListener(new MouseAdapter() {
@@ -160,6 +185,23 @@ public class GroupLogin01 { // 관리자 로그인 화면
 		lbl_join = new JLabel("\uD68C\uC6D0\uAC00\uC785");
 		lbl_join.setBounds(463, 438, 132, 42);
 		panel.add(lbl_join);
+		
+		JLabel lbl_home = new JLabel("");
+		lbl_home.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				frame.dispose();
+				Main01.main(null);
+			}
+		});
+		lbl_home.setBounds(76, 534, 57, 62);
+		panel.add(lbl_home);
+		
+		lbl_return = new JLabel("");
+		lbl_return.setBounds(653, 545, 57, 51);
+		panel.add(lbl_return);
+		
+
 		// panel.add(lbl_image);
 	}
 }
