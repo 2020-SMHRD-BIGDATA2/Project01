@@ -9,8 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import RE.DAO_PerMember;
+import RE.DAO_Show;
+import RE.DAO_Store;
 import RE.Main01;
 import RE.PMVO;
+import RE.StoreVO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,6 +35,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import Group.GroupStoreEnroll02;
 import RE.Main01;
 import oracle.net.aso.e;
 
@@ -79,6 +83,11 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 	private ArrayList<String> list;
 	private JComboBox comboBox;
 	private PerAfterLogin pal;
+<<<<<<< HEAD
+=======
+	private DAO_Store daostore = new DAO_Store();
+	private GroupStoreEnroll02 enroll;
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 	private JLabel lbl_image;
 
 	public void setPMVO(PMVO vo) {
@@ -109,6 +118,11 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		frame.setBounds(100, 100, 800, 729);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+	      // ÀÌ¹ÌÁöÀÔ·Â
+	      URL url = this.getClass().getResource("../image/PerResearchPage.png");
+	      String path = url.getPath();
+	      Image image = new ImageIcon(path).getImage();
 
 		// ÀÌ¹ÌÁöÀÔ·Â
 		URL url = this.getClass().getResource("../image/PerResearchPage.png");
@@ -120,14 +134,27 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 
+<<<<<<< HEAD
 		panel_1 = new JPanel();
 		panel_1.setBounds(60, 86, 636, 487);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
+=======
+	      panel_1 = new JPanel();
+	      panel_1.setBounds(60, 86, 636, 487);
+	      panel.add(panel_1);
+	      panel_1.setLayout(null);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
+<<<<<<< HEAD
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 24, 636, 469);
 		panel_1.add(tabbedPane);
+=======
+	      tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+	      tabbedPane.setBounds(0, 24, 636, 469);
+	      panel_1.add(tabbedPane);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
 		panel_3 = new JPanel();
 		tabbedPane.addTab("\uCD95\uC81C\uC815\uBCF4", null, panel_3, null);
@@ -136,34 +163,69 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		panel_5 = new JPanel();
 		tabbedPane.addTab("ÁÖ¸·¸®½ºÆ®", null, panel_5, null);
 
+<<<<<<< HEAD
 		JButton btn_reserve = new JButton("\uC8FC\uB9C9\uC608\uC57D");
 		btn_reserve.setBounds(521, 10, 97, 23);
 		btn_reserve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+=======
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
-				PerBookStore.main(null);
-			}
-		});
+	      JButton btn_reserve = new JButton("\uC8FC\uB9C9\uC608\uC57D");
+	      btn_reserve.setBounds(521, 10, 97, 23);
+	      btn_reserve.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent e) {
+
+	            PerBookStore.main(null);
+	         }
+	      });
 		panel_5.setLayout(null);
 		panel_5.add(btn_reserve);
 
+<<<<<<< HEAD
 		JLabel lbl_post = new JLabel();
 		lbl_post.setBounds(23, 55, 287, 329);
 		panel_3.add(lbl_post);
+=======
+	      JLabel lbl_post = new JLabel();
+	      lbl_post.setBounds(23, 55, 287, 329);
+	      panel_3.add(lbl_post);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
+<<<<<<< HEAD
 		lbl_line = new JLabel();
 		lbl_line.setBounds(324, 55, 287, 329);
 		panel_3.add(lbl_line);
+=======
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
-		String colName[] = { "¹øÈ£", "´ëÇÐÀÌ¸§", "ÇÐ°ú", "ÁÖ¸·ÀÌ¸§" };
-		DefaultTableModel model = new DefaultTableModel(colName, 0);
-		JTable table_list = new JTable(new DefaultTableModel(
-				new Object[][] { { "1", "\uC804\uB0A8\uB300", "\uAE30\uACC4\uACF5\uD559\uACFC", "F=ma" }, },
-				new String[] { "\uBC88\uD638", "\uB300\uD559\uC774\uB984", "\uD559\uACFC",
-						"\uC8FC\uB9C9\uC774\uB984" }));
+	      lbl_line = new JLabel();
+	      lbl_line.setBounds(324, 55, 287, 329);
+	      panel_3.add(lbl_line);
 
+<<<<<<< HEAD
 		JScrollPane scrollPane_list = new JScrollPane(table_list); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
 		scrollPane_list.setBounds(12, 42, 606, 380);
+=======
+		ArrayList<StoreVO> list2 = daostore.getinfo();
+
+//		daostore.getStore(store_num, store_name, uni_name, major_name);
+
+		Object[][] data = new Object[list2.size()][4];
+		for (int i = 0; i < list2.size(); i++) {
+			data[i][0] = list2.get(i).getStore_num();
+			data[i][1] = list2.get(i).getStore_name();
+			data[i][2] = list2.get(i).getUni_name();
+			data[i][3] = list2.get(i).getMajor_name();
+		}
+
+		String colName[] = { "¹øÈ£", "ÁÖ¸·ÀÌ¸§", "´ëÇÐÀÌ¸§", "ÇÐ°úÀÌ¸§" };
+		DefaultTableModel model = new DefaultTableModel(data, colName);
+		JTable table_list = new JTable(model);
+
+	      JScrollPane scrollPane_list = new JScrollPane(table_list); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
+	      scrollPane_list.setBounds(12, 42, 606, 380);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
 		JFrame frame = new JFrame("Table Test");
 		frame.setPreferredSize(new Dimension(500, 400));
@@ -185,8 +247,13 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 
 			}
 		});
+<<<<<<< HEAD
 		btn_Enroll.setBounds(511, 25, 97, 23);
 		panel_6.add(btn_Enroll);
+=======
+	      btn_Enroll.setBounds(511, 25, 97, 23);
+	      panel_6.add(btn_Enroll);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
 		txt_SearchCarpool = new JTextField();
 		txt_SearchCarpool.setBounds(33, 11, 270, 21);
@@ -197,12 +264,19 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		btn_SearchCarpool.setBounds(315, 10, 97, 23);
 		panel_6.add(btn_SearchCarpool);
 
+<<<<<<< HEAD
 		panel_7 = new JPanel();
 		panel_7.setBounds(12, 58, 607, 364);
 		panel_6.add(panel_7);
 		panel_7.setLayout(null);
+=======
+	      panel_7 = new JPanel();
+	      panel_7.setBounds(12, 58, 607, 364);
+	      panel_6.add(panel_7);
+	      panel_7.setLayout(null);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
-		String colBoard[] = { "¹øÈ£", "Á¦¸ñ", "³»¿ë", "³¯ÀÚ", "¾ÆÀÌµð" };
+		String colBoard[] = { "¹øÈ£", "Á¦¸ñ", "³»¿ë", "³¯Â¥", "¾ÆÀÌµð" };
 		DefaultTableModel Board = new DefaultTableModel(colBoard, 0);
 		JTable table_board = new JTable(new DefaultTableModel(
 				new Object[][] { { "1", "\uD0DD\uC2DC", "\uC6B4\uC554\uB3D9", "20.06.24", "jhs" }, },
@@ -211,20 +285,46 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 //      JScrollPane scrollPane_board = new JScrollPane(table_board); // ScrollPane¿¡ table »ðÀÔ ÀØÁö¸»±â!
 //      scrollPane_list.setBounds(12, 42, 697, 380);
 
+	      scrollPane_board = new JScrollPane(table_board);
+	      scrollPane_board.setBounds(0, 3, 607, 363);
+	      panel_7.add(scrollPane_board);
+	      txt_uni = new JTextField();
+//	      lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569w JFrame("Table Test");
+//	      frame_01.setPreferredSize(new Dimension(500, 400));
+//	      frame_01.setLocation(500, 400);
 		scrollPane_board = new JScrollPane(table_board);
 		scrollPane_board.setBounds(0, 3, 607, 363);
 		panel_7.add(scrollPane_board);
 		txt_uni = new JTextField();
+<<<<<<< HEAD
 //		lbl_info = new JLabel("name\uB2D8 \uD658\uC601\uD569w JFrame("Table Test");
 //		frame_01.setPreferredSize(new Dimension(500, 400));
 //		frame_01.setLocation(500, 400);
+=======
+		lbl_info = new JLabel("");
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
+<<<<<<< HEAD
 		lbl_info.setBounds(510, 37, 183, 39);
 		panel.add(lbl_info);
+=======
+//		JFrame frame_01 = new JFrame("Table Test");
+//		frame_01.setPreferredSize(new Dimension(500, 400));
+//		frame_01.setLocation(500, 400);
 
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
+
+<<<<<<< HEAD
 		comboBox = new JComboBox();
 		comboBox.setBounds(66, 37, 189, 39);
 		panel.add(comboBox);
+=======
+	      lbl_info.setBounds(510, 37, 183, 39);
+	      panel.add(lbl_info);
+	      comboBox = new JComboBox();
+	      comboBox.setBounds(66, 37, 189, 39);
+	      panel.add(comboBox);
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
 		String text = (String) comboBox.getSelectedItem();
 		// ÄÞº¸¹Ú½º ¼±ÅÃÇÑ ±ÛÀÚ °¡Á®¿À´Â ÄÚµå
@@ -286,6 +386,7 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 
 		}
 
+<<<<<<< HEAD
 		lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
 		lbl_image.setFont(new Font("±¼¸²", Font.PLAIN, 16));
 		lbl_image.setBounds(-2, -210, 760, 666);
@@ -294,10 +395,50 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 		lblHome.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+=======
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+//      comboBox.setModel(new DefaultComboBoxModel(
+//            new String[] { "\uACE0\uB824\uB300", "\uC11C\uAC15\uB300", "\uD55C\uC591\uB300" }));
+		// JScrollPane scrollPane = new JScrollPane();
+		// panel_7.add(scrollPane);
 
+	      lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+//	      lbl_image.setFont(new Font("±¼¸²", Font.PLAIN, 16));
+	      lbl_image.setBounds(-2, -210, 760, 666);
+	      panel.add(lbl_image);
+	      JLabel lblHome = new JLabel("");
+	      lblHome.addMouseListener(new MouseAdapter() {
+	         @Override
+	         public void mouseClicked(MouseEvent arg0) {
+
+	            frame.dispose();
+	            Main01.main(null);
+ 
+	         }
+	      });
+	      lblHome.setBounds(61, 578, 57, 54);
+	      panel.add(lblHome);
+
+	      comboBox.addActionListener(new ActionListener() {
+	         public void actionPerformed(ActionEvent arg0) {
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
+
+<<<<<<< HEAD
 				frame.dispose();
 				Main01.main(null);
+=======
+	            frame.dispose();
+	            PerResearchPage PerResearchPage = new PerResearchPage();
+	            PerResearchPage.setList(list);
+	            PerResearchPage.frame.setVisible(true);
+	         }
+	      });
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
+<<<<<<< HEAD
 			}
 		});
 		lblHome.setBounds(61, 578, 57, 54);
@@ -312,8 +453,10 @@ public class PerResearchPage { // ÃàÁ¦ Á¤º¸ ³ª¿À´Â È­¸é (Æ÷½ºÅÍ, ÀÏÁ¤, ¶óÀÎ¾÷, Á
 				PerResearchPage.frame.setVisible(true);
 			}
 		});
+=======
+	   }
+>>>>>>> branch 'master' of https://github.com/2020-SMHRD-BIGDATA2/Project01.git
 
-	}
 
 	private void add(JScrollPane scrollPane_1) {
 		// TODO Auto-generated method stub
