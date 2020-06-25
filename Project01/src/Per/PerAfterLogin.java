@@ -110,19 +110,17 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		panel.add(lblHome);
 
 		JLabel lbl_image = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
-		lbl_image.addMouseListener(new MouseAdapter() {
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-			}
-		});
+		lbl_image.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image);
 
-		JLabel lbl_Search_enter = new JLabel("");
+		JLabel lbl_Search_enter = new JLabel("New label");
 		lbl_Search_enter.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
 
+			public void mouseClicked(MouseEvent arg0) {
 				boolean rd_uni = rd_Uni.isSelected();
 				boolean rd_celeb = rd_Celeb.isSelected();
+
 				if (rd_uni) {
 					uni_name = txt_Search.getText();
 					DAO_Manager dao = new DAO_Manager();
@@ -132,10 +130,11 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 					PerResearchPage PerResearchPage = new PerResearchPage();
 					PerResearchPage.setList(list);
 					PerResearchPage.frame.setVisible(true);
-				}if (rd_celeb) {
+				}
+				if (rd_celeb) {
 					celeb_name = txt_Search.getText();
-					//DAO_Manager dao = new DAO_Manager();
-					//ArrayList<DAO_Show> list2 = dao.getCeleb_name(celeb_name);
+					// DAO_Manager dao = new DAO_Manager();
+					// ArrayList<DAO_Show> list2 = dao.getCeleb_name(celeb_name);
 
 					frame.dispose();
 					
@@ -149,6 +148,9 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 
 			}
 		});
+
+		JLabel lbl_image1 = new JLabel(new ImageIcon(image.getScaledInstance(750, 660, Image.SCALE_SMOOTH)));
+
 		lbl_Search_enter.setBounds(534, 362, 51, 50);
 		panel.add(lbl_Search_enter);
 
@@ -156,8 +158,8 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		lbl_return.setBounds(659, 545, 57, 56);
 		panel.add(lbl_return);
 
-		lbl_image.setBounds(12, 10, 760, 666);
-		panel.add(lbl_image);
+		lbl_image1.setBounds(12, 10, 760, 666);
+		panel.add(lbl_image1);
 
 	}
 }

@@ -9,7 +9,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+
+import RE.DAO_Store;
+
 import RE.Main01;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,28 +26,29 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class GroupStoreEnroll02 { // 주막 등록 화면
-	private JFrame frame;
-	private JTextField txt_name;
-	private JTextField txt_location;
-	private JTextField txt_Menu1;
-	private JTextField txt_Price1;
-	private JTextField txt_Menu2;
-	private JTextField txt_Price2;
-	private JTextField txt_Menu3;
-	private JButton btn_Complete;
-	private JButton btn_Cancel;
-	private JLabel lbl_image;
-	private JLabel lbl_txt_name;
-	private JLabel lbl_txt_location;
-	private JLabel lbl_txt_Menu1;
-	private JLabel lbl_txt_Menu2;
-	private JLabel lbl_txt_Menu3;
-	private JLabel lbl_txt_Price1;
-	private JLabel lbl_txt_Price2;
-	private JLabel lbl_txt_Price3;
-	private JLabel lbl_home;
 	
-	
+	   private JFrame frame;
+	   private JTextField txt_name;
+	   private JTextField txt_location;
+	   private JTextField txt_Menu1;
+	   private JTextField txt_Price1;
+	   private JTextField txt_Menu2;
+	   private JTextField txt_Price2;
+	   private JTextField txt_Menu3;
+	   private JButton btn_Complete;
+	   private JButton btn_Cancel;
+	   private JLabel lbl_image;
+	   private JLabel lbl_txt_name;
+	   private JLabel lbl_txt_location;
+	   private JLabel lbl_txt_Menu1;
+	   private JLabel lbl_txt_Menu2;
+	   private JLabel lbl_txt_Menu3;
+	   private JLabel lbl_txt_Price1;
+	   private JLabel lbl_txt_Price2;
+	   private JLabel lbl_txt_Price3;
+	   private JLabel lbl_home;
+	private DAO_Store daostore;
+
 	/**
 	 * Launch the application.
 	 */
@@ -78,6 +83,7 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		/*
 		 * 이미지경로
 		 */
+
 
 		URL url = this.getClass().getResource("../image/GroupStroeEnroll_0.png");
 		String path = url.getPath();
@@ -264,10 +270,15 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 		btn_Complete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				String store_name = txt_name.getText();
+				
+				daostore.setName(store_name);
+				
 				JOptionPane.showMessageDialog(null, "주막이 등록되었습니다.");
 				
 				frame.dispose();
 				GroupAfterLogin02 ga = new GroupAfterLogin02(); //main이 없으니까 생성자로 불러오는 것
+				
 			}
 		});
 		panel.add(btn_Complete);
@@ -318,4 +329,6 @@ public class GroupStoreEnroll02 { // 주막 등록 화면
 	      
 
 	}
+	
+	
 }
