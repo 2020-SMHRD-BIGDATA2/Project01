@@ -2,6 +2,7 @@ package RE;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class DAO_Manager extends DBmethod {
 
@@ -9,6 +10,7 @@ public class DAO_Manager extends DBmethod {
 	public void getConnection() {
 		super.getConnection();
 	}
+
 	@Override
 	public void close() {
 		super.close();
@@ -55,18 +57,19 @@ public class DAO_Manager extends DBmethod {
 		return isCheck;
 	}
 
-	public int insert(String id, String pw,  String major,String uni) {
+	public int insert(String id, String pw, String major, String uni) {
 		int cnt = 0;
 		try {
 			System.out.println("??????????????????????");
 			getConnection();
 			System.out.println("insert연결성공");
-		//	String sql = "insert into managermember values ('"+id+"','"+pw+"','"+uni+"','"+major+"')";
+			// String sql = "insert into managermember values
+			// ('"+id+"','"+pw+"','"+uni+"','"+major+"')";
 
 			String sql = "insert into managermember values ('a','a',10,20)";
 			psmt = conn.prepareStatement(sql);
 			cnt = psmt.executeUpdate();
-			System.out.println("cnt = "+cnt);
+			System.out.println("cnt = " + cnt);
 			if (cnt > 0) {
 				System.out.println(cnt);
 			}
@@ -78,7 +81,7 @@ public class DAO_Manager extends DBmethod {
 		}
 		return cnt;
 	}
-	
+
 	public MMVO login(String id, String pw) {
 		MMVO vo = null;
 		getConnection();
@@ -96,7 +99,7 @@ public class DAO_Manager extends DBmethod {
 				String mgr_PW = rs.getString(2);
 				String uni_name = rs.getString(3);
 				String major_name = rs.getString(4);
-				
+
 				vo = new MMVO(mgr_ID, mgr_PW, uni_name, major_name);
 
 			}
@@ -105,5 +108,51 @@ public class DAO_Manager extends DBmethod {
 		}
 
 		return vo;
+	}
+
+	public ArrayList<String> getUni_name(String uni_name) {
+
+		ArrayList<String> list = new ArrayList<String>();
+		getConnection();
+		System.out.println(uni_name);
+		try {
+			String sql = "select * from university where UNI_NAME = '"+uni_name+"'";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String name = rs.getString(2);
+				list.add(name);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+
+	public ArrayList<DAO_Show> getCeleb_name(String celeb_name) {
+		ArrayList<DAO_Show> list2 = new ArrayList<DAO_Show>();
+		getConnection();
+		try {
+			String sql = "select * from show where CELEB_NAME = '"+celeb_name+"'";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				String name = rs.getString(2);
+				String job = rs.getString(3);
+				String uni_name = rs.getString(4);
+				DAO_Show daos = new DAO_Show(name, job, uni_name);
+				list2.add(daos);
+//				list2.add(name);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list2;
 	}
 }

@@ -13,7 +13,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import RE.DAO_Manager;
 import RE.DAO_PerMember;
+import RE.DAO_Show;
+import RE.DBmethod;
 import RE.PMVO;
 
 import java.awt.event.ActionListener;
@@ -22,6 +25,7 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 
@@ -31,6 +35,9 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 	JRadioButton rd_Celeb;
 	private PMVO vo;
 	private JLabel lbl_info;
+	public DBmethod dbm;
+	static String uni_name;
+	static String celeb_name;
 
 	/**
 	 * Launch the application.
@@ -133,7 +140,41 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
-				// 입력 받은 값이랑 일치하는 정보 받게하기
+////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
+				boolean rd_uni = rd_Uni.isSelected();
+				if (rd_uni) {
+					uni_name = txt_Search.getText();
+					DAO_Manager dao = new DAO_Manager();
+					ArrayList<String> list = dao.getUni_name(uni_name);
+
+					frame.dispose();
+					PerResearchPage PerResearchPage = new PerResearchPage();
+					PerResearchPage.setList(list);
+					PerResearchPage.frame.setVisible(true);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "검색 분야를 선택해주세요!");
+				}
+				
+				boolean rd_celeb = rd_Celeb.isSelected();
+				if (rd_celeb) {
+					celeb_name = txt_Search.getText();
+					DAO_Manager dao = new DAO_Manager();
+					ArrayList<DAO_Show> list2 = dao.getCeleb_name(celeb_name);
+					
+					frame.dispose();
+					PerResearchCeleb PerResearchCeleb = new PerResearchCeleb();
+					PerResearchCeleb.setList(list2);
+					PerResearchCeleb.frame.setVisible(true);
+					
+					
+				}
+				
+				
+				
+				
+////--------------------넣어야할 것------------------------------------------------------------------------------------------------///////
+
 			}
 		});
 		lblSearch.setBounds(481, 382, 51, 63);
@@ -153,4 +194,8 @@ public class PerAfterLogin { // 개인회원 로그인 후 검색화면(필요없는 화면)
 		panel.add(lbl_image);
 
 	}
+
+
+
+
 }

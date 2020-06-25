@@ -12,4 +12,7 @@ create table PERSONALMEMBER(
 	PER_SECURITYNUM varchar2(200)
 
 )
+
+select * from 
+
 insert into PERSONALMEMBER values('pbk','1234','¹Úº´°ü','010-4611-5278','000128-1111111')

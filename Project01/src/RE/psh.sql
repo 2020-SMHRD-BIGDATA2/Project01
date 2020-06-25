@@ -1,1 +1,1 @@
-select * from MANAGERMEMBER
+select * from university
